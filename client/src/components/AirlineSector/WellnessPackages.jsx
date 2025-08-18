@@ -39,6 +39,17 @@ const packages = [
       'Financial wellness sessions',
     ],
   },
+  {
+    title: 'Pilots',
+    icon: <FaUserTie className="text-2xl text-orange-400" />,
+    benefits: [
+      'One-on-one confidential counselling (video/tele)',
+      'Psychometric & lifestyle screening',
+      'In-app Therapy modules: mindfulness, sleep management',
+      'HR compliance dashboards & aggregate insights',
+      'Pre-employment & annual blood test panel (stress hormones, Vit D, B12, HbA1c, etc.)',
+    ],
+  },
 ];
 
 const WellnessPackages = () => {
