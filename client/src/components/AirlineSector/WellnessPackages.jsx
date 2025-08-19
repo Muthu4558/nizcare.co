@@ -53,6 +53,9 @@ const WellnessPackages = () => {
 
   return (
     <section className="py-16 bg-white px-6">
+      <h1 className="text-center text-3xl font-bold mb-8">
+        Precision Health Plans – "Tailored Wellness for Every Altitude"
+      </h1>
       <div className="max-w-7xl mx-auto grid gap-16">
         {packages.map((pkg, idx) => (
           <div

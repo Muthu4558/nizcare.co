@@ -3,23 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaUserTie,
   FaUsersCog,
-  FaUserNurse
+  FaUserNurse,
+  FaLungs,
+  FaBurn,
+  FaBolt,
+  FaHeadphonesAlt,
+  FaBrain,
+  FaTint,
+  FaDesktop
 } from 'react-icons/fa';
 import {
-  MdHealthAndSafety,
-  MdOutlinePsychology,
-  MdRestaurant,
-  MdScreenSearchDesktop,
-  MdChairAlt
+  MdOutlineLocalDrink
 } from 'react-icons/md';
 import {
-  GiLeg,
-  GiSoap,
-  GiNightSleep
+  GiSleepy
 } from 'react-icons/gi';
-import {
-  TbTemperatureCelsius
-} from 'react-icons/tb';
 import {
   BiCollapse,
   BiExpand
@@ -27,9 +25,9 @@ import {
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Management from '../../assets/Hotel-sector-img/owners.jpeg';
-import Admin from '../../assets/Hotel-sector-img/reception.jpeg';
-import Front from '../../assets/Hotel-sector-img/frontline.jpeg';
+import Management from '../../assets/fertilizer-sector-img/2.jpg';
+import Admin from '../../assets/fertilizer-sector-img/3.jpg';
+import Front from '../../assets/fertilizer-sector-img/1.jpg';
 
 const data = [
   {
@@ -39,17 +37,17 @@ const data = [
     issues: [
       {
         title: "Respiratory issues",
-        icon: <TbTemperatureCelsius />,
-        description: " Constant exposure to ammonia, urea, and dust",
+        icon: <FaLungs />,
+        description: "Constant exposure to ammonia, urea, and dust",
       },
       {
         title: "Fatigue & Sleep Disorders",
-        icon: <GiLeg />,
+        icon: <GiSleepy />,
         description: "Long shifts and night duties",
       },
       {
         title: "Skin Irritations or Burns",
-        icon: <GiSoap />,
+        icon: <FaBurn />,
         description: "Chemical handling without proper safety breaks",
       },
     ],
@@ -61,17 +59,17 @@ const data = [
     issues: [
       {
         title: "Musculoskeletal strain",
-        icon: <MdScreenSearchDesktop />,
+        icon: <FaBolt />,
         description: "Repetitive lifting, bending, awkward postures",
       },
       {
         title: "Eye strain or injury",
-        icon: <MdRestaurant />,
-        description: " Prolonged focus, welding light exposure",
+        icon: <FaDesktop />,
+        description: "Prolonged focus, welding light exposure",
       },
       {
         title: "Hearing loss",
-        icon: <MdOutlinePsychology />,
+        icon: <FaHeadphonesAlt />,
         description: "High-noise environments from machinery",
       },
     ],
@@ -83,17 +81,17 @@ const data = [
     issues: [
       {
         title: "Mental fatigue & burnout",
-        icon: <MdChairAlt />,
+        icon: <FaBrain />,
         description: "High-pressure decision-making",
       },
       {
         title: "Hypertension/Diabetes",
-        icon: <GiNightSleep />,
+        icon: <FaTint />,
         description: "Sedentary work style + stress",
       },
       {
         title: "Eye strain & headaches",
-        icon: <MdHealthAndSafety />,
+        icon: <MdOutlineLocalDrink />,
         description: "Screen-heavy workloads",
       },
     ],

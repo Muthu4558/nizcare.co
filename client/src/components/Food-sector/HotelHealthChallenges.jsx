@@ -27,9 +27,9 @@ import {
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Management from '../../assets/Hotel-sector-img/owners.jpeg';
-import Admin from '../../assets/Hotel-sector-img/reception.jpeg';
-import Front from '../../assets/Hotel-sector-img/frontline.jpeg';
+import Management from '../../assets/Food-sector-img/frontline.jpg';
+import Admin from '../../assets/Food-sector-img/admin.jpg';
+import Front from '../../assets/Food-sector-img/manager.jpg';
 
 const data = [
   {

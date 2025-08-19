@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import heroImage from '../../assets/Food-sector-img/banner-food.png';
+import heroImage from '../../assets/Chemical-sector-img/chemi-ban.jpg';
 import logo from '../../assets/Hotel-sector-img/logo_white.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';

@@ -1,66 +1,39 @@
-import React, { useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
-
-import { FiBarChart2 } from 'react-icons/fi';
-import { FaUserNurse, FaHeartbeat, FaFirstAid } from 'react-icons/fa';
-import { MdAssignmentInd } from 'react-icons/md';
-
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const features = [
-    {
-        title: 'On-site Nurse or Visiting Doctor',
-        icon: <FaUserNurse className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Daily Vitals Monitoring',
-        icon: <FaHeartbeat className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Basic First Aid & Minor Illness Care',
-        icon: <FaFirstAid className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Pre-employment & Annual Health Checks',
-        icon: <MdAssignmentInd className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Employee Wellness Reports & Insights',
-        icon: <FiBarChart2 className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Emergency Response Support',
-        icon: <FaHeartbeat className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Immediate On-site Medical Care',
-        icon: <FaUserNurse className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Regular Health Check-ups',
-        icon: <MdAssignmentInd className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Vaccination &Screening Drives',
-        icon: <FaFirstAid className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Health Risk Assessments',
-        icon: <FiBarChart2 className="text-3xl text-sky-400" />,
-    },
-    {
-        title: 'Lifestyle Screenings',
-        icon: <FaHeartbeat className="text-3xl text-sky-400" />,
-    },
-];
+import AmbulanceImg from '../../assets/fertilizer-sector-img/ambulance.png';
+import DoctorImg from '../../assets/fertilizer-sector-img/doc.png';
+import ParamedicsImg from '../../assets/fertilizer-sector-img/para.png';
+import DeviceImg from '../../assets/fertilizer-sector-img/medical-dev.png';
 
 const InHouseHealthcare = () => {
     useEffect(() => {
         AOS.init({ duration: 800, once: true });
     }, []);
+
+    const services = [
+        {
+            title: 'Ambulance',
+            desc: '24/7 equipped ambulance service for emergencies at your hub or airport base.',
+            img: AmbulanceImg,
+        },
+        {
+            title: 'Doctor',
+            desc: 'Experienced doctors available for consultation, diagnosis, and treatment.',
+            img: DoctorImg,
+        },
+        {
+            title: 'Paramedics',
+            desc: 'Skilled paramedics providing rapid response and on-site medical care.',
+            img: ParamedicsImg,
+        },
+        {
+            title: 'Medical Device',
+            desc: 'Advanced medical devices and equipment ensuring top-quality healthcare support.',
+            img: DeviceImg,
+        },
+    ];
 
     return (
         <section className="py-16 px-4 bg-gray-50">
@@ -71,44 +44,36 @@ const InHouseHealthcare = () => {
                     data-aos="fade-up"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                        Nizcare’s {' '} 
-                        <span className="text-yellow-400">On-Site Health Centre (OHC)</span>
+                        Nizcare’s{' '}
+                        <span className="text-yellow-400"> Occupational Health Centre (OHC)</span>
                         Offer
                     </h2>
                     <p className="text-lg text-white/90 max-w-4xl mx-auto">
-                        Nizcare establishes industry-relevant On-Site Health Centres (OHC) at your hub or airport base. These centers provide,
+                        Nizcare establishes industry-relevant Occupational Health Centres (OHC) at your hub or airport base. These centers provide,
                     </p>
                 </div>
 
-                {/* Swiper Cards */}
-                <Swiper
-                    modules={[Autoplay]}
-                    spaceBetween={20}
-                    slidesPerView={1}
-                    autoplay={{ delay: 2500, disableOnInteraction: false }}
-                    loop={true}
-                    breakpoints={{
-                        640: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
-                        1280: { slidesPerView: 4 },
-                    }}
-                >
-                    {features.map((item, index) => (
-                        <SwiperSlide
+                {/* Services Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {services.map((service, index) => (
+                        <div
                             key={index}
-                            className="flex h-auto"
-                            // data-aos="zoom-in"
-                            // data-aos-delay={index * 100}
+                            className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition transform"
+                            data-aos="zoom-in"
+                            data-aos-delay={index * 150}
                         >
-                            <div className="flex flex-col justify-between bg-white rounded-xl shadow-md p-4 text-center hover:shadow-2xl transition-all duration-300 w-full min-h-[110px] mb-5">
-                                <div className="mb-3 flex justify-center">{item.icon}</div>
-                                <p className="font-medium text-slate-800 text-sm leading-snug">
-                                    {item.title}
-                                </p>
+                            <img
+                                src={service.img}
+                                alt={service.title}
+                                className="w-full h-64 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col justify-end p-4 text-white">
+                                <h3 className="text-xl font-semibold mb-2 text-teal-500">{service.title}</h3>
+                                <p className="text-sm text-gray-200">{service.desc}</p>
                             </div>
-                        </SwiperSlide>
+                        </div>
                     ))}
-                </Swiper>
+                </div>
             </div>
         </section>
     );
