@@ -74,7 +74,7 @@ const ContactSection = () => {
               behavior: "smooth",
             })
           }
-          className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300"
+          className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300 hover:cursor-pointer"
         >
           Get Demo
         </button>
