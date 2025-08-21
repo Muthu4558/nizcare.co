@@ -79,9 +79,13 @@ const ContactSection = () => {
           Get Demo
         </button>
 
-        <button className="border-2 border-yellow-400 text-yellow-500 font-bold px-6 py-3 rounded-full hover:bg-yellow-50 transition duration-300">
+        <a
+          href="tel:+918148879313"
+          className="border-2 border-yellow-400 text-yellow-500 font-bold px-6 py-3 rounded-full hover:bg-yellow-50 transition duration-300 inline-block"
+        >
           Talk to Sales Team
-        </button>
+        </a>
+
       </div>
 
       {/* Decorative Background Circles */}
