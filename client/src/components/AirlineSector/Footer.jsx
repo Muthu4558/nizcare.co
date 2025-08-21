@@ -16,7 +16,7 @@ const ContactSection = () => {
         className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-10 drop-shadow-md"
         data-aos="fade-up"
       >
-      Nizcare - Keeping Your Crew <span className="text-teal-600">Airworthy</span>. Always.
+        Nizcare - Keeping Your Crew <span className="text-teal-600">Airworthy</span>. Always.
       </h2>
 
       {/* Contact Cards */}
@@ -68,9 +68,17 @@ const ContactSection = () => {
         data-aos="fade-up"
         data-aos-delay="400"
       >
-        <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
+        <button
+          onClick={() =>
+            document.getElementById("section-header")?.scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+          className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300"
+        >
           Get Demo
         </button>
+
         <button className="border-2 border-yellow-400 text-yellow-500 font-bold px-6 py-3 rounded-full hover:bg-yellow-50 transition duration-300">
           Talk to Sales Team
         </button>

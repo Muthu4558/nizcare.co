@@ -22,8 +22,8 @@ const packages = [
   },
   {
     title: "Ground Operations",
-    description: `• Ergonomic workshops  
-• Noise safety & hearing care seminars  
+    description: `• Ergonomic webinar  
+• Noise safety & hearing care webinar  
 • Dehydration prevention drives  
 • Stretching & mobility breaks  
 • Safety drills & injury prevention modules`,
