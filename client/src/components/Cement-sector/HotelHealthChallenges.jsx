@@ -126,7 +126,7 @@ const HotelHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        The Unseen Health Challenges in the Hotel Industry
+        Reinforcing Cement Industry Performance through Preventive Health & Wellness
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">

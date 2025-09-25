@@ -113,7 +113,7 @@ const UniqueWhyNizcareSection = () => {
         </div>
 
         {/* Limited-Time Offer */}
-        <div
+        {/* <div
           className="bg-[#e0f7fa] border-l-4 border-teal-500 rounded-xl px-6 py-10 text-center shadow-lg"
           data-aos="fade-up"
         >
@@ -126,7 +126,7 @@ const UniqueWhyNizcareSection = () => {
           <p className="text-sm text-gray-600 font-semibold">
             Unlock exclusive rates for annual partnerships.
           </p>
-        </div>
+        </div> */}
 
       </div>
     </section>

@@ -69,12 +69,22 @@ const ContactSection = () => {
         data-aos="fade-up"
         data-aos-delay="400"
       >
-        <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
+        <button
+          onClick={() =>
+            document.getElementById("section-header")?.scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+          className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition duration-300 hover:cursor-pointer"
+        >
           Get Demo
         </button>
-        <button className="border-2 border-yellow-400 text-yellow-500 font-bold px-6 py-3 rounded-full hover:bg-yellow-50 transition duration-300">
+        <a
+          href="tel:+918148879313"
+          className="border-2 border-yellow-400 text-yellow-500 font-bold px-6 py-3 rounded-full hover:bg-yellow-50 transition duration-300 inline-block"
+        >
           Talk to Sales Team
-        </button>
+        </a>
       </div>
 
       {/* Decorative Background Circles */}

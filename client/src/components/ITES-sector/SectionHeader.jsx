@@ -93,6 +93,7 @@ const HeroSection = () => {
 
     return (
         <section
+            id="section-header"
             className="relative min-h-screen bg-cover bg-center py-10 px-4 flex items-center justify-center"
             style={{ backgroundImage: `url(${heroImage})` }}
         >
