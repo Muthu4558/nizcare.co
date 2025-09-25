@@ -7,43 +7,40 @@ import { GiCow, GiFarmTractor, GiStrongMan } from 'react-icons/gi';
 
 const packages = [
   {
-  title: 'Animal Handlers',
+  title: 'For Athletes & Players',
   icon: <GiCow className="text-2xl text-orange-400" />,
   benefits: [
-    'Animal-borne disease prevention workshops',
-    'Back care physiotherapy sessions',
-    'Tetanus, rabies, and flu vaccination drives',
-    'Stress relief breathing & stretching exercises',
+    'Strength & flexibility workshops',
+    'Hydration & nutrition guidance',
+    'Mental toughness and mindset coaching',
+    'Cryotherapy & recovery sessions'
   ],
 },
 {
-  title: 'Sports Coaches & Trainers',
+  title: 'For Coaches & Trainers',
   icon: <GiStrongMan className="text-2xl text-orange-400" />,
   benefits: [
-    'Sports injury first aid & taping workshops',
-    'Guided meditation & performance anxiety coaching',
-    'Ergonomic training for repetitive demos',
-    'Personalized diet & hydration consults',
+    'Voice care and ergonomics training',
+    'Preventive physiotherapy sessions',
+    'Group meditation & stress relief sessions'
   ],
 },
 {
-  title: 'Ground Staff',
+  title: 'For Support & Operational Staff',
   icon: <GiFarmTractor className="text-2xl text-orange-400" />,
   benefits: [
-    'PPE usage and safety compliance training',
-    'Heat stroke prevention kits',
-    'Daily stretching routines',
-    'Sun exposure awareness sessions',
+    'Back pain prevention workshops',
+    'PPE training & hygiene awareness',
+    'Healthy eating on shift training'
   ],
 },
 {
-  title: 'Admin/Event Staff',
+  title: 'For Admin & Management',
   icon: <FaUserTie className="text-2xl text-orange-400" />,
   benefits: [
-    'Digital detox workshops',
-    'Posture correction sessions',
-    'Group mindfulness breaks',
-    'Desk ergonomics setup audits',
+    'Screen fatigue workshops',
+    'Corporate yoga & stretching breaks',
+    'Time management & burnout prevention'
   ],
 },
 
@@ -61,7 +58,7 @@ const WellnessPackages = () => {
           className="text-3xl md:text-4xl font-bold mb-2"
           data-aos="fade-up"
         >
-          From Endurance to Recovery: Role-Specific Wellness That Works
+          Wellness Boosters That Take Performance Beyond the Basics
         </h2>
         <p
           className="text-lg text-slate-500 mb-10"

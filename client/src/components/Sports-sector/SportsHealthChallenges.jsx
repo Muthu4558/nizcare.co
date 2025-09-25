@@ -4,101 +4,101 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { BiCollapse, BiExpand } from 'react-icons/bi';
 import { FaDumbbell, FaLungs, FaMicrophoneAltSlash, FaTemperatureHigh, FaUserTie } from 'react-icons/fa';
-import { GiBrain, GiBubblingFlask, GiChemicalDrop, GiCow, GiDrippingBlade, GiGroundSprout, GiKneeling, GiMuscleUp } from 'react-icons/gi';
-import { MdOutlineChair, MdPsychologyAlt, MdVisibility } from 'react-icons/md';
+import { GiBrain, GiBubblingFlask, GiChemicalDrop, GiDrippingBlade, GiGroundSprout, GiKneeling, GiMuscleUp, GiPlayerBase } from 'react-icons/gi';
+import { MdOutlineChair, MdPsychologyAlt, MdSports, MdVisibility } from 'react-icons/md';
 
 
-import livestockHandlers from '../../assets/Sports-sector-img/animal.jpeg';
+import livestockHandlers from '../../assets/Sports-sector-img/animal.png';
 import sportsCoaches from '../../assets/Sports-sector-img/coach.jpeg';
 import adminEventStaff from '../../assets/Sports-sector-img/admin.jpeg';
 import groundStaff from '../../assets/Sports-sector-img/ground.jpeg';
 
 const data = [
   {
-  title: "Animal Handlers & Livestock Caretakers",
+  title: "Athletes & Players",
   image: livestockHandlers, // replace with actual image asset
-  icon: <GiCow className="text-2xl text-gray-700" />,
+  icon: <MdSports className="text-2xl text-gray-700" />,
   issues: [
     {
-      title: "Zoonotic Infections",
+      title: "Muscle Strain & Joint Injuries",
       icon: <GiBubblingFlask />,
-      description: "Exposure to animal waste, saliva, and blood increases risk of zoonotic diseases.",
+      description: "Caused by overtraining and inadequate recovery.",
     },
     {
-      title: "Musculoskeletal Injuries",
+      title: "Dehydration & Electrolyte Imbalance",
       icon: <GiMuscleUp />,
-      description: "Caused by repetitive lifting and restraining of large or aggressive animals.",
+      description: "Due to intense physical exertion.",
     },
     {
-      title: "Respiratory Issues",
+      title: "Performance Burnout",
       icon: <FaLungs />,
-      description: "Due to barn dust, ammonia, and inadequate ventilation in livestock areas.",
+      description: "From high competition pressure and mental fatigue.",
     },
   ],
 },
 {
-  title: "Sports Coaches & Trainers",
+  title: "Coaches & Trainers",
   image: sportsCoaches, // replace with actual image asset
   icon: <FaDumbbell className="text-2xl text-gray-700" />,
   issues: [
     {
-      title: "Stress & Burnout",
+      title: "Back and Knee Pain",
       icon: <MdPsychologyAlt />,
-      description: "Performance pressure and extended sessions lead to emotional fatigue.",
+      description: "Standing/training for long hours.",
     },
     {
-      title: "Back & Joint Problems",
+      title: "Vocal Cord Fatigue",
       icon: <GiKneeling />,
-      description: "Continuous physical demonstrations and active movement contribute to joint stress.",
+      description: "Excessive shouting/instructions on the field.",
     },
     {
-      title: "Vocal Strain",
+      title: "Stress & Sleep Issues",
       icon: <FaMicrophoneAltSlash />,
-      description: "Frequent loud instructions and shouting can lead to throat and vocal cord issues.",
+      description: "Resulting from performance pressure.",
     },
   ],
 },
 {
-  title: "Ground & Maintenance Staff",
+  title: "Support & Operational Staff",
   image: groundStaff, // replace with actual image asset
   icon: <GiGroundSprout className="text-2xl text-gray-700" />,
   issues: [
     {
-      title: "Exposure to Chemicals",
+      title: "Heat Stress & Exhaustion",
       icon: <GiChemicalDrop />,
-      description: "Use of cleaning agents and feed preservatives can irritate skin and lungs.",
+      description: "Working long hours under sun.",
     },
     {
-      title: "Injuries from Machinery",
+      title: "Lower Back Pain",
       icon: <GiDrippingBlade />,
-      description: "Slips, cuts, and bruises from handling farm or facility equipment.",
+      description: "Due to lifting or physical workload.",
     },
     {
-      title: "Heat Stress",
+      title: "Skin Issues",
       icon: <FaTemperatureHigh />,
-      description: "Long hours of outdoor work in direct sunlight raise the risk of dehydration.",
+      description: "Exposure to dust, turf, or chemicals.",
     },
   ],
 },
 {
-  title: "Administrative & Event Management Staff",
+  title: "Admin, Management & Marketing Team",
   image: adminEventStaff, // replace with actual image asset
   icon: <FaUserTie className="text-2xl text-gray-700" />,
   issues: [
     {
-      title: "Sedentary Lifestyle Risks",
+      title: "Digital Eye Strain",
       icon: <MdOutlineChair />,
-      description: "Prolonged desk work with poor posture contributes to chronic health issues.",
+      description: "Prolonged screen time.",
     },
     {
-      title: "Mental Fatigue",
+      title: "Chronic Fatigue & Poor Posture",
       icon: <GiBrain />,
-      description: "Deadlines and event coordination pressure can lead to cognitive exhaustion.",
+      description: "Sedentary office work.",
     },
     {
-      title: "Eye Strain",
+      title: "Anxiety or Burnout",
       icon: <MdVisibility />,
-      description: "Long screen time and digital tools usage cause vision discomfort.",
+      description: "From tight schedules and multitasking.",
     },
   ],
 }
@@ -153,7 +153,7 @@ const SportsHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        From Field to Stable: Understanding the People Who Power the Sector
+        Every Role in the Game Deserves Peak Health
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">

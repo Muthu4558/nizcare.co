@@ -108,11 +108,11 @@ const HeroSection = () => {
             <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center mt-5">
                 <div className="text-white space-y-6 px-4">
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                        Powering the People Behind Performance & Livestock Pride
+                        Fueling Champions. Preventing Injuries
 
                     </h1>
                     <p className="text-lg max-w-md">
-                    Championing Health for Athletes, Handlers & Herds
+                        Proactive Wellness for Athletes, Coaches & Teams to Perform at Their Best.
                     </p>
                 </div>
 

@@ -8,122 +8,122 @@ import { FaUserTie } from 'react-icons/fa';
 
 const data = [
   {
-  title: 'Animal Handlers & Livestock Caretakers',
-  icon: <GiCow className="text-xl text-black" />,
+  title: 'For Athletes & Players',
+  // icon: <GiCow className="text-xl text-black" />,
   issues: [
     {
-      title: 'Basic Herd Shield',
+      title: 'Basic Fitness Pulse',
       icon: <GiHealthNormal className="text-xl text-amber-400" />,
-      descriptionTittle: 'Daily caretakers',
-      description: 'CBC, BP, Pulse, Blood Sugar',
+      descriptionTittle: 'Amateur players, early-stage athletes',
+      description: 'BP, BMI, ECG, CBC',
     },
     {
-      title: 'Advanced Handler Panel',
+      title: 'Core Performance Panel',
       icon: <GiSpinalCoil className="text-xl text-amber-400" />,
-      descriptionTittle: 'Senior handlers',
-      description: 'Urine Test, X-ray (Chest/Back), ECG',
+      descriptionTittle: 'Club players, semi-pro athletes',
+      description: 'Vitamin D, Calcium, Creatine Kinase, Liver & Kidney profile',
     },
     {
-      title: 'ZoonoSafe+',
+      title: 'Elite Athlete Scan',
       icon: <GiChemicalDrop className="text-xl text-amber-400" />,
-      descriptionTittle: 'Long-term animal exposure staff',
-      description: 'Zoonotic panel, Liver Function, TB Screening',
+      descriptionTittle: 'Professional athletes',
+      description: 'Cardiac Profile, VO2 Max, Hormonal Panel, MRI (if needed)',
     },
     {
-      title: 'FitFarm Platinum',
+      title: 'Injury Recovery Tracker',
       icon: <GiStethoscope className="text-xl text-amber-400" />,
-      descriptionTittle: 'Supervisors & animal healthcare leads',
-      description: 'Full body + Mental wellness + Diet consult',
+      descriptionTittle: 'Players undergoing rehab or post-injury monitoring',
+      description: 'X-ray, Bone Density, Inflammation Markers',
     },
   ],
 },
 {
-  title: 'Sports Coaches & Trainers',
-  icon: <GiStrongMan className="text-xl text-black" />,
+  title: 'For Coaches & Trainers',
+  // icon: <GiStrongMan className="text-xl text-black" />,
   issues: [
     {
-      title: 'CoachCare Basic',
+      title: 'Fit Coach Check',
       icon: <GiHealthNormal className="text-xl text-amber-400" />,
-      descriptionTittle: 'Assistant trainers',
-      description: 'BMI, Vitals, Blood Sugar',
+      descriptionTittle: 'New fitness instructors',
+      description: 'CBC, BP, ECG',
     },
     {
-      title: 'FlexScan Advanced',
+      title: 'Active Mind & Body',
       icon: <GiSpinalCoil className="text-xl text-amber-400" />,
-      descriptionTittle: 'Mid-level coaches',
-      description: 'Joint Test, Vitamin D/B12, ECG',
+      descriptionTittle: 'Senior trainers',
+      description: 'Thyroid, Vitamin B12, Stress Profile',
     },
     {
-      title: 'ProMotion+',
+      title: 'Functional Fitness Panel',
       icon: <GiWeightLiftingUp className="text-xl text-amber-400" />,
-      descriptionTittle: 'Strength & conditioning leads',
-      description: 'Ortho Consult, MRI (if needed), Stress ECG',
+      descriptionTittle: 'Head coaches or physiotherapists',
+      description: 'ECG, Lipid Profile, Joint Assessment',
     },
     {
-      title: 'Elite Peak Health',
+      title: 'Coach Pro Care',
       icon: <GiStethoscope className="text-xl text-amber-400" />,
-      descriptionTittle: 'National/Elite coaches',
-      description: 'Cardiac, Neuro, Lifestyle Assessment',
+      descriptionTittle: 'Full-time coaching staff',
+      description: 'Annual fitness screening with specialist review',
     },
   ],
 },
 {
-  title: 'Ground & Maintenance Staff',
-  icon: <GiFarmTractor className="text-xl text-black" />,
+  title: 'For Support & Operational Staff',
+  // icon: <GiFarmTractor className="text-xl text-black" />,
   issues: [
     {
-      title: 'SafetyFirst Basic',
+      title: 'Routine Health Check',
       icon: <GiHealthNormal className="text-xl text-amber-400" />,
-      descriptionTittle: 'Daily ground staff',
-      description: 'Vitals, BP, CBC',
+      descriptionTittle: 'Ground or equipment staff',
+      description: 'CBC, Sugar, BP',
     },
     {
-      title: 'FieldWorker Plus',
+      title: 'Outdoor Worker Safety Panel',
       icon: <GiSpinalCoil className="text-xl text-amber-400" />,
-      descriptionTittle: 'Outdoor technicians',
-      description: 'Eye Test, Audiometry, PFT',
+      descriptionTittle: 'Turf/ground crew',
+      description: 'Vitamin D, Electrolytes, Skin Check',
     },
     {
-      title: 'RiskGuard 360',
+      title: 'Strength & Bone Panel',
       icon: <GiChemicalDrop className="text-xl text-amber-400" />,
-      descriptionTittle: 'Equipment handlers',
-      description: 'Ergonomic & Chemical Exposure Screening',
+      descriptionTittle: 'Field support staff',
+      description: 'Calcium, Bone Density, Joint Health',
     },
     {
-      title: 'SafeStrong Max',
+      title: 'Full Body Screen',
       icon: <GiStethoscope className="text-xl text-amber-400" />,
-      descriptionTittle: 'Site supervisors',
-      description: 'Full Health Panel + PPE Training',
+      descriptionTittle: 'Maintenance heads',
+      description: 'Comprehensive panel + physician consultation',
     },
   ],
 },
 {
-  title: 'Admin & Event Staff',
-  icon: <FaUserTie className="text-xl text-black" />,
+  title: 'For Admin & Management',
+  // icon: <FaUserTie className="text-xl text-black" />,
   issues: [
     {
-      title: 'DeskGuard Basic',
+      title: 'Wellness Starter',
       icon: <GiHealthNormal className="text-xl text-amber-400" />,
-      descriptionTittle: 'General office staff',
-      description: 'Vitals, BMI, RBS',
+      descriptionTittle: 'Office executives',
+      description: 'BP, Sugar, BMI',
     },
     {
-      title: 'ScreenEase Advanced',
+      title: 'Desk Stress Relief Panel',
       icon: <GiSpinalCoil className="text-xl text-amber-400" />,
-      descriptionTittle: 'Mid-senior level staff',
-      description: 'Eye Test, ECG, Posture Eval',
+      descriptionTittle: 'Back-end & marketing teams',
+      description: 'Thyroid, Vitamin D/B12, Lipid Profile',
     },
     {
-      title: 'StressSmart+',
+      title: 'Executive Health Panel',
       icon: <GiBrain className="text-xl text-amber-400" />,
-      descriptionTittle: 'HR & Event Planners',
-      description: 'Mental Health Check, Sleep Tracker',
+      descriptionTittle: 'Mid to senior-level executives',
+      description: 'Liver, Kidney, Heart Risk Markers',
     },
     {
-      title: 'Executive Vital+',
+      title: 'Director’s Annual Screening',
       icon: <GiStethoscope className="text-xl text-amber-400" />,
-      descriptionTittle: 'Top management',
-      description: 'Organ Screening + Lifestyle Coaching',
+      descriptionTittle: 'Top decision-makers',
+      description: 'Premium full body + lifestyle consultation',
     },
   ],
 }
@@ -183,7 +183,7 @@ const HealthPackagesAccordion = () => {
         className="text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        Health Check-up Packages That Perform as Hard as Your Team
+        From Baseline to Elite: Health Check-ups That Match Your Game
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
