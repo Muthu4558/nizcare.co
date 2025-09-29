@@ -8,6 +8,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import CVD from "../../assets/Ncd-Topics/Cardiovascular Diseases4.jpg"
+import Diabetes from "../../assets/Ncd-Topics/Diabetes.jpg"
+import Cancer from "../../assets/Ncd-Topics/Cancer.jpg"
+import Chronic from "../../assets/Ncd-Topics/Chronic.jpg"
+import Obesity from "../../assets/Ncd-Topics/Obesity.jpg"
+import Mental from "../../assets/Ncd-Topics/Mental Health.jpg"
+import ChronicKidney from "../../assets/Ncd-Topics/Chronic Kidney.jpg"
+import Musculoskeletal from "../../assets/Ncd-Topics/Musculoskeletal.jpg"
+
 
 const packages = [
   {
@@ -53,14 +62,14 @@ const packages = [
 ];
 
 const ncdTopics = [
-  { title: 'Cardiovascular Diseases (CVDs)', img: 'https://via.placeholder.com/600x400?text=CVDs' },
-  { title: 'Diabetes', img: 'https://via.placeholder.com/600x400?text=Diabetes' },
-  { title: 'Cancer (Awareness & Screening)', img: 'https://via.placeholder.com/600x400?text=Cancer' },
-  { title: 'Chronic Respiratory Diseases', img: 'https://via.placeholder.com/600x400?text=Respiratory' },
-  { title: 'Obesity & Metabolic Syndrome', img: 'https://via.placeholder.com/600x400?text=Obesity' },
-  { title: 'Mental Health Disorders', img: 'https://via.placeholder.com/600x400?text=Mental+Health' },
-  { title: 'Chronic Kidney Disease', img: 'https://via.placeholder.com/600x400?text=CKD' },
-  { title: 'Musculoskeletal Disorders', img: 'https://via.placeholder.com/600x400?text=Musculoskeletal' },
+  { title: 'Cardiovascular Diseases (CVDs)', img: CVD },
+  { title: 'Diabetes', img: Diabetes },
+  { title: 'Cancer (Awareness & Screening)', img: Cancer },
+  { title: 'Chronic Respiratory Diseases', img: Chronic },
+  { title: 'Obesity & Metabolic Syndrome', img: Obesity },
+  { title: 'Mental Health Disorders', img: Mental },
+  { title: 'Chronic Kidney Disease', img: ChronicKidney },
+  { title: 'Musculoskeletal Disorders', img: Musculoskeletal },
 ];
 
 const WellnessPackages = () => {
