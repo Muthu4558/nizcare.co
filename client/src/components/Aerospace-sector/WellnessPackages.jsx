@@ -161,14 +161,14 @@ const WellnessPackages = () => {
           </Swiper>
 
           {/* Custom Navigation Buttons at bottom-right outside */}
-          <div className="absolute -bottom-18 right-0 flex gap-3 z-20">
+          {/* <div className="absolute -bottom-18 right-0 flex gap-3 z-20">
             <button className="swiper-button-prev-custom bg-white shadow-md rounded-full p-3 hover:bg-teal-500 hover:text-white transition">
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button className="swiper-button-next-custom bg-white shadow-md rounded-full p-3 hover:bg-teal-500 hover:text-white transition">
               <ChevronRight className="w-6 h-6" />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
