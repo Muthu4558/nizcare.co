@@ -126,7 +126,7 @@ const PetroleumHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-       Every Role. Every Risk. We’re There for Your Team.
+       Every Role. Every Risk. <span className='text-teal-600'>We’re There for Your Team.</span>
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -149,7 +149,7 @@ const PetroleumHealthChallenges = () => {
                 {group.icon} {group.title}
               </h3>
 
-              {group.issues.map((issue, idx) => (
+              {/* {group.issues.map((issue, idx) => (
                 <AccordionItem
                   key={idx}
                   title={issue.title}
@@ -159,7 +159,7 @@ const PetroleumHealthChallenges = () => {
                   openIndex={openIndex}
                   setOpenIndex={setOpenIndex}
                 />
-              ))}
+              ))} */}
             </div>
           );
         })}

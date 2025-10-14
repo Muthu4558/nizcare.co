@@ -128,7 +128,7 @@ const SteelHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        The Human Side of Steel: Where Care Is Most Needed
+        The Human Side of Steel: <span className='text-teal-600'>Where Care Is Most Needed</span>
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -151,7 +151,7 @@ const SteelHealthChallenges = () => {
                 {group.icon} {group.title}
               </h3>
 
-              {group.issues.map((issue, idx) => (
+              {/* {group.issues.map((issue, idx) => (
                 <AccordionItem
                   key={idx}
                   title={issue.title}
@@ -161,7 +161,7 @@ const SteelHealthChallenges = () => {
                   openIndex={openIndex}
                   setOpenIndex={setOpenIndex}
                 />
-              ))}
+              ))} */}
             </div>
           );
         })}

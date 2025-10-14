@@ -165,10 +165,10 @@ const TelecomHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        Behind the Signal: Hidden Health Risks of Telecom Teams
+        Behind the Signal: <span className='text-teal-600'>Hidden Health Risks of Telecom Teams</span>
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-4 gap-6 max-w-10xl mx-auto">
         {data.map((group, groupIdx) => {
           const [openIndex, setOpenIndex] = useState(null);
 
@@ -188,7 +188,7 @@ const TelecomHealthChallenges = () => {
                 {group.icon} {group.title}
               </h3>
 
-              {group.issues.map((issue, idx) => (
+              {/* {group.issues.map((issue, idx) => (
                 <AccordionItem
                   key={idx}
                   title={issue.title}
@@ -198,7 +198,7 @@ const TelecomHealthChallenges = () => {
                   openIndex={openIndex}
                   setOpenIndex={setOpenIndex}
                 />
-              ))}
+              ))} */}
             </div>
           );
         })}

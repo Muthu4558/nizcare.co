@@ -146,7 +146,7 @@ const HotelHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        The Unseen Health Challenges in the Food Processing Sector
+        The Unseen Health Challenges in the <span className='text-teal-600'>Food Processing Sector</span>
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -169,7 +169,7 @@ const HotelHealthChallenges = () => {
                 {group.icon} {group.title}
               </h3>
 
-              {group.issues.map((issue, idx) => (
+              {/* {group.issues.map((issue, idx) => (
                 <AccordionItem
                   key={idx}
                   title={issue.title}
@@ -179,7 +179,7 @@ const HotelHealthChallenges = () => {
                   openIndex={openIndex}
                   setOpenIndex={setOpenIndex}
                 />
-              ))}
+              ))} */}
             </div>
           );
         })}

@@ -126,7 +126,7 @@ const HeavyHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        Tough Jobs. Tougher Health Risks – We Know What’s at Stake.
+        Tough Jobs. Tougher Health Risks – <span className='text-teal-600'>We Know What’s at Stake</span>.
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -149,7 +149,7 @@ const HeavyHealthChallenges = () => {
                 {group.icon} {group.title}
               </h3>
 
-              {group.issues.map((issue, idx) => (
+              {/* {group.issues.map((issue, idx) => (
                 <AccordionItem
                   key={idx}
                   title={issue.title}
@@ -159,7 +159,7 @@ const HeavyHealthChallenges = () => {
                   openIndex={openIndex}
                   setOpenIndex={setOpenIndex}
                 />
-              ))}
+              ))} */}
             </div>
           );
         })}

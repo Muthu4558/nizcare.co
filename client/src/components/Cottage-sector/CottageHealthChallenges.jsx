@@ -155,10 +155,10 @@ const CottageHealthChallenges = () => {
         className="text-2xl md:text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        Hands That Craft, Bodies That Strain – Let’s Care Better
+        Hands That Craft, Bodies That Strain – <span className='text-teal-600'>Let’s Care Better</span>
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-4 gap-6 max-w-10xl mx-auto">
         {data.map((group, groupIdx) => {
           const [openIndex, setOpenIndex] = useState(null);
 
@@ -178,7 +178,7 @@ const CottageHealthChallenges = () => {
                 {group.icon} {group.title}
               </h3>
 
-              {group.issues.map((issue, idx) => (
+              {/* {group.issues.map((issue, idx) => (
                 <AccordionItem
                   key={idx}
                   title={issue.title}
@@ -188,7 +188,7 @@ const CottageHealthChallenges = () => {
                   openIndex={openIndex}
                   setOpenIndex={setOpenIndex}
                 />
-              ))}
+              ))} */}
             </div>
           );
         })}
