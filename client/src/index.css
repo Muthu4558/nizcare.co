@@ -6,6 +6,10 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .iti {
   width: 100%;
 }
