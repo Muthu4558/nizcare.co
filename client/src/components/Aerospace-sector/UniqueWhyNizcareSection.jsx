@@ -140,7 +140,7 @@ const UniqueWhyNizcareSection = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-white via-teal-50 to-white overflow-hidden">
+    <section className="py-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-20">
         
         {/* What Will You Gain */}
