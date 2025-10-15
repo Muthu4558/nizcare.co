@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   FaUserTie,
   FaUsersCog,
-  FaUserNurse
-} from 'react-icons/fa';
+  FaUserNurse,
+} from "react-icons/fa";
 import {
   MdHealthAndSafety,
   MdOutlinePsychology,
   MdRestaurant,
   MdScreenSearchDesktop,
-  MdChairAlt
-} from 'react-icons/md';
-import {
-  GiLeg,
-  GiSoap,
-  GiNightSleep
-} from 'react-icons/gi';
-import {
-  TbTemperatureCelsius
-} from 'react-icons/tb';
-import {
-  BiCollapse,
-  BiExpand
-} from 'react-icons/bi';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+  MdChairAlt,
+} from "react-icons/md";
+import { GiLeg, GiSoap, GiNightSleep } from "react-icons/gi";
+import { TbTemperatureCelsius } from "react-icons/tb";
 
-import Management from '../../assets/Aero-sector-img/Technical Designers.jpg';
-import Admin from '../../assets/Aero-sector-img/defence.jpg';
-import Front from '../../assets/Aero-sector-img/field.jpg';
+import Management from "../../assets/Aero-sector-img/Technical Designers.jpg";
+import Admin from "../../assets/Aero-sector-img/defence.jpg";
+import Front from "../../assets/Aero-sector-img/field.jpg";
 
 const data = [
   {
@@ -40,17 +30,20 @@ const data = [
       {
         title: "Eye strain & migraines",
         icon: <TbTemperatureCelsius />,
-        description: "Due to prolonged CAD screen use and precision detailing",
+        description:
+          "Due to prolonged CAD screen use and precision detailing.",
       },
       {
         title: "Neck & shoulder pain",
         icon: <GiLeg />,
-        description: "Caused by extended seated posture",
+        description:
+          "Caused by extended seated posture during long design sessions.",
       },
       {
         title: "Mental fatigue",
         icon: <GiSoap />,
-        description: " High cognitive demand under tight project deadlines",
+        description:
+          "High cognitive demand under tight project deadlines and revisions.",
       },
     ],
   },
@@ -62,17 +55,20 @@ const data = [
       {
         title: "Hearing loss",
         icon: <MdScreenSearchDesktop />,
-        description: "Long exposure to heavy machinery and testing",
+        description:
+          "Due to long exposure to heavy machinery, vibration, and testing noise.",
       },
       {
         title: "Respiratory issues",
         icon: <MdRestaurant />,
-        description: "Dust, fumes, or soldering materials exposure",
+        description:
+          "Caused by fumes, dust, or chemical exposure during manufacturing.",
       },
       {
         title: "Musculoskeletal strain",
         icon: <MdOutlinePsychology />,
-        description: "Manual handling of heavy or precision components",
+        description:
+          "Resulting from repetitive movements and manual handling of components.",
       },
     ],
   },
@@ -84,17 +80,20 @@ const data = [
       {
         title: "Fatigue & burnout",
         icon: <MdChairAlt />,
-        description: "Irregular shifts, emergency call-outs",
+        description:
+          "Due to irregular shift patterns and emergency call-outs.",
       },
       {
         title: "Sleep disruption",
         icon: <GiNightSleep />,
-        description: "Rotational or overnight maintenance work",
+        description:
+          "From rotational or overnight work schedules impacting rest cycles.",
       },
       {
         title: "Joint issues",
         icon: <MdHealthAndSafety />,
-        description: "Climbing, kneeling, working in confined aircraft spaces",
+        description:
+          "Caused by climbing, kneeling, and work in confined aircraft spaces.",
       },
     ],
   },
@@ -106,56 +105,24 @@ const data = [
       {
         title: "Hypertension & lifestyle diseases",
         icon: <MdChairAlt />,
-        description: "Sedentary desk roles, high stress",
+        description:
+          "Linked to sedentary desk roles, long hours, and high stress levels.",
       },
       {
         title: "Mental health challenges",
         icon: <GiNightSleep />,
-        description: "Strategic responsibility pressure",
+        description:
+          "Resulting from strategic decision pressures and constant connectivity.",
       },
       {
         title: "Poor ergonomics",
         icon: <MdHealthAndSafety />,
-        description: "Desk-bound postures over time",
+        description:
+          "Due to improper workstation setups and extended sitting hours.",
       },
     ],
   },
 ];
-
-const AccordionItem = ({ title, icon, description, index, openIndex, setOpenIndex }) => {
-  const isOpen = openIndex === index;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          <span className='text-2xl text-amber-500'>{icon}</span> {title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-white px-4 py-3 text-gray-700 font-semibold text-sm shadow">
-              {description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
 
 const HotelHealthChallenges = () => {
   useEffect(() => {
@@ -163,48 +130,66 @@ const HotelHealthChallenges = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4">
+    <section className="py-16 px-6">
       <h2
-        className="text-3xl md:text-4xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-12 text-slate-900"
         data-aos="fade-up"
       >
-        Ground to Sky, Health Risks Fly – <span className='text-teal-600'>Let’s Catch Them Early</span>
+        Ground to Sky, Health Risks Fly –{" "}
+        <span className="text-teal-600">Let’s Catch Them Early</span>
       </h2>
 
-      <div className="grid md:grid-cols-4 gap-6 max-w-10xl mx-auto">
-        {data.map((group, groupIdx) => {
-          const [openIndex, setOpenIndex] = useState(null);
-
-          return (
-            <div
-              key={groupIdx}
-              className="bg-white rounded-2xl shadow p-4"
-              data-aos="zoom-in-up"
-              data-aos-delay={groupIdx * 100}
-            >
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {data.map((group, groupIdx) => (
+          <div
+            key={groupIdx}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-teal-400 overflow-hidden group flex flex-col"
+            data-aos="zoom-in-up"
+            data-aos-delay={groupIdx * 100}
+          >
+            {/* Image */}
+            <div className="overflow-hidden">
               <img
                 src={group.image}
                 alt={group.title}
-                className="rounded-lg mb-4 w-full h-92 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                {group.icon} {group.title}
-              </h3>
-
-              {/* {group.issues.map((issue, idx) => (
-                <AccordionItem
-                  key={idx}
-                  title={issue.title}
-                  icon={issue.icon}
-                  description={issue.description}
-                  index={idx}
-                  openIndex={openIndex}
-                  setOpenIndex={setOpenIndex}
-                />
-              ))} */}
             </div>
-          );
-        })}
+
+            {/* Card Content */}
+            <div className="p-6 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  {group.icon}
+                  {group.title}
+                </h3>
+
+                <div className="space-y-4">
+                  {group.issues.map((issue, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-teal-50 hover:bg-teal-100 transition-all duration-300 rounded-xl p-4 shadow-sm hover:shadow-md"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-amber-500 text-xl mt-1">
+                          {issue.icon}
+                        </span>
+                        <div>
+                          <h4 className="font-semibold text-sm text-amber-500">
+                            {issue.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                            {issue.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
