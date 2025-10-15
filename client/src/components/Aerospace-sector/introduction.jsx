@@ -3,17 +3,17 @@ import BackgroundAnimation from "../BackgroundAnimation";
 
 const Introduction = () => {
   return (
-    <section className="relative flex flex-col justify-center items-center px-6 py-20 md:py-28 overflow-hidden text-center">
+    <section className="relative flex flex-col justify-center items-center px-6 py-20 md:py-10 overflow-hidden text-center">
       {/* Background Animation */}
       {/* <BackgroundAnimation /> */}
 
       {/* Introduction Text */}
       <div
-        className="relative z-10 max-w-4xl mx-auto mb-12"
+        className="relative z-10 max-w-7xl mx-auto mb-12"
         data-aos="fade-up"
         data-aos-delay="100"
       >
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
           Nizcare provides{" "}
           <span className="font-semibold text-gray-900">
             strategic wellness support
@@ -41,7 +41,7 @@ const Introduction = () => {
 
       {/* Subheading */}
       <h3
-        className="relative z-10 text-2xl md:text-3xl font-semibold mb-6 text-gray-800"
+        className="relative z-10 text-2xl md:text-3xl font-semibold mb-4 text-gray-800"
         data-aos="fade-up"
         data-aos-delay="300"
       >
@@ -51,7 +51,7 @@ const Introduction = () => {
 
       {/* Description */}
       <div
-        className="relative z-10 max-w-3xl mx-auto mb-10"
+        className="relative z-10 max-w-3xl mx-auto mb-6"
         data-aos="fade-up"
         data-aos-delay="400"
       >
@@ -73,7 +73,7 @@ const Introduction = () => {
       </div>
 
       {/* Subtle Gradient Overlay for Depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60 -z-10"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60 -z-10"></div> */}
     </section>
   );
 };

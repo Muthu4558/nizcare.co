@@ -134,7 +134,7 @@ transition-all duration-500 ease-out hover:shadow-2xl hover:scale-[1.03] hover:-
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Non-Communicable Diseases (NCDs) are the silent threat to your bottom line. They go beyond personal health, directly impacting operational safety, productivity, and your company's financial stability. Across every sector—from the high-heat exposure in a foundry to the high-stress environment of a bank—these chronic conditions are the primary cause of sick days, reduced efficiency (presenteeism), and premature loss of skilled talent. By focusing on prevention, early screening, and proactive management of these eight core NCDs, you're not just caring for your team; you're securing your business continuity and improving EHS/CSR compliance.
+          NCDs silently impact productivity, safety, and financial stability across industries.They drive absenteeism, presenteeism, and early talent loss.With Nizcare’s precision tools for prevention, screening, and management, you can address workplace-specific risks.Protect your people, sustain productivity, and turn health into a business advantage.
         </p>
         <div className="relative">
           {/* Swiper */}
@@ -185,7 +185,7 @@ transition-all duration-500 ease-out hover:shadow-2xl hover:scale-[1.03] hover:-
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Managing these prevalent NCDs is not a wellness expense—it's strategic risk mitigation. Nizcare provides the precision tools to screen, monitor, and manage these conditions, tailoring the intervention to your specific workplace risks (whether it's respiratory protection for textile workers or stress management for logistics managers). Protect your people, secure your productivity, and transform your workforce health into a measurable competitive advantage.  
+          Managing NCDs isn’t a wellness cost—it’s strategic risk control.Nizcare helps you monitor, prevent, and manage workplace risks to protect people and productivity.  
         </p>
       </div>
     </section>
