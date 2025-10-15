@@ -87,7 +87,7 @@ const ContactSection = () => {
       </div>
 
       {/* Decorative Background Circles */}
-      <div
+      {/* <div
         className="absolute w-40 h-40 bg-cyan-100 rounded-full opacity-30 top-10 left-10 blur-2xl"
         data-aos="zoom-in"
         data-aos-delay="500"
@@ -96,7 +96,7 @@ const ContactSection = () => {
         className="absolute w-60 h-60 bg-yellow-100 rounded-full opacity-30 bottom-10 right-10 blur-2xl"
         data-aos="zoom-in"
         data-aos-delay="600"
-      ></div>
+      ></div> */}
 
       {/* Footer */}
       <div className="bg-[#1f2429] mt-20 py-5 text-white text-sm font-medium">
