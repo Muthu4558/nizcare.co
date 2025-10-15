@@ -114,7 +114,7 @@ const whyNizcare = [
 // ---------------- CARD COMPONENT ----------------
 const FancyCard = ({ icon: Icon, title, description }) => (
   <div
-    className="group flex flex-col justify-between h-full min-h-[320px] md:min-h-[260px]
+    className="group flex flex-col justify-between h-full min-h-[320px] md:min-h-[280px]
                rounded-2xl p-6 m-2 bg-white hover:bg-gradient-to-br from-teal-50 to-white
                shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100
                hover:border-teal-400 cursor-pointer hover:-translate-y-1"
