@@ -73,3 +73,16 @@ body {
 .animate-spin-slower {
   animation: spin 25s linear infinite;
 } */
+
+/* global background animation */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-20px) translateX(10px) scale(1.05); }
+}
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-40px) translateX(-10px) scale(1.1); }
+}
+.animate-float-slow { animation: float-slow 12s infinite ease-in-out; }
+.animate-float-slower { animation: float-slower 18s infinite ease-in-out; }
+

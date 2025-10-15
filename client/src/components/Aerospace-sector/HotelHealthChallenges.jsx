@@ -163,9 +163,9 @@ const HotelHealthChallenges = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-12 px-4">
       <h2
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
         Ground to Sky, Health Risks Fly – <span className='text-teal-600'>Let’s Catch Them Early</span>

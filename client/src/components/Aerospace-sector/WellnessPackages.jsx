@@ -78,29 +78,32 @@ const WellnessPackages = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-white px-4">
+    <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto text-center">
         <h2
           className="text-3xl md:text-4xl font-bold mb-2"
           data-aos="fade-up"
         >
-          Fueling Wellness for Peak Aerospace Performance
+          Fueling Wellness for Peak <span className='text-teal-600'>Aerospace Performance</span>
         </h2>
         <p
           className="text-lg text-slate-500 mb-10"
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Tailored wellness support from Nizcare for every role in your team.
+          Our wellness programs translate NCD risk data into actionable health habits.
         </p>
 
         {/* Original Grid Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div 
+        className="grid md:grid-cols-4 gap-2 mb-16"
+              data-aos="zoom-in-up"
+        >
           {packages.map((pkg, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl shadow-md p-6 border-l-8 border-teal-600 transition-transform duration-300 hover:shadow-xl hover:scale-105"
-              data-aos="zoom-in-up"
+              className="bg-white rounded-2xl shadow-md p-6 border-l-8 border-teal-600 
+transition-all duration-500 ease-out hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-1"
               data-aos-delay={idx * 150}
             >
               <h3 className="text-lg font-bold flex items-center gap-2 mb-4 text-slate-900">
@@ -125,7 +128,14 @@ const WellnessPackages = () => {
         </div>
 
         {/* NCD Topics Swiper */}
-        <h3 className="text-2xl font-bold mb-8">NCD"S which Affects your Workforce</h3>
+        <h3 className="text-3xl md:text-4xl font-bold mb-8">The Hidden Cost of NCDs: Securing Your <span className='text-teal-600'>Workforce and Operations</span></h3>
+        <p
+          className="text-lg text-gray-500 mb-10"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Non-Communicable Diseases (NCDs) are the silent threat to your bottom line. They go beyond personal health, directly impacting operational safety, productivity, and your company's financial stability. Across every sector—from the high-heat exposure in a foundry to the high-stress environment of a bank—these chronic conditions are the primary cause of sick days, reduced efficiency (presenteeism), and premature loss of skilled talent. By focusing on prevention, early screening, and proactive management of these eight core NCDs, you're not just caring for your team; you're securing your business continuity and improving EHS/CSR compliance.
+        </p>
         <div className="relative">
           {/* Swiper */}
           <Swiper
@@ -170,6 +180,13 @@ const WellnessPackages = () => {
             </button>
           </div> */}
         </div>
+        <p
+          className="text-lg text-gray-500 mt-10"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Managing these prevalent NCDs is not a wellness expense—it's strategic risk mitigation. Nizcare provides the precision tools to screen, monitor, and manage these conditions, tailoring the intervention to your specific workplace risks (whether it's respiratory protection for textile workers or stress management for logistics managers). Protect your people, secure your productivity, and transform your workforce health into a measurable competitive advantage.  
+        </p>
       </div>
     </section>
   );

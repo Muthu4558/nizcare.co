@@ -14,27 +14,27 @@ import 'aos/dist/aos.css';
 const features = [
     {
         title: 'Daily Health Monitoring',
-        icon: <FaHeartbeat className="text-3xl text-sky-400" />,
+        icon: <FaHeartbeat className="text-3xl text-teal-600" />,
     },
     {
         title: 'On-Site Nurse/Doctor',
-        icon: <FaUserNurse className="text-3xl text-sky-400" />,
+        icon: <FaUserNurse className="text-3xl text-teal-600" />,
     },
     {
         title: 'First Aid & Minor Illnesses',
-        icon: <FaFirstAid className="text-3xl text-sky-400" />,
+        icon: <FaFirstAid className="text-3xl text-teal-600" />,
     },
     {
         title: 'Pre-employment & Annual Checks',
-        icon: <MdAssignmentInd className="text-3xl text-sky-400" />,
+        icon: <MdAssignmentInd className="text-3xl text-teal-600" />,
     },
     {
         title: 'Emergency Response Setup',
-        icon: <MdEmergency className="text-3xl text-sky-400" />,
+        icon: <MdEmergency className="text-3xl text-teal-600" />,
     },
     {
         title: 'Vaccination Drives & Screenings',
-        icon: <GiMedicalPack className="text-3xl text-sky-400" />,
+        icon: <GiMedicalPack className="text-3xl text-teal-600" />,
     },
 ];
 
@@ -44,7 +44,7 @@ const InHouseHealthcare = () => {
     }, []);
 
     return (
-        <section className="py-16 px-4 bg-gray-50">
+        <section className="py-16 px-4">
             <div className="max-w-7xl mx-auto">
                 {/* Banner */}
                 <div

@@ -14,6 +14,7 @@ import 'aos/dist/aos.css';
 const data = [
   {
     title: 'For Engineers & Designers',
+    title1: '(Focus: Metabolic & Mental Health)',
     icon: <FaUserTie className="text-xl text-black" />,
     issues: [
       {
@@ -146,6 +147,7 @@ const AccordionItem = ({ item, idx, openIndex, setOpenIndex }) => {
         <span className="flex items-center gap-2">
           {item.icon}
           {item.title}
+          {item.title1}
         </span>
         <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
       </button>
@@ -181,15 +183,22 @@ const HealthPackagesAccordion = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-12 px-4">
       <h2
         className="text-3xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        Health Check-ups Engineered for Every Duty Level
+        Health Check-ups Engineered for <span className='text-teal-600'>Every Duty Level</span>
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+      >
+         Early Detection is Mission Control. We provide NCD-focused health check packages tailored to the specific risks of each job profile.
+      </p>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-4 gap-6 max-w-10xl mx-auto">
         {data.map((group, groupIdx) => (
           <div
             key={groupIdx}
@@ -197,10 +206,13 @@ const HealthPackagesAccordion = () => {
             data-aos="zoom-in-up"
             data-aos-delay={groupIdx * 100}
           >
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
               {group.icon}
               {group.title}
             </h3>
+            <p className='text-center mb-2'>
+              <span className="text-sm text-slate-500">{group.title1}</span>
+            </p>
 
             {group.issues.map((issue, idx) => (
               <AccordionItem

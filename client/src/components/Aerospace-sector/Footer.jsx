@@ -10,7 +10,7 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-br from-[#e0f7f4] via-white to-[#f0fcfb] text-center relative overflow-hidden">
+    <section className="bg-gradient-to-br from-[#e0f7f4] via-white to-[#f0fcfb] text-center relative overflow-hidden pt-10">
       {/* Heading */}
       <h2
         className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-10 drop-shadow-md"
