@@ -1,79 +1,84 @@
 import React from "react";
-import BackgroundAnimation from "../BackgroundAnimation";
+import { motion } from "framer-motion";
+import { Rocket, HeartPulse } from "lucide-react"; // optional icons
+import BackgroundAnimation from "../BackgroundAnimation"; // optional background animation
+import wellnessImage from "../../assets/logo.png"; // replace with your image
 
 const Introduction = () => {
   return (
-    <section className="relative flex flex-col justify-center items-center px-6 py-20 md:py-10 overflow-hidden text-center">
-      {/* Background Animation */}
+    <section className="relative flex flex-col md:flex-row justify-between items-center px-6 md:px-30 py-20 md:py-32 overflow-hidden">
+      {/* Optional animated background */}
       {/* <BackgroundAnimation /> */}
 
-      {/* Introduction Text */}
-      <div
-        className="relative z-10 max-w-7xl mx-auto mb-12"
-        data-aos="fade-up"
-        data-aos-delay="100"
+      {/* Decorative gradient blob */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-200/40 rounded-full blur-3xl -z-10 animate-pulse"></div>
+
+      {/* Left Content */}
+      <motion.div
+        className="relative z-10 flex-1 text-left max-w-xl"
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+        <div className="flex items-center mb-4 space-x-3">
+          <HeartPulse className="text-teal-600 w-8 h-8" />
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Strategic Wellness, <span className="text-teal-600">Elevated.</span>
+          </h2>
+        </div>
+
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
           Nizcare provides{" "}
           <span className="font-semibold text-gray-900">
             strategic wellness support
           </span>{" "}
           designed to secure the well-being, compliance, and sustained
-          productivity of your aerospace and defense workforce. We offer{" "}
+          productivity of your aerospace and defense workforce.
+        </p>
+
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          We offer{" "}
           <span className="font-semibold text-gray-900">
             India’s only NCD-focused, digital health platform
           </span>{" "}
           engineered for the high-precision demands of your sector.
         </p>
-      </div>
 
-      {/* Hero Title */}
-      <h2
-        className="relative z-10 text-3xl md:text-6xl font-extrabold mb-4 text-gray-900 leading-tight tracking-tight"
-        data-aos="fade-up"
-        data-aos-delay="200"
+        {/* CTA Button */}
+        <div data-aos="fade-up" data-aos-delay="500">
+          <a
+            href="#section-header"
+            className="text-center inline-block bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 
+          text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 mt-12"
+          >
+            Request a Strategic NCD Risk Review & Demo
+          </a>
+        </div>
+      </motion.div>
+
+      {/* Right Image Section */}
+      <motion.div
+        className="flex-1 flex justify-center mt-10 md:mt-0"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Securing{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-600">
-          High-Performance Teams
-        </span>
-      </h2>
-
-      {/* Subheading */}
-      <h3
-        className="relative z-10 text-2xl md:text-3xl font-semibold mb-4 text-gray-800"
-        data-aos="fade-up"
-        data-aos-delay="300"
-      >
-        Precision Health for{" "}
-        <span className="text-teal-500">Mission-Critical Teams</span>
-      </h3>
-
-      {/* Description */}
-      <div
-        className="relative z-10 max-w-3xl mx-auto mb-6"
-        data-aos="fade-up"
-        data-aos-delay="400"
-      >
-        <p className="text-gray-600 leading-relaxed text-lg md:text-xl">
-          Nizcare is your strategic partner, transforming NCD risk management
-          into a source of operational reliability and competitive advantage.
-        </p>
-      </div>
-
-      {/* CTA Button */}
-      <div data-aos="fade-up" data-aos-delay="500">
-        <a
-          href="#section-header"
-          className="inline-block bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 
-          text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-        >
-          Request a Strategic NCD Risk Review & Demo
-        </a>
-      </div>
-
-      {/* Subtle Gradient Overlay for Depth */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/60 -z-10"></div> */}
+        <div className="relative">
+          <img
+            src={wellnessImage}
+            alt="Nizcare Wellness Illustration"
+            className="w-full max-w-md rounded-2xl"
+          />
+          {/* floating decorative icon */}
+          <motion.div
+            className="absolute -top-6 -right-6 bg-white p-3 rounded-full shadow-md"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 3 }}
+          >
+            <Rocket className="text-teal-600 w-6 h-6" />
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 };

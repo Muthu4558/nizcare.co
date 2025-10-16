@@ -10,6 +10,7 @@ import InHouseHealthcare from '../components/Aerospace-sector/InHouseHealthcare'
 import WhatWillYouGain from '../components/Aerospace-sector/UniqueWhyNizcareSection';    
 import Footer from '../components/Aerospace-sector/Footer';
 import BackgroundAnimation from "../components/BackgroundAnimation";
+import NCDTopics from '../components/Aerospace-sector/NCDTopics';
 
 const AerospaceSector = () => {
     const [loading, setLoading] = useState(false);
@@ -91,8 +92,9 @@ const AerospaceSector = () => {
                 <HeroSection />
                 <Introduction />
                 <HotelHealthChallenges />
-                <HealthPackagesAccordion />
                 <WellnessPackages />
+                <HealthPackagesAccordion />
+                <NCDTopics />
                 <InHouseHealthcare />
                 <WhatWillYouGain />
                 <Footer />
