@@ -91,12 +91,12 @@ const AerospaceSector = () => {
             <div className="relative z-10">
                 <HeroSection />
                 <Introduction />
+                <WhatWillYouGain />
                 <HotelHealthChallenges />
                 <WellnessPackages />
                 <HealthPackagesAccordion />
                 <NCDTopics />
                 <InHouseHealthcare />
-                <WhatWillYouGain />
                 <Footer />
             </div>
         </div>

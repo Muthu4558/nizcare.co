@@ -72,15 +72,21 @@ const data = [
 const SimplifiedHealthPackages = () => {
   return (
     <section className="py-10 px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-        Health Check-ups Engineered for <span className='text-teal-600'>Every Duty Level</span>
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+       Recommended <span className='text-teal-600'>Health Check-ups</span>
       </h2>
+      {/* <p
+      className="text-lg text-slate-500 mb-4 text-center"
+          data-aos="fade-up"
+          data-aos-delay="100">
+        <span>Engineered for Every Duty Level</span>
+      </p> */}
       <p
           className="text-lg text-slate-500 mb-10 text-center"
           data-aos="fade-up"
           data-aos-delay="100"
         >
-           Early Detection is Mission Control. We provide NCD-focused health check packages tailored to the specific risks of each job profile.
+           Early Detection is Mission Control. We provide health check packages tailored to the specific risks of each job profile.
         </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -89,7 +95,7 @@ const SimplifiedHealthPackages = () => {
             key={idx}
             className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 flex flex-col h-[400px]"
           >
-            <h3 className="text-xl font-semibold text-orange-500 mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-teal-600 mb-4 flex items-center gap-2">
               {group.icon}
               {group.title}
             </h3>

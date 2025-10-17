@@ -132,13 +132,17 @@ const HotelHealthChallenges = () => {
   return (
     <section className="py-16 px-6">
       <h2
-        className="text-3xl md:text-4xl font-extrabold text-center mb-12 text-slate-900"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-slate-900"
         data-aos="fade-up"
       >
-        Ground to Sky, Health Risks Fly –{" "}
-        <span className="text-teal-600">Let’s Catch Them Early</span>
+        Aerospace Employee <span className="text-teal-600">Health Problems</span>
       </h2>
-
+      <p
+        className="text-lg text-slate-500 mb-10 text-center"
+        data-aos="fade-up"
+        data-aos-delay="100">
+        The Hidden Turbulence
+      </p>
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {data.map((group, groupIdx) => (
           <div
@@ -168,14 +172,15 @@ const HotelHealthChallenges = () => {
                   {group.issues.map((issue, idx) => (
                     <div
                       key={idx}
-                      className="bg-teal-50 hover:bg-teal-100 transition-all duration-300 rounded-xl p-4 shadow-sm hover:shadow-md"
+                      className="border border-teal-600 transition-all duration-300 rounded-xl p-4 shadow-sm hover:shadow-md"
+
                     >
                       <div className="flex items-start gap-3">
-                        <span className="text-amber-500 text-xl mt-1">
+                        <span className="text-teal-600 text-xl mt-1">
                           {issue.icon}
                         </span>
                         <div>
-                          <h4 className="font-semibold text-sm text-amber-500">
+                          <h4 className="font-semibold text-sm text-teal-600 font-2xl">
                             {issue.title}
                           </h4>
                           <p className="text-xs text-slate-600 mt-1 leading-relaxed">

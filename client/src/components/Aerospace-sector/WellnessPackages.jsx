@@ -62,14 +62,14 @@ const WellnessPackagesCards = () => {
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Fueling Wellness for Peak <span className='text-teal-600'>Aerospace Performance</span>
+          Nizcare <span className="text-teal-600">wellness programs</span>
         </h2>
         <p
           className="text-lg text-slate-500 mb-10"
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Our wellness programs translate NCD risk data into actionable health habits.
+          Translate NCD risk data into actionable health habits.
         </p>
 
         {/* Grid of Cards */}
