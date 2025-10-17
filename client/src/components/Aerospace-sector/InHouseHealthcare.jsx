@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Doc from '../../assets/Aero-sector-img/doctor.jpg';
 import Nurse from '../../assets/Aero-sector-img/nurse.jpg';
-import Ambulance from '../../assets/Aero-sector-img/Ambulance.jpg';
+import Ambulance from '../../assets/Aero-sector-img/Ambulance.png';
 
 const InHouseHealthcare = () => {
   useEffect(() => {
@@ -34,7 +34,7 @@ const InHouseHealthcare = () => {
               <img
                 src={Ambulance}
                 alt="On-site medical team"
-                className="w-full h-48 object-cover"
+                className="w-full h-60 object-cover"
               />
               <div className="p-4">
                 <h3 className="text-teal-700 font-semibold text-lg">
@@ -48,7 +48,7 @@ const InHouseHealthcare = () => {
               <img
                 src={Doc}
                 alt="Emergency care setup"
-                className="w-full h-48 object-cover"
+                className="w-full h-60 object-cover"
               />
               <div className="p-4">
                 <h3 className="text-teal-700 font-semibold text-lg">
@@ -62,7 +62,7 @@ const InHouseHealthcare = () => {
               <img
                 src={Nurse}
                 alt="Health monitoring"
-                className="w-full h-48 object-cover"
+                className="w-full h-60 object-cover"
               />
               <div className="p-4">
                 <h3 className="text-teal-700 font-semibold text-lg">
