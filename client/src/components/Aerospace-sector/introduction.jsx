@@ -6,7 +6,7 @@ import wellnessImage from "../../assets/logo.png"; // replace with your image
 
 const Introduction = () => {
   return (
-    <section className="relative flex flex-col md:flex-row justify-between items-center px-6 md:px-30 py-20 md:py-32 overflow-hidden">
+    <section className="relative flex flex-col md:flex-row justify-between items-center px-6 md:px-30 py-20 md:py-28 overflow-hidden">
       {/* Optional animated background */}
       {/* <BackgroundAnimation /> */}
 

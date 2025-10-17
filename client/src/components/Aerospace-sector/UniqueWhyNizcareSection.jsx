@@ -6,41 +6,35 @@ import { FaCheckCircle } from 'react-icons/fa';
 // ---------------- DATA ----------------
 const whatWillYouGain = [
   {
-    title: 'Reduce Sick Days',
-    description:
-      'Lower absenteeism means consistent team availability, fewer disruptions, and greater productivity for the whole company.',
+    title: 'Fewer Sick Days',
+    description: 'Consistent teams, smooth operations.',
   },
   {
-    title: 'Cut Healthcare Costs',
-    description:
-      'Healthier employees lead to fewer insurance claims and reduced corporate healthcare expenses—direct bottom-line savings.',
+    title: 'Lower Healthcare Costs',
+    description: 'Healthier employees, lower claims.',
   },
   {
-    title: 'Boost Morale and Retention',
-    description:
-      'A visible investment in wellness boosts engagement, satisfaction, and loyalty, making it easier to attract and retain talent.',
+    title: 'Boost Morale & Retention',
+    description: 'Engaged, satisfied, loyal workforce.',
   },
   {
-    title: 'Enhance Company Reputation',
-    description:
-      'Healthy, happy teams enhance your employer brand—attracting better candidates and client trust.',
+    title: 'Stronger Employer Brand',
+    description: 'Happy teams attract talent & trust.',
   },
   {
-    title: 'Increase Productivity',
-    description:
-      'Wellness initiatives improve physical and mental health, leading to higher focus, energy, and performance.',
+    title: 'Higher Productivity',
+    description: 'Energized, focused, high-performing employees.',
   },
   {
-    title: 'Compliance Made Easy',
-    description:
-      'Proactive health programs simplify workplace safety and legislative compliance, reducing operational risk.',
+    title: 'Simplified Compliance',
+    description: 'Proactive programs, lower operational risk.',
   },
   {
-    title: 'Create a Positive Work Culture',
-    description:
-      'Holistic wellness fosters teamwork, connection, and care, supporting both wellbeing and business goals.',
+    title: 'Positive Work Culture',
+    description: 'Wellness-driven teamwork & connection.',
   },
 ];
+
 
 const whyNizcare = [
   {
@@ -86,7 +80,7 @@ const UniqueWhyNizcareSection = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 overflow-hidden">
+    <section className="py-12 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-stretch">
         
         {/* Why Nizcare */}

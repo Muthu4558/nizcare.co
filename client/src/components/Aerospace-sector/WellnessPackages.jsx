@@ -5,6 +5,7 @@ import EngImg from "../../assets/Ncd-Topics/Diabetes.jpg";
 import MfgImg from "../../assets/Ncd-Topics/Cardiovascular Diseases4.jpg";
 import FieldImg from "../../assets/Ncd-Topics/Chronic.jpg";
 import AdminImg from "../../assets/Ncd-Topics/Cancer.jpg";
+import { User2 } from "lucide-react";
 
 const packages = [
   {
@@ -46,7 +47,7 @@ const packages = [
   {
     id: "04",
     title: "Admin & Strategic Staff",
-    icon: <FaPeopleCarry className="text-white text-2xl" />,
+    icon: <User2 className="text-white text-2xl" />,
     img: AdminImg,
     benefits: [
       "Executive burnout workshops",
