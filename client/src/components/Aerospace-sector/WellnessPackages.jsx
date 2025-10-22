@@ -78,7 +78,7 @@ const WellnessPackagesCards = () => {
           className="text-3xl md:text-4xl font-bold mb-6"
           data-aos="fade-down"
         >
-          Nizcare <span className="text-teal-600">wellness programs</span>
+          Our Solution: Proactive, Data-Driven, and <span className="text-teal-600">Prevention-First</span>
         </h2>
 
         {/* Subtitle */}
@@ -87,7 +87,7 @@ const WellnessPackagesCards = () => {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Translate NCD risk data into actionable health habits.
+          Nizcare transforms care into a continuous health partner, focusing on prevention and early intervention. Our AI-driven risk assessments, personalized care plans, and integrated wellness platforms help identify risks early, reducing long-term costs and improving health outcomes.
         </p>
 
         {/* Grid of Cards */}
@@ -240,14 +240,14 @@ export default WellnessPackagesCards;
 //         </p>
 
 //         {/* Original Grid Cards */}
-//         <div 
+//         <div
 //         className="grid md:grid-cols-4 gap-2 mb-16"
 //               data-aos="zoom-in-up"
 //         >
 //           {packages.map((pkg, idx) => (
 //             <div
 //               key={idx}
-//               className="bg-white rounded-2xl shadow-md p-6 border-l-8 border-teal-600 
+//               className="bg-white rounded-2xl shadow-md p-6 border-l-8 border-teal-600
 // transition-all duration-500 ease-out hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-1"
 //               data-aos-delay={idx * 150}
 //             >
@@ -330,7 +330,7 @@ export default WellnessPackagesCards;
 //           data-aos="fade-up"
 //           data-aos-delay="100"
 //         >
-//           Managing NCDs isn’t a wellness cost—it’s strategic risk control.Nizcare helps you monitor, prevent, and manage workplace risks to protect people and productivity.  
+//           Managing NCDs isn’t a wellness cost—it’s strategic risk control.Nizcare helps you monitor, prevent, and manage workplace risks to protect people and productivity.
 //         </p>
 //       </div>
 //     </section>

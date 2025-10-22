@@ -86,7 +86,7 @@ const UniqueWhyNizcareSection = () => {
         {/* Why Nizcare */}
         <div data-aos="fade-left" className='bg-white p-8 rounded-2xl shadow-lg'>
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 text-center md:text-left">
-            Why <span className="text-teal-600">Nizcare?</span>
+            How Nizcare <span className="text-teal-600">Works</span>
           </h2>
           <ul className="space-y-6">
             {whyNizcare.map((item, idx) => (

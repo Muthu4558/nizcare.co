@@ -55,12 +55,11 @@ const Introduction = () => {
           data-aos="fade-up"
           data-aos-delay="300"
         >
-          Nizcare provides{" "}
+          Revolutionizing Healthcare for Aerospace Professionals
+
           <span className="font-semibold text-gray-900">
-            strategic wellness support
-          </span>{" "}
-          designed to secure the well-being, compliance, and sustained
-          productivity of your aerospace and defense workforce.
+            At Nizcare  
+          </span>, we understand the unique challenges faced by the Aerospace sector, where high-stress environments and demanding schedules can take a toll on employee health. That's why we've developed a comprehensive preventive care solution to support the well-being of your workforce
         </p>
 
         {/* Paragraph 2 */}

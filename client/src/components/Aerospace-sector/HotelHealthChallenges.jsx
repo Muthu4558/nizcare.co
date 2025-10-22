@@ -141,7 +141,7 @@ const HotelHealthChallenges = () => {
         className="text-lg text-slate-500 mb-10 text-center"
         data-aos="fade-up"
         data-aos-delay="100">
-        The Hidden Turbulence
+        In India, over 80% of the disease burden is preventable, yet healthcare remains largely reactive. This leads to costly claims, lost productivity, and decreased employee retention
       </p>
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {data.map((group, groupIdx) => (
