@@ -89,7 +89,7 @@ const SimplifiedHealthPackages = () => {
            Early Detection is Mission Control. We provide health check packages tailored to the specific risks of each job profile.
         </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="200">
         {data.map((group, idx) => (
           <div
             key={idx}

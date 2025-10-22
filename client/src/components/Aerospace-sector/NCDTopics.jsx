@@ -27,19 +27,27 @@ const ncdTopics = [
 
 const NCDTopics = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-in-out",
+      offset: 100,
+    });
   }, []);
 
   return (
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto text-center">
+        {/* Heading */}
         <h3
           className="text-3xl md:text-4xl font-bold mb-6"
-          data-aos="fade-up"
+          data-aos="fade-down"
         >
           The Hidden Cost of NCDs: Securing Your{" "}
           <span className="text-teal-600">Workforce and Operations</span>
         </h3>
+
+        {/* Intro Paragraph */}
         <p
           className="text-lg text-gray-500 mb-10"
           data-aos="fade-up"
@@ -51,6 +59,7 @@ const NCDTopics = () => {
           and turn health into a business advantage.
         </p>
 
+        {/* Swiper Slides */}
         <Swiper
           modules={[Navigation, Autoplay]}
           autoplay={{ delay: 4500, disableOnInteraction: false }}
@@ -65,7 +74,11 @@ const NCDTopics = () => {
         >
           {ncdTopics.map((topic, idx) => (
             <SwiperSlide key={idx}>
-              <div className="relative bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-500">
+              <div
+                className="relative bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-500"
+                data-aos="zoom-in"
+                data-aos-delay={idx * 100} // stagger slides
+              >
                 <img
                   src={topic.img}
                   alt={topic.title}
@@ -82,6 +95,7 @@ const NCDTopics = () => {
           ))}
         </Swiper>
 
+        {/* Outro Paragraph */}
         <p
           className="text-lg text-gray-500 mt-10"
           data-aos="fade-up"

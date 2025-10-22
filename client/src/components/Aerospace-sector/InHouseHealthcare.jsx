@@ -7,74 +7,57 @@ import Ambulance from '../../assets/Aero-sector-img/ambulance.png';
 
 const InHouseHealthcare = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out',
+      offset: 100,
+    });
   }, []);
 
   return (
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Banner with 3 image cards inside */}
+        {/* Banner with heading and intro */}
         <div
           className="bg-teal-600 text-white rounded-2xl px-6 py-12 text-center shadow-lg"
           data-aos="fade-up"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-down">
             Bring Healthcare In-House with{' '}
             <span className="text-yellow-400">Nizcare’s OHC</span>
           </h2>
-          <p className="text-lg text-white/90 max-w-4xl mx-auto mb-10">
+          <p className="text-lg text-white/90 max-w-4xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
             Empower your workplace with on-site medical care, wellness insights,
             and proactive health solutions—all tailored for your team.
           </p>
 
           {/* 3 Image Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Card 1 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-              <img
-                src={Ambulance}
-                alt="On-site medical team"
-                className="w-full h-60 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-teal-700 font-semibold text-lg">
-                  Ambulance
-                </h3>
+            {[{ img: Ambulance, title: 'Ambulance' }, { img: Doc, title: 'Doctor' }, { img: Nurse, title: 'Nurse' }].map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay={200 + idx * 150} // stagger animation for cards
+              >
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className="w-full h-60 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-teal-700 font-semibold text-lg">
+                    {card.title}
+                  </h3>
+                </div>
               </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-              <img
-                src={Doc}
-                alt="Emergency care setup"
-                className="w-full h-60 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-teal-700 font-semibold text-lg">
-                  Doctor
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-              <img
-                src={Nurse}
-                alt="Health monitoring"
-                className="w-full h-60 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-teal-700 font-semibold text-lg">
-                  Nurse
-                </h3>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Closing Message */}
-        <div data-aos="fade-up" className="mt-16 text-center">
+        <div data-aos="fade-up" data-aos-delay="100" className="mt-16 text-center">
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Nizcare delivers the precision and reliability required by the
             Aerospace sector. Partner with us to transform NCD risks into

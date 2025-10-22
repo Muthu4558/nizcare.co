@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaBriefcase, FaUsersCog, FaPeopleCarry } from "react-icons/fa";
 import { BsCheckCircleFill } from "react-icons/bs";
+import { User2 } from "lucide-react";
 import EngImg from "../../assets/Ncd-Topics/Diabetes.jpg";
 import MfgImg from "../../assets/Ncd-Topics/Cardiovascular Diseases4.jpg";
 import FieldImg from "../../assets/Ncd-Topics/Chronic.jpg";
 import AdminImg from "../../assets/Ncd-Topics/Cancer.jpg";
-import { User2 } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const packages = [
   {
@@ -59,12 +61,27 @@ const packages = [
 ];
 
 const WellnessPackagesCards = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        {/* Heading */}
+        <h2
+          className="text-3xl md:text-4xl font-bold mb-6"
+          data-aos="fade-down"
+        >
           Nizcare <span className="text-teal-600">wellness programs</span>
         </h2>
+
+        {/* Subtitle */}
         <p
           className="text-lg text-slate-500 mb-10"
           data-aos="fade-up"
@@ -79,6 +96,8 @@ const WellnessPackagesCards = () => {
             <div
               key={index}
               className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative"
+              data-aos="fade-up"
+              data-aos-delay={200 + index * 150} // stagger each card
             >
               {/* Image + Overlay */}
               <div className="relative overflow-hidden">
