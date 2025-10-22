@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Doc from '../../assets/Aero-sector-img/doctor.jpg';
-import Nurse from '../../assets/Aero-sector-img/nurse.jpg';
-import Ambulance from '../../assets/Aero-sector-img/Ambulance.png';
+import Doc from '../../assets/Aero-sector-img/doctor.png';
+import Nurse from '../../assets/Aero-sector-img/nurse.png';
+import Ambulance from '../../assets/Aero-sector-img/ambulance.png';
 
 const InHouseHealthcare = () => {
   useEffect(() => {
