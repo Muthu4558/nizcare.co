@@ -43,7 +43,7 @@ const ContactSection = () => {
           </div>
           <p className="text-base md:text-lg font-medium">
             <span className="text-gray-500">Phone:</span>{' '}
-            <a href="tel:+918148879313" className="text-green-600 hover:underline">
+            <a href="tel:+918148879313" className="text-green-600 hover:underline block">
               +91 8148879313
             </a>
           </p>
@@ -55,7 +55,7 @@ const ContactSection = () => {
           </div>
           <p className="text-base md:text-lg font-medium">
             <span className="text-gray-500">Visit:</span>{' '}
-            <a href="https://www.nizcare.com" className="text-cyan-600 hover:underline">
+            <a href="https://www.nizcare.com" className="text-cyan-600 hover:underline block">
               www.nizcare.com
             </a>
           </p>

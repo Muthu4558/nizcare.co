@@ -10,7 +10,7 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-br from-[#e0f7f4] via-white to-[#f0fcfb] text-center relative overflow-hidden">
+    <section className="bg-gradient-to-br from-[#e0f7f4] via-white to-[#f0fcfb] text-center relative overflow-hidden pt-10">
       {/* Heading */}
       <h2
         className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-10 drop-shadow-md"
@@ -30,9 +30,9 @@ const ContactSection = () => {
             <FaEnvelope className="text-white text-xl" />
           </div>
           <p className="text-base md:text-lg font-medium">
-            <span className="text-gray-500">Email:</span>{' '}
-            <a href="mailto:wellness@nizcare.co" className="text-blue-600 hover:underline">
-              <p>wellness@nizcare.co</p>
+            <span className="text-gray-500">Email:</span>{" "}
+            <a href="mailto:wellness@nizcare.co" className="text-blue-600 hover:underline block">
+              wellness@nizcare.co
             </a>
           </p>
         </div>
@@ -43,8 +43,8 @@ const ContactSection = () => {
           </div>
           <p className="text-base md:text-lg font-medium">
             <span className="text-gray-500">Phone:</span>{' '}
-            <a href="tel:+918148879313" className="text-green-600 hover:underline">
-              <p>+91 8148879313</p>
+            <a href="tel:+918148879313" className="text-green-600 hover:underline block">
+              +91 8148879313
             </a>
           </p>
         </div>
@@ -55,8 +55,8 @@ const ContactSection = () => {
           </div>
           <p className="text-base md:text-lg font-medium">
             <span className="text-gray-500">Visit:</span>{' '}
-            <a href="https://www.nizcare.com" className="text-cyan-600 hover:underline">
-              <p>www.nizcare.com</p>
+            <a href="https://www.nizcare.com" className="text-cyan-600 hover:underline block">
+              www.nizcare.com
             </a>
           </p>
         </div>
@@ -87,7 +87,7 @@ const ContactSection = () => {
       </div>
 
       {/* Decorative Background Circles */}
-      <div
+      {/* <div
         className="absolute w-40 h-40 bg-cyan-100 rounded-full opacity-30 top-10 left-10 blur-2xl"
         data-aos="zoom-in"
         data-aos-delay="500"
@@ -96,11 +96,11 @@ const ContactSection = () => {
         className="absolute w-60 h-60 bg-yellow-100 rounded-full opacity-30 bottom-10 right-10 blur-2xl"
         data-aos="zoom-in"
         data-aos-delay="600"
-      ></div>
+      ></div> */}
 
       {/* Footer */}
       <div className="bg-[#1f2429] mt-20 py-5 text-white text-sm font-medium">
-        Nizcare | Trusted by 100+ Hotels | Health that Serves Hospitality
+        Nizcare | Trusted by 100+ Aerospace Companies | Health that Serves Hospitality
       </div>
     </section>
   );
