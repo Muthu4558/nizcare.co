@@ -17,7 +17,7 @@ const Introduction = () => {
 
   return (
     <section
-      className="relative flex flex-col md:flex-row justify-between items-center px-6 md:px-30 py-20 md:py-28 overflow-hidden"
+      className="relative flex flex-col md:flex-row justify-between items-center gap-10 px-6 md:px-30 py-20 md:py-28 overflow-hidden"
       id="introduction-section"
     >
       {/* Decorative animated background blob */}
@@ -103,7 +103,7 @@ const Introduction = () => {
           loop
           muted
           playsInline
-          className="w-full max-w-md rounded-2xl shadow-lg"
+          className="rounded-xl shadow-lg object-cover"
           data-aos="zoom-in"
           data-aos-delay="500"
         />
