@@ -16,7 +16,7 @@ const ContactSection = () => {
         className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-10 drop-shadow-md"
         data-aos="fade-up"
       >
-        Let’s Make Your Hotel a <span className="text-teal-600">Healthier</span> Workplac
+        Let’s Make Your Hotel a <span className="text-teal-600">Healthier</span> Workplace
       </h2>
 
       {/* Contact Cards */}
