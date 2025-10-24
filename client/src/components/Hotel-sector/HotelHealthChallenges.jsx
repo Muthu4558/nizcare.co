@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaUserTie, FaUsersCog, FaUserNurse } from 'react-icons/fa';
-import { MdHealthAndSafety, MdOutlineLocalHospital, MdAccessTime } from 'react-icons/md';
-import { BiBrain, BiBody, BiDrink, BiCollapse, BiExpand } from 'react-icons/bi';
-import { GiStandingPotion, GiChemicalDrop, GiVirus } from 'react-icons/gi';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import Management from '../../assets/Hotel-sector-img/owners.jpeg';
-import Admin from '../../assets/Hotel-sector-img/reception.jpeg';
-import Front from '../../assets/Hotel-sector-img/frontline.jpeg';
+import { FaUserTie, FaUsersCog, FaUserNurse } from "react-icons/fa";
+import {
+  MdHealthAndSafety,
+  MdOutlineLocalHospital,
+  MdAccessTime,
+} from "react-icons/md";
+import { BiBrain, BiBody, BiDrink } from "react-icons/bi";
+import { GiStandingPotion, GiChemicalDrop, GiVirus } from "react-icons/gi";
+
+import Management from "../../assets/Hotel-sector-img/owners.jpeg";
+import Admin from "../../assets/Hotel-sector-img/reception.jpeg";
+import Front from "../../assets/Hotel-sector-img/frontline.jpeg";
 
 const data = [
   {
@@ -20,17 +24,20 @@ const data = [
       {
         title: "Chronic Lifestyle Conditions",
         icon: <MdHealthAndSafety />,
-        description: "High blood pressure, diabetes, and cardiac risk from sedentary lifestyle and stress.",
+        description:
+          "High blood pressure, diabetes, and cardiac risks from sedentary lifestyle and stress.",
       },
       {
         title: "Lack of Preventive Care",
         icon: <MdOutlineLocalHospital />,
-        description: "Skipped regular checkups due to busy schedules, leading to late diagnoses.",
+        description:
+          "Skipped regular checkups due to busy schedules, leading to late diagnoses.",
       },
       {
-        title: "Sleep Deprivation & Work-Life Imbalance",
+        title: "Sleep Deprivation & Imbalance",
         icon: <MdAccessTime />,
-        description: "Insomnia, mood swings, and reduced productivity from round-the-clock responsibilities.",
+        description:
+          "Insomnia, fatigue, and reduced productivity from constant workload and late hours.",
       },
     ],
   },
@@ -42,17 +49,20 @@ const data = [
       {
         title: "Mental Stress & Pressure",
         icon: <BiBrain />,
-        description: "Burnout, anxiety, and reduced focus from managing operations and people.",
+        description:
+          "Burnout, anxiety, and reduced focus from managing daily operations and teams.",
       },
       {
         title: "Prolonged Sitting & Poor Ergonomics",
         icon: <BiBody />,
-        description: "Neck stiffness, back pain, and posture-related issues due to desk jobs.",
+        description:
+          "Back pain and neck stiffness due to long desk hours and improper seating posture.",
       },
       {
-        title: "Irregular Meals & Poor Hydration",
+        title: "Irregular Meals & Hydration",
         icon: <BiDrink />,
-        description: "Digestive problems, fatigue, and weight fluctuations due to erratic schedules.",
+        description:
+          "Digestive issues, fatigue, and headaches caused by erratic eating and dehydration.",
       },
     ],
   },
@@ -62,58 +72,26 @@ const data = [
     icon: <FaUserNurse className="text-2xl text-gray-700" />,
     issues: [
       {
-        title: "Prolonged Standing & Physical Strain",
+        title: "Physical Strain & Fatigue",
         icon: <GiStandingPotion />,
-        description: "Muscle fatigue, back pain, and varicose veins from long hours on foot.",
+        description:
+          "Muscle pain, back strain, and varicose veins due to long hours of standing.",
       },
       {
-        title: "Exposure to Heat, Fumes & Chemicals",
+        title: "Exposure to Heat & Chemicals",
         icon: <GiChemicalDrop />,
-        description: "Respiratory issues, skin irritation, and dehydration from kitchens and cleaning agents.",
+        description:
+          "Respiratory and skin irritation from constant contact with fumes and cleaning agents.",
       },
       {
         title: "Infection & Hygiene Risks",
         icon: <GiVirus />,
-        description: "Higher exposure to infectious diseases due to guest interactions and shared spaces.",
+        description:
+          "High exposure to infectious diseases due to frequent guest interactions.",
       },
     ],
   },
 ];
-
-const AccordionItem = ({ title, icon, description, index, openIndex, setOpenIndex }) => {
-  const isOpen = openIndex === index;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          <span className='text-2xl text-amber-500'>{icon}</span> {title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-white px-4 py-3 text-gray-700 font-semibold text-sm shadow">
-              {description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
 
 const HotelHealthChallenges = () => {
   useEffect(() => {
@@ -121,48 +99,74 @@ const HotelHealthChallenges = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-16 px-6">
       <h2
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-slate-900"
         data-aos="fade-up"
       >
-        The Unseen Health Challenges in the <span className='text-teal-600'>Hotel Industry</span>
+        Hotel Employee <span className="text-teal-600">Health Challenges</span>
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        In the hospitality industry, long shifts, stress, and physical strain
+        contribute to a wide range of preventable health challenges. These
+        affect productivity, morale, and overall employee well-being.
+      </p>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => {
-          const [openIndex, setOpenIndex] = useState(null);
-
-          return (
-            <div
-              key={groupIdx}
-              className="bg-white rounded-2xl shadow p-4"
-              data-aos="zoom-in-up"
-              data-aos-delay={groupIdx * 100}
-            >
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {data.map((group, groupIdx) => (
+          <div
+            key={groupIdx}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-teal-400 overflow-hidden group flex flex-col"
+            data-aos="zoom-in-up"
+            data-aos-delay={groupIdx * 100}
+          >
+            {/* Image */}
+            <div className="overflow-hidden">
               <img
                 src={group.image}
                 alt={group.title}
-                className="rounded-lg mb-4 w-full h-92 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                {group.icon} {group.title}
-              </h3>
-
-              {/* {group.issues.map((issue, idx) => (
-                <AccordionItem
-                  key={idx}
-                  title={issue.title}
-                  icon={issue.icon}
-                  description={issue.description}
-                  index={idx}
-                  openIndex={openIndex}
-                  setOpenIndex={setOpenIndex}
-                />
-              ))} */}
             </div>
-          );
-        })}
+
+            {/* Card Content */}
+            <div className="p-6 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  {group.icon}
+                  {group.title}
+                </h3>
+
+                <div className="space-y-4">
+                  {group.issues.map((issue, idx) => (
+                    <div
+                      key={idx}
+                      className="border border-teal-600 transition-all duration-300 rounded-xl p-4 shadow-sm hover:shadow-md"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-teal-600 text-xl mt-1">
+                          {issue.icon}
+                        </span>
+                        <div>
+                          <h4 className="font-semibold text-sm text-teal-600">
+                            {issue.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                            {issue.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
