@@ -43,36 +43,38 @@ const Introduction = () => {
           data-aos-delay="200"
         >
           <HeartPulse className="text-teal-600 w-8 h-8" />
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Strategic Wellness,{" "}
-            <span className="text-teal-600">Elevated.</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            Empowering Workforces Through
+            <span className="text-teal-600"> Preventive Health Intelligence.</span>
           </h2>
         </div>
 
         {/* Paragraph 1 */}
         <p
-          className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6"
+          className="text-sm md:text-lg text-gray-700 leading-relaxed mb-6"
           data-aos="fade-up"
           data-aos-delay="300"
         >
-          Revolutionizing Healthcare for Aerospace Professionals
+          {/* Revolutionizing Healthcare for Aerospace Professionals */}
 
           <span className="font-semibold text-gray-900">
-            At Nizcare  
-          </span>, we understand the unique challenges faced by the Aerospace sector, where high-stress environments and demanding schedules can take a toll on employee health. That's why we've developed a comprehensive preventive care solution to support the well-being of your workforce
+            At Nizcare
+          </span>, we believe the future of employee health lies in prevention, not reaction. In every industry, rising cases of lifestyle and non-communicable diseases (NCDs) like diabetes, hypertension, and cardiac risks are quietly impacting productivity, morale, and profitability.
         </p>
 
         {/* Paragraph 2 */}
         <p
-          className="text-lg md:text-xl text-gray-700 leading-relaxed"
+          className="text-sm md:text-lg text-gray-700 leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          We offer{" "}
+          That’s why we’ve built{" "}
           <span className="font-semibold text-gray-900">
-            India’s only NCD-focused, digital health platform
+            India’s first NCD-focused,
           </span>{" "}
-          engineered for the high-precision demands of your sector.
+          digital preventive healthcare platform, combining advanced 
+          screening, real-time analytics, and company-specific wellness 
+          programs to keep your workforce not just healthy, but high-performing.
         </p>
 
         {/* CTA Button */}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Rocket, HeartPulse } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import wellnessImage from "../../assets/logo.png"; // replace with your image
+import wellnessVideo from "../../assets/Hotel-sector-img/hotel-intro.mp4"; // replace with your video file
 
 const Introduction = () => {
   useEffect(() => {
@@ -17,7 +17,7 @@ const Introduction = () => {
 
   return (
     <section
-      className="relative flex flex-col md:flex-row justify-between items-center px-6 md:px-30 py-20 md:py-28 overflow-hidden"
+      className="relative flex flex-col md:flex-row justify-between items-center gap-10 px-6 md:px-30 py-20 md:py-28 overflow-hidden"
       id="introduction-section"
     >
       {/* Decorative animated background blob */}
@@ -43,36 +43,38 @@ const Introduction = () => {
           data-aos-delay="200"
         >
           <HeartPulse className="text-teal-600 w-8 h-8" />
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Strategic Wellness,{" "}
-            <span className="text-teal-600">Elevated.</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            Empowering Workforces Through
+            <span className="text-teal-600"> Preventive Health Intelligence.</span>
           </h2>
         </div>
 
         {/* Paragraph 1 */}
         <p
-          className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6"
+          className="text-sm md:text-lg text-gray-700 leading-relaxed mb-6"
           data-aos="fade-up"
           data-aos-delay="300"
         >
-          Revolutionizing Healthcare for Aerospace Professionals
+          {/* Revolutionizing Healthcare for Aerospace Professionals */}
 
           <span className="font-semibold text-gray-900">
-            At Nizcare  
-          </span>, we understand the unique challenges faced by the Aerospace sector, where high-stress environments and demanding schedules can take a toll on employee health. That's why we've developed a comprehensive preventive care solution to support the well-being of your workforce
+            At Nizcare
+          </span>, we believe the future of employee health lies in prevention, not reaction. In every industry, rising cases of lifestyle and non-communicable diseases (NCDs) like diabetes, hypertension, and cardiac risks are quietly impacting productivity, morale, and profitability.
         </p>
 
         {/* Paragraph 2 */}
         <p
-          className="text-lg md:text-xl text-gray-700 leading-relaxed"
+          className="text-sm md:text-lg text-gray-700 leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          We offer{" "}
+          That’s why we’ve built{" "}
           <span className="font-semibold text-gray-900">
-            India’s only NCD-focused, digital health platform
+            India’s first NCD-focused,
           </span>{" "}
-          engineered for the high-precision demands of your sector.
+          digital preventive healthcare platform, combining advanced 
+          screening, real-time analytics, and company-specific wellness 
+          programs to keep your workforce not just healthy, but high-performing.
         </p>
 
         {/* CTA Button */}
@@ -87,9 +89,9 @@ const Introduction = () => {
         </div>
       </motion.div>
 
-      {/* Right Image Section */}
+      {/* Right Video Section */}
       <motion.div
-        className="flex-1 flex justify-center mt-10 md:mt-0"
+        className="flex-1 flex justify-center mt-10 md:mt-0 relative"
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -97,22 +99,25 @@ const Introduction = () => {
         data-aos="fade-left"
         data-aos-delay="300"
       >
-        <div className="relative" data-aos="zoom-in" data-aos-delay="500">
-          <img
-            src={wellnessImage}
-            alt="Nizcare Wellness Illustration"
-            className="w-full max-w-md rounded-2xl shadow-lg"
-          />
+        <video
+          src={wellnessVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="rounded-xl shadow-lg object-cover"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        />
 
-          {/* Floating decorative icon */}
-          <motion.div
-            className="absolute -top-6 -right-6 bg-white p-3 rounded-full shadow-md"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 3 }}
-          >
-            <Rocket className="text-teal-600 w-6 h-6" />
-          </motion.div>
-        </div>
+        {/* Floating decorative icon */}
+        <motion.div
+          className="absolute -top-6 -right-6 bg-white p-3 rounded-full shadow-md"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 3 }}
+        >
+          <Rocket className="text-teal-600 w-6 h-6" />
+        </motion.div>
       </motion.div>
     </section>
   );
