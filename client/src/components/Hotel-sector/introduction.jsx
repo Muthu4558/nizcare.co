@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Rocket, HeartPulse } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import wellnessImage from "../../assets/logo.png"; // replace with your image
+import wellnessVideo from "../../assets/Hotel-sector-img/hotel-intro.mp4"; // replace with your video file
 
 const Introduction = () => {
   useEffect(() => {
@@ -87,9 +87,9 @@ const Introduction = () => {
         </div>
       </motion.div>
 
-      {/* Right Image Section */}
+      {/* Right Video Section */}
       <motion.div
-        className="flex-1 flex justify-center mt-10 md:mt-0"
+        className="flex-1 flex justify-center mt-10 md:mt-0 relative"
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -97,22 +97,25 @@ const Introduction = () => {
         data-aos="fade-left"
         data-aos-delay="300"
       >
-        <div className="relative" data-aos="zoom-in" data-aos-delay="500">
-          <img
-            src={wellnessImage}
-            alt="Nizcare Wellness Illustration"
-            className="w-full max-w-md rounded-2xl shadow-lg"
-          />
+        <video
+          src={wellnessVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full max-w-md rounded-2xl shadow-lg"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        />
 
-          {/* Floating decorative icon */}
-          <motion.div
-            className="absolute -top-6 -right-6 bg-white p-3 rounded-full shadow-md"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 3 }}
-          >
-            <Rocket className="text-teal-600 w-6 h-6" />
-          </motion.div>
-        </div>
+        {/* Floating decorative icon */}
+        <motion.div
+          className="absolute -top-6 -right-6 bg-white p-3 rounded-full shadow-md"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 3 }}
+        >
+          <Rocket className="text-teal-600 w-6 h-6" />
+        </motion.div>
       </motion.div>
     </section>
   );

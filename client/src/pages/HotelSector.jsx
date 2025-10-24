@@ -9,7 +9,7 @@ import InHouseHealthcare from '../components/Hotel-sector/InHouseHealthcare';
 import WhatWillYouGain from '../components/Hotel-sector/UniqueWhyNizcareSection';
 import Footer from '../components/Hotel-sector/Footer';
 import BackgroundAnimation from "../components/BackgroundAnimation";
-import Introduction from '../components/Aerospace-sector/introduction';
+import Introduction from '../components/Hotel-sector/introduction';
 import NCDTopics from '../components/Aerospace-sector/NCDTopics';
 
 const HotelSector = () => {
