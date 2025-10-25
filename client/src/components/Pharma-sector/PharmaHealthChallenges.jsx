@@ -1,119 +1,101 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaUserTie, FaUsersCog, FaUserNurse, FaUserMd, FaCog, FaHardHat } from 'react-icons/fa';
-import { MdHealthAndSafety, MdOutlineLocalHospital, MdAccessTime } from 'react-icons/md';
-import { BiBrain, BiBody, BiDrink, BiCollapse, BiExpand } from 'react-icons/bi';
-import { GiStandingPotion, GiChemicalDrop, GiVirus, GiGloves } from 'react-icons/gi';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import lab from '../../assets/Pharma-sector-img/LabTechnicians.jpeg';
-import manufacture from '../../assets/Pharma-sector-img/Manufacturing.jpeg';
-import corporate from '../../assets/Pharma-sector-img/Corporate.jpeg';
+import {
+  FaUserTie,
+  FaUsersCog,
+  FaUserMd,
+} from "react-icons/fa";
+import {
+  MdHealthAndSafety,
+  MdOutlineLocalHospital,
+  MdAccessTime,
+} from "react-icons/md";
+import { BiBrain, BiBody, BiDrink } from "react-icons/bi";
+import { GiStandingPotion, GiChemicalDrop, GiVirus } from "react-icons/gi";
+
+import Lab from "../../assets/Pharma-sector-img/LabTechnicians.jpeg";
+import Manufacturing from "../../assets/Pharma-sector-img/Manufacturing.jpeg";
+import Corporate from "../../assets/Pharma-sector-img/Corporate.jpeg";
 
 const data = [
   {
     title: "Lab Technicians & Quality Control Teams",
-    image: lab,
+    image: Lab,
     icon: <FaUserMd className="text-2xl text-gray-700" />,
     issues: [
       {
         title: "Chemical exposure",
         icon: <MdHealthAndSafety />,
-        description: "Constant handling of solvents/reagents leads to skin, respiratory, or liver issues.",
+        description:
+          "Constant handling of solvents and reagents may lead to skin, respiratory, or liver issues.",
       },
       {
         title: "Visual & posture strain",
         icon: <MdOutlineLocalHospital />,
-        description: "Prolonged microscope and computer use impacts vision and spine.",
+        description:
+          "Prolonged microscope and computer use impacts vision and spine health.",
       },
       {
         title: "Stress & fatigue",
         icon: <MdAccessTime />,
-        description: "Precision pressure in sterile zones causes burnout.",
+        description:
+          "Precision pressure and sterile lab environments cause mental fatigue and burnout.",
       },
     ],
   },
   {
     title: "Manufacturing & Production Floor Workers",
-    image: manufacture,
-    icon: <FaCog className="text-2xl text-gray-700" />,
+    image: Manufacturing,
+    icon: <FaUsersCog className="text-2xl text-gray-700" />,
     issues: [
       {
         title: "Musculoskeletal issues",
         icon: <BiBrain />,
-        description: "Long hours of standing or repetitive tasks strain back, wrists, and knees.",
+        description:
+          "Long hours of standing or repetitive tasks strain back, wrists, and knees.",
       },
       {
         title: "Noise-induced stress",
         icon: <BiBody />,
-        description: "High decibel machinery leads to fatigue and potential hearing damage.",
+        description:
+          "Continuous exposure to machinery noise leads to fatigue and potential hearing damage.",
       },
       {
         title: "Dust/chemical exposure",
         icon: <BiDrink />,
-        description: "Especially during powder-based production or packaging.",
+        description:
+          "Exposure to powder-based materials during production or packaging can cause respiratory issues.",
       },
     ],
   },
   {
     title: "Corporate, Sales & Regulatory Executives",
-    image: corporate,
+    image: Corporate,
     icon: <FaUserTie className="text-2xl text-gray-700" />,
     issues: [
       {
-        title: "Mental Stress & Burnout",
+        title: "Mental stress & burnout",
         icon: <GiVirus />,
-        description: "Due to audit pressure, targets, and constant deadlines.",
+        description:
+          "High-pressure targets, audits, and deadlines contribute to chronic stress.",
       },
       {
         title: "Travel fatigue",
         icon: <GiStandingPotion />,
-        description: "Long commutes and frequent travel reduce immunity and increase fatigue.",
+        description:
+          "Frequent travel and long commutes lead to poor rest and reduced immunity.",
       },
       {
         title: "Lifestyle disorders",
         icon: <GiChemicalDrop />,
-        description: "Desk jobs contribute to diabetes, hypertension, and obesity.",
+        description:
+          "Sedentary work styles contribute to diabetes, hypertension, and obesity.",
       },
     ],
   },
 ];
-
-const AccordionItem = ({ title, icon, description, index, openIndex, setOpenIndex }) => {
-  const isOpen = openIndex === index;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          <span className='text-2xl text-amber-500'>{icon}</span> {title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-white px-4 py-3 text-gray-700 font-semibold text-sm shadow">
-              {description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
 
 const PharmaHealthChallenges = () => {
   useEffect(() => {
@@ -121,48 +103,74 @@ const PharmaHealthChallenges = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-16 px-6">
       <h2
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-slate-900"
         data-aos="fade-up"
       >
-        The People Behind the Pill – <span className='text-teal-600'>And Their Hidden Health Risks</span>
+        Pharma Employee <span className="text-teal-600">Health Challenges</span>
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => {
-          const [openIndex, setOpenIndex] = useState(null);
+      <p
+        className="text-lg text-slate-500 mb-10 text-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Pharmaceutical professionals face unique occupational health challenges — from
+        chemical exposure in labs to stress and fatigue in corporate environments.
+      </p>
 
-          return (
-            <div
-              key={groupIdx}
-              className="bg-white rounded-2xl shadow p-4"
-              data-aos="zoom-in-up"
-              data-aos-delay={groupIdx * 100}
-            >
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {data.map((group, groupIdx) => (
+          <div
+            key={groupIdx}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-teal-400 overflow-hidden group flex flex-col"
+            data-aos="zoom-in-up"
+            data-aos-delay={groupIdx * 100}
+          >
+            {/* Image */}
+            <div className="overflow-hidden">
               <img
                 src={group.image}
                 alt={group.title}
-                className="rounded-lg mb-4 w-full h-92 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                {group.icon} {group.title}
-              </h3>
-
-              {/* {group.issues.map((issue, idx) => (
-                <AccordionItem
-                  key={idx}
-                  title={issue.title}
-                  icon={issue.icon}
-                  description={issue.description}
-                  index={idx}
-                  openIndex={openIndex}
-                  setOpenIndex={setOpenIndex}
-                />
-              ))} */}
             </div>
-          );
-        })}
+
+            {/* Card Content */}
+            <div className="p-6 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  {group.icon}
+                  {group.title}
+                </h3>
+
+                <div className="space-y-4">
+                  {group.issues.map((issue, idx) => (
+                    <div
+                      key={idx}
+                      className="border border-teal-600 transition-all duration-300 rounded-xl p-4 shadow-sm hover:shadow-md"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-teal-600 text-xl mt-1">
+                          {issue.icon}
+                        </span>
+                        <div>
+                          <h4 className="font-semibold text-sm text-teal-600">
+                            {issue.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                            {issue.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
