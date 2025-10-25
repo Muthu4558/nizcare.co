@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import {
   FaUserTie,
   FaUsersCog,
@@ -10,20 +11,9 @@ import {
   FaHeadphonesAlt,
   FaBrain,
   FaTint,
-  FaDesktop
 } from 'react-icons/fa';
-import {
-  MdOutlineLocalDrink
-} from 'react-icons/md';
-import {
-  GiSleepy
-} from 'react-icons/gi';
-import {
-  BiCollapse,
-  BiExpand
-} from 'react-icons/bi';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { MdOutlineLocalDrink } from 'react-icons/md';
+import { GiSleepy } from 'react-icons/gi';
 
 import Management from '../../assets/fertilizer-sector-img/2.jpg';
 import Admin from '../../assets/fertilizer-sector-img/3.jpg';
@@ -31,107 +21,36 @@ import Front from '../../assets/fertilizer-sector-img/1.jpg';
 
 const data = [
   {
-    title: "Plant Operations & Shift Workers",
+    title: 'Plant Operations & Shift Workers',
     image: Management,
     icon: <FaUserTie className="text-2xl text-gray-700" />,
     issues: [
-      {
-        title: "Respiratory issues",
-        icon: <FaLungs />,
-        description: "Constant exposure to ammonia, urea, and dust",
-      },
-      {
-        title: "Fatigue & Sleep Disorders",
-        icon: <GiSleepy />,
-        description: "Long shifts and night duties",
-      },
-      {
-        title: "Skin Irritations or Burns",
-        icon: <FaBurn />,
-        description: "Chemical handling without proper safety breaks",
-      },
+      { title: 'Respiratory issues', icon: <FaLungs />, description: 'Constant exposure to ammonia, urea, and dust' },
+      { title: 'Fatigue & Sleep Disorders', icon: <GiSleepy />, description: 'Long shifts and night duties' },
+      { title: 'Skin Irritations or Burns', icon: <FaBurn />, description: 'Chemical handling without proper safety breaks' },
     ],
   },
   {
-    title: "Maintenance & Technical Staff",
+    title: 'Maintenance & Technical Staff',
     image: Admin,
     icon: <FaUsersCog className="text-2xl text-gray-700" />,
     issues: [
-      {
-        title: "Musculoskeletal strain",
-        icon: <FaBolt />,
-        description: "Repetitive lifting, bending, awkward postures",
-      },
-      {
-        title: "Eye strain or injury",
-        icon: <FaDesktop />,
-        description: "Prolonged focus, welding light exposure",
-      },
-      {
-        title: "Hearing loss",
-        icon: <FaHeadphonesAlt />,
-        description: "High-noise environments from machinery",
-      },
+      { title: 'Musculoskeletal strain', icon: <FaBolt />, description: 'Repetitive lifting, bending, awkward postures' },
+      { title: 'Eye strain or injury', icon: <MdOutlineLocalDrink />, description: 'Prolonged focus, welding light exposure' },
+      { title: 'Hearing loss', icon: <FaHeadphonesAlt />, description: 'High-noise environments from machinery' },
     ],
   },
   {
-    title: "Supervisory & Administrative Staff",
+    title: 'Supervisory & Administrative Staff',
     image: Front,
     icon: <FaUserNurse className="text-2xl text-gray-700" />,
     issues: [
-      {
-        title: "Mental fatigue & burnout",
-        icon: <FaBrain />,
-        description: "High-pressure decision-making",
-      },
-      {
-        title: "Hypertension/Diabetes",
-        icon: <FaTint />,
-        description: "Sedentary work style + stress",
-      },
-      {
-        title: "Eye strain & headaches",
-        icon: <MdOutlineLocalDrink />,
-        description: "Screen-heavy workloads",
-      },
+      { title: 'Mental fatigue & burnout', icon: <FaBrain />, description: 'High-pressure decision-making' },
+      { title: 'Hypertension/Diabetes', icon: <FaTint />, description: 'Sedentary work style + stress' },
+      { title: 'Eye strain & headaches', icon: <MdOutlineLocalDrink />, description: 'Screen-heavy workloads' },
     ],
   },
 ];
-
-const AccordionItem = ({ title, icon, description, index, openIndex, setOpenIndex }) => {
-  const isOpen = openIndex === index;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          <span className='text-2xl text-amber-500'>{icon}</span> {title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-white px-4 py-3 text-gray-700 font-semibold text-sm shadow">
-              {description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
 
 const HotelHealthChallenges = () => {
   useEffect(() => {
@@ -139,48 +58,65 @@ const HotelHealthChallenges = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-16 px-6">
       <h2
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-slate-900"
         data-aos="fade-up"
       >
-        Feeding the Nation, Facing the Pressure: <span className='text-teal-600'>Fertilizer Workforce Risks Uncovered</span>
+        Fertilizer Employee <span className="text-teal-600">Health Problems</span>
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        In industrial fertilizer plants, employees face high exposure to chemicals, long shifts, and physically demanding tasks. Addressing these health challenges ensures safer, more productive workforces.
+      </p>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => {
-          const [openIndex, setOpenIndex] = useState(null);
-
-          return (
-            <div
-              key={groupIdx}
-              className="bg-white rounded-2xl shadow p-4"
-              data-aos="zoom-in-up"
-              data-aos-delay={groupIdx * 100}
-            >
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {data.map((group, groupIdx) => (
+          <div
+            key={groupIdx}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-teal-400 overflow-hidden group flex flex-col"
+            data-aos="zoom-in-up"
+            data-aos-delay={groupIdx * 100}
+          >
+            {/* Image */}
+            <div className="overflow-hidden">
               <img
                 src={group.image}
                 alt={group.title}
-                className="rounded-lg mb-4 w-full h-92 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                {group.icon} {group.title}
-              </h3>
-
-              {/* {group.issues.map((issue, idx) => (
-                <AccordionItem
-                  key={idx}
-                  title={issue.title}
-                  icon={issue.icon}
-                  description={issue.description}
-                  index={idx}
-                  openIndex={openIndex}
-                  setOpenIndex={setOpenIndex}
-                />
-              ))} */}
             </div>
-          );
-        })}
+
+            {/* Card Content */}
+            <div className="p-6 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  {group.icon} {group.title}
+                </h3>
+
+                <div className="space-y-4">
+                  {group.issues.map((issue, idx) => (
+                    <div
+                      key={idx}
+                      className="border border-teal-600 transition-all duration-300 rounded-xl p-4 shadow-sm hover:shadow-md"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-teal-600 text-xl mt-1">{issue.icon}</span>
+                        <div>
+                          <h4 className="font-semibold text-sm text-teal-600">{issue.title}</h4>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">{issue.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

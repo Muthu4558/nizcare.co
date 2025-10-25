@@ -26,16 +26,16 @@ const HeroSection = () => {
     });
 
     useEffect(() => {
-        AOS.init({ duration: 1000 });
+        AOS.init({
+            duration: 1200,
+            once: true,
+            easing: 'ease-in-out'
+        });
     }, []);
 
     const handleChange = (field, value) => {
         if (field === 'state') {
-            setFormData(prev => ({
-                ...prev,
-                state: value,
-                district: ''
-            }));
+            setFormData(prev => ({ ...prev, state: value, district: '' }));
             return;
         }
 
@@ -70,11 +70,8 @@ const HeroSection = () => {
                 body: JSON.stringify(formData),
             });
             const data = await res.json();
-            if (res.ok) {
-                setIsSubmitted(true);
-            } else {
-                console.error(data);
-            }
+            if (res.ok) setIsSubmitted(true);
+            else console.error(data);
         } catch (error) {
             console.error('Error submitting form:', error);
         } finally {
@@ -84,9 +81,9 @@ const HeroSection = () => {
 
     if (isSubmitted) {
         return (
-            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-teal-200 to-green-100 px-6 text-center">
-                <h1 className="text-5xl font-bold mb-4">🎉 Thank you!</h1>
-                <p className="text-lg">We will get in touch with you shortly.</p>
+            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-teal-200 to-green-100 px-6 text-center" data-aos="zoom-in">
+                <h1 className="text-5xl font-bold mb-4" data-aos="fade-down">🎉 Thank you!</h1>
+                <p className="text-lg" data-aos="fade-up" data-aos-delay="200">We will get in touch with you shortly.</p>
             </div>
         );
     }
@@ -103,29 +100,35 @@ const HeroSection = () => {
                 src={logo}
                 alt="Logo"
                 className="absolute top-4 right-4 md:left-4 w-32 md:w-40 z-10"
+                data-aos="fade-down"
+                data-aos-delay="200"
             />
 
             <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center mt-5">
-                <div className="text-white space-y-6 px-4">
+                {/* Left Section (Text) */}
+                <div className="text-white space-y-6 px-4" data-aos="fade-right" data-aos-delay="200">
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                         Fueling Fertilizer Plants with the Power of Wellness
                     </h1>
-                    <p className="text-lg max-w-md">
+                    <p className="text-lg max-w-md" data-aos="fade-up" data-aos-delay="400">
                         Empowering your workforce, enriching your yield.
                     </p>
                 </div>
 
+                {/* Right Section (Form) */}
                 <form
                     onSubmit={handleSubmit}
                     className="bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-lg border border-white/30 space-y-6"
                     data-aos="fade-left"
+                    data-aos-delay="300"
                 >
-                    <h2 className="text-2xl text-white font-bold text-center mb-2">
+                    <h2 className="text-2xl text-white font-bold text-center mb-2" data-aos="zoom-in">
                         Schedule a Demo
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <p className='hidden md:hidden'>Hotel</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-aos="fade-up" data-aos-delay="400">
+                        <p className="hidden md:hidden">Fertilizer</p>
+
                         <input
                             type="text"
                             placeholder="Company Name *"
@@ -151,9 +154,7 @@ const HeroSection = () => {
                         >
                             <option value="">Select State *</option>
                             {Object.keys(india).map((state) => (
-                                <option key={state} value={state}>
-                                    {state}
-                                </option>
+                                <option key={state} value={state}>{state}</option>
                             ))}
                         </select>
 
@@ -165,12 +166,9 @@ const HeroSection = () => {
                             disabled={!formData.state}
                         >
                             <option value="">Select District *</option>
-                            {formData.state &&
-                                india[formData.state].map((district) => (
-                                    <option key={district} value={district}>
-                                        {district}
-                                    </option>
-                                ))}
+                            {formData.state && india[formData.state].map((district) => (
+                                <option key={district} value={district}>{district}</option>
+                            ))}
                         </select>
 
                         <input
@@ -190,9 +188,7 @@ const HeroSection = () => {
                             required
                         />
                         <div className="flex items-center bg-white/90 rounded-md overflow-hidden">
-                            <span className="px-3 text-gray-700 font-semibold border-r border-gray-300">
-                                +91
-                            </span>
+                            <span className="px-3 text-gray-700 font-semibold border-r border-gray-300">+91</span>
                             <input
                                 type="text"
                                 placeholder="Mobile Number *"
@@ -220,6 +216,8 @@ const HeroSection = () => {
                         type="submit"
                         disabled={loading}
                         className={`w-full py-3 rounded-xl bg-gradient-to-r from-orange-400 to-yellow-400 text-white font-bold shadow-md transition duration-300 hover:scale-105 ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
+                        data-aos="zoom-in-up"
+                        data-aos-delay="500"
                     >
                         {loading ? "Submitting..." : "Submit"}
                     </button>
