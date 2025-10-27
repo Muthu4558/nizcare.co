@@ -1,170 +1,204 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {FaUsersCog,FaUserShield,FaRegBuilding,FaUserCheck,FaWrench,FaLaptop, FaTools, FaPeopleCarry,
-} from 'react-icons/fa';
-import {GiHealthIncrease,GiMineWagon,GiElectric,GiMechanicalArm,GiDiamondHard,GiMiner, GiFurnace, GiConsoleController, GiRetroController, GiToolbox, GiCargoCrane,} 
-
-from 'react-icons/gi';
-import { BiCollapse, BiExpand } from 'react-icons/bi';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import {
+  FaRegBuilding,
+  FaTools,
+  FaPeopleCarry,
+  FaUserShield,
+  FaUserCheck,
+  FaWrench,
+  FaUsersCog,
+} from "react-icons/fa";
+import {
+  GiHealthIncrease,
+  GiFurnace,
+  GiElectric,
+  GiToolbox,
+  GiCargoCrane,
+} from "react-icons/gi";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const data = [
   {
-    title: 'Furnace & Production Line Workers',
-    icon: <GiFurnace className="text-xl text-black" />,
+    title: "Furnace & Production Line Workers",
+    icon: <GiFurnace className="text-xl text-amber-500" />,
     issues: [
       {
-        title: 'Daily-shift workers, helpers',
-        icon: <FaPeopleCarry className="text-xl text-amber-400" />,
-        descriptionTittle: 'SteelShield Basic',
-        description: 'Core Paramters: CBC, Blood Pressure, BMI, Pulse, Respiratory Rate ',
+        title: "SteelShield Basic",
+        description:
+          "CBC",
       },
       {
-        title: 'Welders, Operators',
-        icon: <GiToolbox className="text-xl text-amber-400" />,
-        descriptionTittle: 'SteelShield plus+',
-        description: 'Core Paramters: All Basic + Liver Function, Kidney Profile, Chest X-Ray  ',
+        title: "SteelShield Basic",
+        description:
+          "Blood Pressure",
+      },{
+        title: "SteelShield Basic",
+        description:
+          "BMI",
+      },{
+        title: "SteelShield Basic",
+        description:
+          "Pulse",
+      },{
+        title: "SteelShield Basic",
+        description:
+          "Respiratory Rate",
       },
       {
-        title: 'Supervisors, Senior Line Staff',
-        icon: <GiHealthIncrease className="text-xl text-amber-400" />,
-        descriptionTittle: 'SteelShield Max',
-        description: 'Core Paramters: All Plus + ECG, Spirometry, Audiometry, Fatigue Index',
+        title: "SteelShield Plus+",
+        description:
+          "All Basic + Liver Function, Kidney Profile, Chest X-Ray",
+      },
+      {
+        title: "SteelShield Max",
+        description:
+          "All Plus + ECG, Spirometry, Audiometry, Fatigue Index",
       },
     ],
   },
   {
-    title: 'Maintenance & Logistics Staff',
-    icon: <FaTools className="text-xl text-black" />,
+    title: "Maintenance & Logistics Staff",
+    icon: <FaTools className="text-xl text-amber-500" />,
     issues: [
       {
-        title: 'Material handlers, Fitters',
-        icon: <GiElectric className="text-xl text-amber-400" />,
-        descriptionTittle: 'IronGuard Basic',
-        description: 'Core Parameters: CBC, BP, BMI, Vision, Audiometry',
+        title: "IronGuard Basic",
+        description:
+          "CBC",
       },
       {
-        title: 'Technicians, Mechanics',
-        icon: <FaWrench className="text-xl text-amber-400" />,
-        descriptionTittle: 'IronGuard Plus',
-        description: 'Core Parameters: All Basic + Joint X-Ray, Nerve Function Test, ECG ',
+        title: "IronGuard Basic",
+        description:
+          "BP",
       },
       {
-        title: 'Shift Leaders, Crane Heads',
-        icon: <GiCargoCrane className="text-xl text-amber-400" />,
-        descriptionTittle: 'IronGuard Max',
-        description: 'Core Parameters: All Plus + Vitamin D, Stress Markers, Ergonomic Risk Scan',
+        title: "IronGuard Basic",
+        description:
+          "BMI",
+      },
+      {
+        title: "IronGuard Basic",
+        description:
+          "Vision",
+      },
+      {
+        title: "IronGuard Basic",
+        description:
+          "Audiometry",
+      },
+      {
+        title: "IronGuard Plus",
+        description:
+          " All Basic + Joint X-Ray, Nerve Function Test, ECG",
+      },
+      {
+        title: "IronGuard Max",
+        description:
+          " All Plus + Vitamin D, Stress Markers, Ergonomic Risk Scan",
       },
     ],
   },
   {
-    title: 'Admin & QA/QC Employees',
-    icon: <FaRegBuilding className="text-xl text-black" />,
+    title: "Admin & QA/QC Employees",
+    icon: <FaRegBuilding className="text-xl text-amber-500" />,
     issues: [
       {
-        title: 'Office Staff, Data Entry',
-        icon: <FaUsersCog className="text-xl text-amber-400" />,
-        descriptionTittle: 'SmartDesk Basic',
-        description: 'Core Parameters: CBC, BMI, Blood Sugar, BP, Eye Test',
+        title: "SmartDesk Basic",
+        description:
+          " CBC",
       },
       {
-        title: 'QA Inspectors, Admin Execs',
-        icon: <FaUserCheck className="text-xl text-amber-400" />,
-        descriptionTittle: 'SmartDesk Plus',
-        description: 'Core Parameters: All Basic + Lipid Profile, ECG, Liver Function, Spine Screening',
+        title: "SmartDesk Basic",
+        description:
+          " BMI",
       },
       {
-        title: 'Mid-level Managers',
-        icon: <FaUserShield className="text-xl text-amber-500" />,
-        descriptionTittle: 'SmartDesk Max',
-        description: 'Core Parameters: All Plus + Mental Health Evaluation, Stress Scan, Vitamin Panel',
+        title: "SmartDesk Basic",
+        description:
+          "  Blood Sugar",
+      },
+      {
+        title: "SmartDesk Basic",
+        description:
+          "  BP",
+      },
+      {
+        title: "SmartDesk Basic",
+        description:
+          " Eye Test",
+      },
+      {
+        title: "SmartDesk Plus",
+        description:
+          " All Basic + Lipid Profile, ECG, Liver Function, Spine Screening",
+      },
+      {
+        title: "SmartDesk Max",
+        description:
+          " All Plus + Mental Health Evaluation, Stress Scan, Vitamin Panel",
       },
     ],
   },
 ];
 
-const AccordionItem = ({ item, idx, openIndex, setOpenIndex }) => {
-  const isOpen = idx === openIndex;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : idx)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          {item.icon}
-          {item.title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && item.description && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-teal-50 px-4 mt-4 text-[15px] font-semibold rounded-t-md shadow text-green-800">
-              {item.descriptionTittle}
-            </div>
-            <div className="bg-gray-50 px-4 py-3 font-semibold text-gray-800 text-sm whitespace-pre-line rounded-b-md shadow">
-              {item.description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const HealthPackagesAccordion = () => {
-  const [openIndexes, setOpenIndexes] = useState(data.map(() => 0));
-
+const SteelHealthPackagesSimplified = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-12 px-6">
       <h2
-        className="text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-bold text-center mb-4"
         data-aos="fade-up"
       >
-        Tailored Health Checks. Built for Steel. Designed for Duty.
+        Tailored <span className="text-teal-600">Health Check-ups</span> for
+        Every Steel Role
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => (
+      <p
+        className="text-lg text-slate-500 mb-10 text-center max-w-3xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Precision health assessments crafted for the unique duties of the
+        steel industry workforce — from furnaces to offices.
+      </p>
+
+      <div
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        {data.map((group, idx) => (
           <div
-            key={groupIdx}
-            className="bg-white rounded-2xl shadow-lg p-6"
-            data-aos="zoom-in-up"
-            data-aos-delay={groupIdx * 100}
+            key={idx}
+            className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 flex flex-col h-[420px] hover:shadow-xl transition-all duration-300"
           >
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            {/* Title */}
+            <h3 className="text-xl font-semibold text-teal-600 mb-4 flex items-center gap-2">
               {group.icon}
               {group.title}
             </h3>
 
-            {group.issues.map((issue, idx) => (
-              <AccordionItem
-                key={idx}
-                item={issue}
-                idx={idx}
-                openIndex={openIndexes[groupIdx]}
-                setOpenIndex={(newIndex) => {
-                  const updated = [...openIndexes];
-                  updated[groupIdx] = newIndex;
-                  setOpenIndexes(updated);
-                }}
-              />
-            ))}
+            {/* Scrollable Issues List */}
+            <div className="overflow-y-auto pr-2 custom-scrollbar">
+              <ul className="space-y-3">
+                {group.issues.map((issue, i) => (
+                  <li
+                    key={i}
+                    className="bg-teal-50 px-4 py-3 rounded-lg text-sm font-medium text-gray-800 shadow-sm transition"
+                  >
+                    <div className="font-semibold text-teal-700">
+                      {/* {issue.title} */}
+                    </div>
+                    <p className="text-gray-700 text-xs mt-1 leading-snug">
+                      {issue.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
@@ -172,4 +206,26 @@ const HealthPackagesAccordion = () => {
   );
 };
 
-export default HealthPackagesAccordion;
+// Custom Scrollbar Styling
+const styles = `
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(13, 148, 136, 0.4);
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(13, 148, 136, 0.7);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+`;
+
+export default () => (
+  <>
+    <style>{styles}</style>
+    <SteelHealthPackagesSimplified />
+  </>
+);
