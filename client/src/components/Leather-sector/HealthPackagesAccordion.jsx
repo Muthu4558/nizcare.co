@@ -1,176 +1,199 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {FaBoxes,} from 'react-icons/fa';
+import React, { useEffect } from "react";
 import {
-  GiHealthCapsule, GiStrong,
+  GiChemicalTank,
+  GiSewingMachine,
   GiHealthNormal,
   GiChemicalDrop,
-  GiStandingPotion,
   GiShield,
-  GiSewingMachine,
+  GiStandingPotion,
+  GiHealthCapsule,
+  GiStrong,
   GiWeightLiftingUp,
-  GiChemicalTank,
-} from 'react-icons/gi';
-import { BiBody, BiCollapse, BiExpand } from 'react-icons/bi';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+} from "react-icons/gi";
+import { FaBoxes } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const data = [
   {
-  title: 'Tannery Workers',
-  icon: <GiChemicalTank className="text-xl text-black" />,
-  issues: [
-    {
-      title: 'Basic Shield',
-      icon: <GiHealthNormal className="text-xl text-amber-400" />,
-      descriptionTittle: 'BP, Sugar, BMI, Skin Check, Eye Check',
-      description: 'Daily exposure-line workers',
-    },
-    {
-      title: 'Chemical Exposure Scan',
-      icon: <GiChemicalDrop className="text-xl text-amber-400" />,
-      descriptionTittle: 'Above + Pulmonary Function Test, Urine Analysis, Liver & Kidney Panel',
-      description: 'Drum operators, chemical handlers',
-    },
-    {
-      title: 'Total Tannery Wellness',
-      icon: <GiShield className="text-xl text-amber-400" />,
-      descriptionTittle: 'Above + Chest X-ray, Audiometry, ECG, Dermatology consult',
-      description: 'Long-term tannery staff & senior operators',
-    },
-  ],
-},
+    title: "Tannery Workers",
+    icon: <GiChemicalTank className="text-xl text-gray-700" />,
+    issues: [
+      {
+        title: "Basic Shield",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "BP",
+      },
+      {
+        title: "Basic Shield",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Sugar",
+      },
+      {
+        title: "Basic Shield",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "BMI",
+      },
+      {
+        title: "Basic Shield",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Skin Check",
+      },
+      {
+        title: "Basic Shield",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Eye Check",
+      },
+      {
+        title: "Chemical Exposure Scan",
+        icon: <GiChemicalDrop className="text-amber-500 text-lg" />,
+        descriptionTittle:
+          "Above + Pulmonary Function Test, Urine Analysis, Liver & Kidney Panel",
+      },
+      {
+        title: "Total Tannery Wellness",
+        icon: <GiShield className="text-amber-500 text-lg" />,
+        descriptionTittle:
+          "Above + Chest X-ray, Audiometry, ECG, Dermatology Consult",
+      },
+    ],
+  },
   {
-  title: 'Stitching Line Workers',
-  icon: <GiSewingMachine className="text-xl text-black" />,
-  issues: [
-    {
-      title: 'Vision & Vital Care',
-      icon: <BiBody className="text-xl text-amber-400" />,
-      descriptionTittle: 'BP, Sugar, Eye Check, Ergonomic Assessment',
-      description: 'Tailors & machine operators',
-    },
-    {
-      title: 'Focus & Flexibility',
-      icon: <GiStandingPotion className="text-xl text-amber-400" />,
-      descriptionTittle: 'Above + Posture Screening, Neck/Spine Mobility Test, Vitamin D Panel',
-      description: 'Employees with 6+ months in stitching lines',
-    },
-    {
-      title: 'Complete Sewing Wellness',
-      icon: <GiHealthCapsule className="text-xl text-amber-400" />,
-      descriptionTittle: 'Above + CBC, ECG, Physical Therapy Consult, Mental Health Screening',
-      description: 'Lead stitchers, high-performing workers',
-    },
-  ],
-},
+    title: "Stitching Line Workers",
+    icon: <GiSewingMachine className="text-xl text-gray-700" />,
+    issues: [
+      {
+        title: "Vision & Vital Care",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "BP",
+      },
+      {
+        title: "Vision & Vital Care",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Sugar",
+      },
+      {
+        title: "Vision & Vital Care",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Eye Check",
+      },
+      {
+        title: "Vision & Vital Care",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Ergonomic Assessment",
+      },
+      {
+        title: "Focus & Flexibility",
+        icon: <GiStandingPotion className="text-amber-500 text-lg" />,
+        descriptionTittle:
+          "Above + Posture Screening, Neck/Spine Mobility Test, Vitamin D Panel",
+      },
+      {
+        title: "Complete Sewing Wellness",
+        icon: <GiHealthCapsule className="text-amber-500 text-lg" />,
+        descriptionTittle:
+          "Above + CBC, ECG, Physical Therapy Consult, Mental Health Screening",
+      },
+    ],
+  },
   {
-  title: 'Packing & Dispatch Staff',
-  icon: <FaBoxes className="text-xl text-black" />,
-  issues: [
-    {
-      title: 'Basic Fit Check',
-      icon: <GiHealthNormal className="text-xl text-amber-400" />,
-      descriptionTittle: 'BP, Sugar, Hydration Check, Eye Test',
-      description: 'Loading & packing assistants',
-    },
-    {
-      title: 'Lift Smart Panel',
-      icon: <GiStrong className="text-xl text-amber-400" />,
-      descriptionTittle: 'Above + Back/Posture Exam, ECG, Vitamin Profile',
-      description: 'Manual material handlers',
-    },
-    {
-      title: 'Warehouse Wellness Max',
-      icon: <GiWeightLiftingUp className="text-xl text-amber-400" />,
-      descriptionTittle: 'Above + Kidney Function Test, X-ray Spine, Fitness & Injury Risk Assessment',
-      description: 'Supervisors, full-shift handlers',
-    },
-  ],
-}
+    title: "Packing & Dispatch Staff",
+    icon: <FaBoxes className="text-xl text-gray-700" />,
+    issues: [
+      {
+        title: "Basic Fit Check",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "BP",
+      },
+      {
+        title: "Basic Fit Check",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Sugar",
+      },
+      {
+        title: "Basic Fit Check",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Hydration Check",
+      },
+      {
+        title: "Basic Fit Check",
+        icon: <GiHealthNormal className="text-amber-500 text-lg" />,
+        descriptionTittle: "Eye Test",
+      },
+      {
+        title: "Lift Smart Panel",
+        icon: <GiStrong className="text-amber-500 text-lg" />,
+        descriptionTittle:
+          "Above + Back/Posture Exam, ECG, Vitamin Profile",
+      },
+      {
+        title: "Warehouse Wellness Max",
+        icon: <GiWeightLiftingUp className="text-amber-500 text-lg" />,
+        descriptionTittle:
+          "Above + Kidney Function Test, X-ray Spine, Fitness & Injury Risk Assessment",
+      },
+    ],
+  },
 ];
 
-const AccordionItem = ({ item, idx, openIndex, setOpenIndex }) => {
-  const isOpen = idx === openIndex;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : idx)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          {item.icon}
-          {item.title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && item.description && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-teal-50 px-4 mt-4 text-[15px] font-semibold rounded-t-md shadow text-green-800">
-              {item.descriptionTittle}
-            </div>
-            <div className="bg-gray-50 px-4 py-3 font-semibold text-gray-800 text-sm whitespace-pre-line rounded-b-md shadow">
-              {item.description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const HealthPackagesAccordion = () => {
-  const [openIndexes, setOpenIndexes] = useState(data.map(() => 0));
-
+const LeatherHealthPackages = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-16 px-6">
       <h2
-        className="text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-bold text-center mb-4"
         data-aos="fade-up"
       >
-        Precision Health Checkups – Tailored for Every Leather Role
+        Precision <span className="text-teal-600">Health Checkups</span> – Tailored for Leather Teams
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center max-w-3xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        From chemical exposure to posture strain, each role faces unique health
+        challenges. Our tailored screening packages ensure early detection and
+        long-term workforce wellness.
+      </p>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => (
+      <div
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        {data.map((group, idx) => (
           <div
-            key={groupIdx}
-            className="bg-white rounded-2xl shadow-lg p-6"
-            data-aos="zoom-in-up"
-            data-aos-delay={groupIdx * 100}
+            key={idx}
+            className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 flex flex-col h-[420px]"
           >
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            {/* Header */}
+            <h3 className="text-xl font-semibold text-teal-600 mb-4 flex items-center gap-2">
               {group.icon}
               {group.title}
             </h3>
 
-            {group.issues.map((issue, idx) => (
-              <AccordionItem
-                key={idx}
-                item={issue}
-                idx={idx}
-                openIndex={openIndexes[groupIdx]}
-                setOpenIndex={(newIndex) => {
-                  const updated = [...openIndexes];
-                  updated[groupIdx] = newIndex;
-                  setOpenIndexes(updated);
-                }}
-              />
-            ))}
+            {/* Scrollable issues */}
+            <div className="overflow-y-auto pr-2 custom-scrollbar">
+              <ul className="space-y-3">
+                {group.issues.map((issue, i) => (
+                  <li
+                    key={i}
+                    className="bg-teal-50 px-4 py-2 rounded-lg text-sm text-gray-800 flex flex-col"
+                  >
+                    <div className="flex items-center gap-2 font-semibold mb-1 text-slate-800">
+                      {/* {issue.icon} */}
+                      {/* {issue.title} */}
+                    </div>
+                    <p className="text-xs text-slate-600 leading-snug">
+                      {issue.descriptionTittle}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
@@ -178,4 +201,26 @@ const HealthPackagesAccordion = () => {
   );
 };
 
-export default HealthPackagesAccordion;
+// Custom scrollbar styles
+const styles = `
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(13, 148, 136, 0.4);
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(13, 148, 136, 0.7);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+`;
+
+export default () => (
+  <>
+    <style>{styles}</style>
+    <LeatherHealthPackages />
+  </>
+);
