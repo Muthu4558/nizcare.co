@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {FaBusinessTime,} from 'react-icons/fa';
+import React, { useEffect } from 'react';
 import {
   GiHealthNormal,
   GiShield,
@@ -13,167 +11,317 @@ import {
   GiRunningNinja,
   GiPathDistance,
 } from 'react-icons/gi';
-import {BiCollapse, BiExpand } from 'react-icons/bi';
+import { FaBusinessTime } from 'react-icons/fa';
+import { MdOutlineWork } from 'react-icons/md';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { MdOutlineWork } from 'react-icons/md';
 
 const data = [
   {
-  title: 'Branch-Level Operations',
-  icon: <GiBank className="text-xl text-black" />,
-  issues: [
-    {
-      title: 'Smart Shield',
-      icon: <GiHealthNormal className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: BP, BMI, CBC, RBS, Eye Check',
-      description: 'Cashiers, Tellers, Sales Reps',
-    },
-    {
-      title: 'DeskCare Plus',
-      icon: <GiStethoscope className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: ECG, LFT, Lipid Profile, Vitamin D, HbA1c',
-      description: 'Senior Front Office',
-    },
-    {
-      title: 'Prime Wellness Pro',
-      icon: <GiHealthIncrease className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: TMT, Kidney Profile, Liver Function, Stress ECG, Eye OCT',
-      description: 'Branch Managers & Team Leads',
-    },
-  ],
-},
+    title: 'Branch-Level Operations',
+    icon: <GiBank className="text-xl text-black" />,
+    issues: [
+      {
+        title: 'Smart Shield',
+        icon: <GiHealthNormal className="text-lg text-amber-500" />,
+        descriptionTittle: 'BP, BMI, CBC, RBS',
+        description: 'Cashiers, Tellers, Sales Reps',
+      },
+      {
+        title: 'Smart Shield',
+        icon: <GiHealthNormal className="text-lg text-amber-500" />,
+        descriptionTittle: 'Eye Check',
+        description: 'Cashiers, Tellers, Sales Reps',
+      },
+      {
+        title: 'DeskCare Plus',
+        icon: <GiStethoscope className="text-lg text-amber-500" />,
+        descriptionTittle: 'ECG, LFT',
+        description: 'Senior Front Office',
+      },
+      {
+        title: 'DeskCare Plus',
+        icon: <GiStethoscope className="text-lg text-amber-500" />,
+        descriptionTittle: 'Lipid Profile',
+        description: 'Senior Front Office',
+      },
+      {
+        title: 'DeskCare Plus',
+        icon: <GiStethoscope className="text-lg text-amber-500" />,
+        descriptionTittle: 'Vitamin D',
+        description: 'Senior Front Office',
+      },
+      {
+        title: 'DeskCare Plus',
+        icon: <GiStethoscope className="text-lg text-amber-500" />,
+        descriptionTittle: 'HbA1c',
+        description: 'Senior Front Office',
+      },
+      {
+        title: 'Prime Wellness Pro',
+        icon: <GiHealthIncrease className="text-lg text-amber-500" />,
+        descriptionTittle: 'TMT',
+        description: 'Branch Managers & Team Leads',
+      },
+      {
+        title: 'Prime Wellness Pro',
+        icon: <GiHealthIncrease className="text-lg text-amber-500" />,
+        descriptionTittle: 'Kidney Profile',
+        description: 'Branch Managers & Team Leads',
+      },
+      {
+        title: 'Prime Wellness Pro',
+        icon: <GiHealthIncrease className="text-lg text-amber-500" />,
+        descriptionTittle: 'Liver Function',
+        description: 'Branch Managers & Team Leads',
+      },
+      {
+        title: 'Prime Wellness Pro',
+        icon: <GiHealthIncrease className="text-lg text-amber-500" />,
+        descriptionTittle: 'Stress ECG',
+        description: 'Branch Managers & Team Leads',
+      },
+      {
+        title: 'Prime Wellness Pro',
+        icon: <GiHealthIncrease className="text-lg text-amber-500" />,
+        descriptionTittle: 'Eye OCT',
+        description: 'Branch Managers & Team Leads',
+      },
+    ],
+  },
   {
-  title: 'Corporate & IT Staff',
-  icon: <MdOutlineWork className="text-xl text-black" />,
-  issues: [
-    {
-      title: 'ScreenSafe Basic',
-      icon: <GiComputerFan className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: CBC, FBS, LFT, Eye Check, ECG',
-      description: 'Entry-Level Analysts',
-    },
-    {
-      title: 'Stress Buster Elite',
-      icon: <GiBrain className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: TSH, Lipid, HbA1c, Vitamin B12/D, Liver Panel, Mental Wellness Survey',
-      description: 'Mid-level Management',
-    },
-    {
-      title: 'ExecCare Premium',
-      icon: <GiStarMedal className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: TMT, Cardiac Markers, Kidney/Liver Panel, Thyroid, Mental Health Eval',
-      description: 'CXOs, Senior Managers',
-    },
-  ],
-},
+    title: 'Corporate & IT Staff',
+    icon: <MdOutlineWork className="text-xl text-black" />,
+    issues: [
+      {
+        title: 'ScreenSafe Basic',
+        icon: <GiComputerFan className="text-lg text-amber-500" />,
+        descriptionTittle: 'CBC, FBS, LFT',
+        description: 'Entry-Level Analysts',
+      },
+      {
+        title: 'ScreenSafe Basic',
+        icon: <GiComputerFan className="text-lg text-amber-500" />,
+        descriptionTittle: 'Eye Check',
+        description: 'Entry-Level Analysts',
+      },
+      {
+        title: 'ScreenSafe Basic',
+        icon: <GiComputerFan className="text-lg text-amber-500" />,
+        descriptionTittle: 'ECG',
+        description: 'Entry-Level Analysts',
+      },
+      {
+        title: 'Stress Buster Elite',
+        icon: <GiBrain className="text-lg text-amber-500" />,
+        descriptionTittle: 'TSH',
+        description: 'Mid-level Management',
+      },
+      {
+        title: 'Stress Buster Elite',
+        icon: <GiBrain className="text-lg text-amber-500" />,
+        descriptionTittle: 'Lipid',
+        description: 'Mid-level Management',
+      },
+      {
+        title: 'Stress Buster Elite',
+        icon: <GiBrain className="text-lg text-amber-500" />,
+        descriptionTittle: 'HbA1c',
+        description: 'Mid-level Management',
+      },
+      {
+        title: 'Stress Buster Elite',
+        icon: <GiBrain className="text-lg text-amber-500" />,
+        descriptionTittle: 'Vitamin B12/D',
+        description: 'Mid-level Management',
+      },
+      {
+        title: 'Stress Buster Elite',
+        icon: <GiBrain className="text-lg text-amber-500" />,
+        descriptionTittle: 'Liver Panel',
+        description: 'Mid-level Management',
+      },
+      {
+        title: 'Stress Buster Elite',
+        icon: <GiBrain className="text-lg text-amber-500" />,
+        descriptionTittle: 'Mental Wellness Survey',
+        description: 'Mid-level Management',
+      },
+      {
+        title: 'ExecCare Premium',
+        icon: <GiStarMedal className="text-lg text-amber-500" />,
+        descriptionTittle: 'TMT',
+        description: 'CXOs, Senior Managers',
+      },
+      {
+        title: 'ExecCare Premium',
+        icon: <GiStarMedal className="text-lg text-amber-500" />,
+        descriptionTittle: 'Cardiac Markers',
+        description: 'CXOs, Senior Managers',
+      },
+      {
+        title: 'ExecCare Premium',
+        icon: <GiStarMedal className="text-lg text-amber-500" />,
+        descriptionTittle: 'Kidney/Liver Panel, Thyroid',
+        description: 'CXOs, Senior Managers',
+      },
+      {
+        title: 'ExecCare Premium',
+        icon: <GiStarMedal className="text-lg text-amber-500" />,
+        descriptionTittle: 'Mental Health Eval',
+        description: 'CXOs, Senior Managers',
+      },
+    ],
+  },
   {
-  title: 'Field & Marketing Force',
-  icon: <FaBusinessTime className="text-xl text-black" />,
-  issues: [
-    {
-      title: 'FieldFit Starter',
-      icon: <GiRunningNinja className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: BP, CBC, Vitamin D, Eye Test, Random Sugar',
-      description: 'Sales Trainees, Interns',
-    },
-    {
-      title: 'RoadSafe Plus',
-      icon: <GiPathDistance className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: Lipid Profile, HbA1c, ECG, Vision, Orthopedic Screening',
-      description: 'Executives & Field Staff',
-    },
-    {
-      title: 'TotalShield Max',
-      icon: <GiShield className="text-xl text-amber-400" />,
-      descriptionTittle: 'Core parameters: TMT, Cardiac Risk Markers, Liver/Kidney, X-Ray, Fatigue Index',
-      description: 'Regional Managers, Seniors',
-    },
-  ],
-}
+    title: 'Field & Marketing Force',
+    icon: <FaBusinessTime className="text-xl text-black" />,
+    issues: [
+      {
+        title: 'FieldFit Starter',
+        icon: <GiRunningNinja className="text-lg text-amber-500" />,
+        descriptionTittle: 'BP, CBC',
+        description: 'Sales Trainees, Interns',
+      },
+      {
+        title: 'FieldFit Starter',
+        icon: <GiRunningNinja className="text-lg text-amber-500" />,
+        descriptionTittle: 'Vitamin D',
+        description: 'Sales Trainees, Interns',
+      },
+      {
+        title: 'FieldFit Starter',
+        icon: <GiRunningNinja className="text-lg text-amber-500" />,
+        descriptionTittle: 'Eye Test',
+        description: 'Sales Trainees, Interns',
+      },
+      {
+        title: 'FieldFit Starter',
+        icon: <GiRunningNinja className="text-lg text-amber-500" />,
+        descriptionTittle: 'Random Sugar',
+        description: 'Sales Trainees, Interns',
+      },
+      {
+        title: 'RoadSafe Plus',
+        icon: <GiPathDistance className="text-lg text-amber-500" />,
+        descriptionTittle: 'Lipid Profile, HbA1c',
+        description: 'Executives & Field Staff',
+      },
+      {
+        title: 'RoadSafe Plus',
+        icon: <GiPathDistance className="text-lg text-amber-500" />,
+        descriptionTittle: 'ECG',
+        description: 'Executives & Field Staff',
+      },
+      {
+        title: 'RoadSafe Plus',
+        icon: <GiPathDistance className="text-lg text-amber-500" />,
+        descriptionTittle: 'ECG',
+        description: 'Executives & Field Staff',
+      },
+      {
+        title: 'RoadSafe Plus',
+        icon: <GiPathDistance className="text-lg text-amber-500" />,
+        descriptionTittle: 'Vision',
+        description: 'Executives & Field Staff',
+      },
+      {
+        title: 'RoadSafe Plus',
+        icon: <GiPathDistance className="text-lg text-amber-500" />,
+        descriptionTittle: 'Ortho Screening',
+        description: 'Executives & Field Staff',
+      },
+      {
+        title: 'TotalShield Max',
+        icon: <GiShield className="text-lg text-amber-500" />,
+        descriptionTittle: 'TMT',
+        description: 'Regional Managers, Seniors',
+      },
+      {
+        title: 'TotalShield Max',
+        icon: <GiShield className="text-lg text-amber-500" />,
+        descriptionTittle: 'Cardiac Risk Markers',
+        description: 'Regional Managers, Seniors',
+      },
+      {
+        title: 'TotalShield Max',
+        icon: <GiShield className="text-lg text-amber-500" />,
+        descriptionTittle: 'Liver/Kidney',
+        description: 'Regional Managers, Seniors',
+      },
+      {
+        title: 'TotalShield Max',
+        icon: <GiShield className="text-lg text-amber-500" />,
+        descriptionTittle: 'X-Ray',
+        description: 'Regional Managers, Seniors',
+      },
+      {
+        title: 'TotalShield Max',
+        icon: <GiShield className="text-lg text-amber-500" />,
+        descriptionTittle: 'Fatigue Index',
+        description: 'Regional Managers, Seniors',
+      },
+    ],
+  },
 ];
 
-const AccordionItem = ({ item, idx, openIndex, setOpenIndex }) => {
-  const isOpen = idx === openIndex;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : idx)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          {item.icon}
-          {item.title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && item.description && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-teal-50 px-4 mt-4 text-[15px] font-semibold rounded-t-md shadow text-green-800">
-              {item.descriptionTittle}
-            </div>
-            <div className="bg-gray-50 px-4 py-3 font-semibold text-gray-800 text-sm whitespace-pre-line rounded-b-md shadow">
-              {item.description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const HealthPackagesAccordion = () => {
-  const [openIndexes, setOpenIndexes] = useState(data.map(() => 0));
-
+const HealthPackagesGrid = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-12 px-4">
       <h2
-        className="text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-bold text-center mb-10"
         data-aos="fade-up"
       >
-        Tiered Health Check-ups Built for the Banking Backbone
+        Tiered <span className="text-teal-600">Health Check-ups</span> Built for the Banking Backbone
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => (
+      <p
+        className="text-lg text-slate-500 mb-10 text-center max-w-3xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        From tellers to top management — discover health packages customized for every responsibility tier.
+      </p>
+
+      <div
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        {data.map((group, idx) => (
           <div
-            key={groupIdx}
-            className="bg-white rounded-2xl shadow-lg p-6"
-            data-aos="zoom-in-up"
-            data-aos-delay={groupIdx * 100}
+            key={idx}
+            className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 flex flex-col h-[420px]"
           >
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-teal-600 mb-4 flex items-center gap-2">
               {group.icon}
               {group.title}
             </h3>
 
-            {group.issues.map((issue, idx) => (
-              <AccordionItem
-                key={idx}
-                item={issue}
-                idx={idx}
-                openIndex={openIndexes[groupIdx]}
-                setOpenIndex={(newIndex) => {
-                  const updated = [...openIndexes];
-                  updated[groupIdx] = newIndex;
-                  setOpenIndexes(updated);
-                }}
-              />
-            ))}
+            <div className="overflow-y-auto pr-2 custom-scrollbar">
+              <ul className="space-y-3">
+                {group.issues.map((issue, i) => (
+                  <li
+                    key={i}
+                    className="bg-teal-50 px-4 py-3 rounded-lg text-sm text-gray-800 shadow-sm border border-teal-100"
+                  >
+                    <div className="flex items-center gap-2 mb-1 font-medium">
+                      {/* {issue.icon} */}
+                      {/* <span>{issue.title}</span> */}
+                    </div>
+                    <div className="text-gray-700 text-[13px] leading-snug">
+                      {issue.descriptionTittle}
+                      {/* <br /> */}
+                      {/* <strong>For:</strong> {issue.description} */}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
@@ -181,4 +329,26 @@ const HealthPackagesAccordion = () => {
   );
 };
 
-export default HealthPackagesAccordion;
+// Custom scrollbar styles
+const styles = `
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(13, 148, 136, 0.4);
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(13, 148, 136, 0.7);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+`;
+
+export default () => (
+  <>
+    <style>{styles}</style>
+    <HealthPackagesGrid />
+  </>
+);
