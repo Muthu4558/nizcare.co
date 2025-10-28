@@ -1,170 +1,110 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {FaUsersCog,FaUserShield,FaRegBuilding,FaUserCheck,FaWrench,FaLaptop, FaTools, FaPeopleCarry,
-} from 'react-icons/fa';
-import {GiHealthIncrease,GiMineWagon,GiElectric,GiMechanicalArm,GiDiamondHard,GiMiner, GiFurnace, GiConsoleController, GiRetroController, GiToolbox, GiCargoCrane,} 
-
-from 'react-icons/gi';
-import { BiCollapse, BiExpand } from 'react-icons/bi';
+import React, { useEffect } from 'react';
+import { GiFurnace, GiCargoCrane, GiHealthIncrease, GiToolbox } from 'react-icons/gi';
+import { FaTools, FaUsersCog, FaUserShield, FaUserCheck, FaRegBuilding, FaWrench, FaPeopleCarry } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const data = [
   {
-    title: 'For Production Floor Workers:',
-    icon: <GiFurnace className="text-xl text-black" />,
+    title: 'For Production Floor Workers',
+    icon: <GiFurnace className="text-xl" />,
     issues: [
-      {
-        title: 'SpinCare Basic',
-        icon: <FaPeopleCarry className="text-xl text-amber-400" />,
-        descriptionTittle: 'CBC, RBS, BMI, BP, Lung Function Test',
-        description: 'Entry-level workers, stitchers',
-      },
-      {
-        title: 'SpinCare Plus',
-        icon: <GiToolbox className="text-xl text-amber-400" />,
-        descriptionTittle: 'ECG, Spirometry, Audiometry, Vision, Liver & Renal Profile',
-        description: 'Machine operators',
-      },
-      {
-        title: 'SpinCare Advanced',
-        icon: <GiHealthIncrease className="text-xl text-amber-400" />,
-        descriptionTittle: 'Full Body Check, Ergonomic Assessment, Chest X-Ray',
-        description: 'Shift supervisors, senior workers',
-      },
+      { title: 'SpinCare Basic', descriptionTittle: 'CBC' },
+      { title: 'SpinCare Basic', descriptionTittle: 'RBS' },
+      { title: 'SpinCare Basic', descriptionTittle: 'BMI' },
+      { title: 'SpinCare Basic', descriptionTittle: 'BP' },
+      { title: 'SpinCare Basic', descriptionTittle: 'Lung Function Test' },
+      { title: 'SpinCare Plus', descriptionTittle: 'ECG' },
+      { title: 'SpinCare Plus', descriptionTittle: 'Spirometry, Audiometry' },
+      { title: 'SpinCare Plus', descriptionTittle: 'Vision' },
+      { title: 'SpinCare Plus', descriptionTittle: 'Liver & Renal Profile' },
+      { title: 'SpinCare Advanced', descriptionTittle: 'Full Body Check, Ergonomic Assessment, Chest X-Ray' },
     ],
   },
   {
     title: 'For Dyeing & Chemical Unit',
-    icon: <FaTools className="text-xl text-black" />,
+    icon: <FaTools className="text-xl" />,
     issues: [
-      {
-        title: 'ChemShield Basic',
-        icon: <GiElectric className="text-xl text-amber-400" />,
-        descriptionTittle: 'CBC, Skin Allergy Panel, Urinalysis',
-        description: 'Chemical helpers, boiler attendants',
-      },
-      {
-        title: 'ChemShield Plus',
-        icon: <FaWrench className="text-xl text-amber-400" />,
-        descriptionTittle: 'Spirometry, Liver Panel, Blood Lead Levels, Vision Test',
-        description: 'Dyeing machine operators',
-      },
-      {
-        title: 'ChemShield Advanced',
-        icon: <GiCargoCrane className="text-xl text-amber-400" />,
-        descriptionTittle: 'ECG, Chest X-Ray, Lung Function Test, Kidney Profile',
-        description: 'Senior lab techs, QC',
-      },
+      { title: 'ChemShield Basic', descriptionTittle: 'CBC' },
+      { title: 'ChemShield Basic', descriptionTittle: 'Skin Allergy Panel' },
+      { title: 'ChemShield Basic', descriptionTittle: 'Urinalysis' },
+      { title: 'ChemShield Plus', descriptionTittle: 'Spirometry' },
+      { title: 'ChemShield Plus', descriptionTittle: 'Liver Panel' },
+      { title: 'ChemShield Plus', descriptionTittle: 'Blood Lead Levels' },
+      { title: 'ChemShield Plus', descriptionTittle: 'Vision Test' },
+      { title: 'ChemShield Advanced', descriptionTittle: 'ECG' },
+      { title: 'ChemShield Advanced', descriptionTittle: 'Chest X-Ray' },
+      { title: 'ChemShield Advanced', descriptionTittle: 'Lung Function Test' },
+      { title: 'ChemShield Advanced', descriptionTittle: 'Kidney Profile' },
     ],
   },
   {
     title: 'For Supervisors & Admin Staff',
-    icon: <FaRegBuilding className="text-xl text-black" />,
+    icon: <FaRegBuilding className="text-xl" />,
     issues: [
-      {
-        title: 'DeskFit Basic',
-        icon: <FaUsersCog className="text-xl text-amber-400" />,
-        descriptionTittle: 'BP, BMI, RBS, Eye Check',
-        description: ' Office assistants',
-      },
-      {
-        title: 'DeskFit Plus',
-        icon: <FaUserCheck className="text-xl text-amber-400" />,
-        descriptionTittle: 'Lipid Profile, ECG, Liver Function',
-        description: 'Line managers, HR',
-      },
-      {
-        title: 'DeskFit Advanced',
-        icon: <FaUserShield className="text-xl text-amber-500" />,
-        descriptionTittle: 'TMT, Cardiac Risk Markers, Stress Assessment',
-        description: 'Senior admin, QC heads',
-      },
+      { title: 'DeskFit Basic', descriptionTittle: 'BP' },
+      { title: 'DeskFit Basic', descriptionTittle: 'BMI' },
+      { title: 'DeskFit Basic', descriptionTittle: 'RBS' },
+      { title: 'DeskFit Basic', descriptionTittle: 'Eye Check' },
+      { title: 'DeskFit Plus', descriptionTittle: 'Lipid Profile' },
+      { title: 'DeskFit Plus', descriptionTittle: 'ECG' },
+      { title: 'DeskFit Plus', descriptionTittle: 'Liver Function' },
+      { title: 'DeskFit Advanced', descriptionTittle: 'TMT' },
+      { title: 'DeskFit Advanced', descriptionTittle: 'Cardiac Risk Markers' },
+      { title: 'DeskFit Advanced', descriptionTittle: 'Stress Assessment' },
     ],
   },
 ];
 
-const AccordionItem = ({ item, idx, openIndex, setOpenIndex }) => {
-  const isOpen = idx === openIndex;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : idx)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          {item.icon}
-          {item.title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && item.description && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-teal-50 px-4 mt-4 text-[15px] font-semibold rounded-t-md shadow text-green-800">
-              {item.descriptionTittle}
-            </div>
-            <div className="bg-gray-50 px-4 py-3 font-semibold text-gray-800 text-sm whitespace-pre-line rounded-b-md shadow">
-              {item.description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const HealthPackagesAccordion = () => {
-  const [openIndexes, setOpenIndexes] = useState(data.map(() => 0));
-
+const TextileHealthPackages = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-12 px-4">
       <h2
-        className="text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-bold text-center mb-4"
         data-aos="fade-up"
       >
-        Health Woven Right – Tiered Checkups for Every Thread.
+        <span className="text-teal-600">Health Woven Right</span> – Tiered Checkups for Every Thread
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center max-w-3xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Preventive care tailored for every role in the textile ecosystem — from the spinning floor to the supervisor’s desk.
+      </p>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => (
+      <div
+        className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        {data.map((group, idx) => (
           <div
-            key={groupIdx}
-            className="bg-white rounded-2xl shadow-lg p-6"
-            data-aos="zoom-in-up"
-            data-aos-delay={groupIdx * 100}
+            key={idx}
+            className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 flex flex-col h-[400px]"
           >
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-teal-600 mb-4 flex items-center gap-2">
               {group.icon}
               {group.title}
             </h3>
 
-            {group.issues.map((issue, idx) => (
-              <AccordionItem
-                key={idx}
-                item={issue}
-                idx={idx}
-                openIndex={openIndexes[groupIdx]}
-                setOpenIndex={(newIndex) => {
-                  const updated = [...openIndexes];
-                  updated[groupIdx] = newIndex;
-                  setOpenIndexes(updated);
-                }}
-              />
-            ))}
+            <div className="overflow-y-auto pr-2 custom-scrollbar">
+              <ul className="space-y-3">
+                {group.issues.map((issue, i) => (
+                  <li
+                    key={i}
+                    className="bg-teal-50 px-4 py-2 rounded-lg text-sm font-medium text-gray-800"
+                  >
+                    {/* <span className="text-amber-500 font-semibold mr-2">{issue.title}:</span> */}
+                    {issue.descriptionTittle}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
@@ -172,4 +112,26 @@ const HealthPackagesAccordion = () => {
   );
 };
 
-export default HealthPackagesAccordion;
+// ✅ Custom scrollbar style
+const styles = `
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(13, 148, 136, 0.4);
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(13, 148, 136, 0.7);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+`;
+
+export default () => (
+  <>
+    <style>{styles}</style>
+    <TextileHealthPackages />
+  </>
+);
