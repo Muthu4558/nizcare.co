@@ -1,141 +1,133 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { BiCollapse, BiExpand } from 'react-icons/bi';
-import { FaIndustry, FaUserTie, FaShip, FaShieldAlt } from "react-icons/fa";
-import { GiBodyHeight, GiHeatHaze, GiBandageRoll, GiNightSleep, GiHeartOrgan, GiPsychicWaves, GiBurningEye, GiWeightScale, GiBrain, GiSpinalCoil } from "react-icons/gi";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import dock from '../../assets/Shipping-sector-img/dock.jpeg';
-import maritime from '../../assets/Shipping-sector-img/maritime.jpeg';
-import admin from '../../assets/Shipping-sector-img/admin.jpeg';
-import security from '../../assets/Shipping-sector-img/security.jpeg';
+import {
+  FaIndustry,
+  FaUserTie,
+  FaShip,
+  FaShieldAlt,
+} from "react-icons/fa";
+import {
+  GiBodyHeight,
+  GiHeatHaze,
+  GiBandageRoll,
+  GiNightSleep,
+  GiHeartOrgan,
+  GiPsychicWaves,
+  GiBurningEye,
+  GiWeightScale,
+  GiBrain,
+  GiSpinalCoil,
+} from "react-icons/gi";
+
+import dock from "../../assets/Shipping-sector-img/dock.jpeg";
+import maritime from "../../assets/Shipping-sector-img/maritime.jpeg";
+import admin from "../../assets/Shipping-sector-img/admin.jpeg";
+import security from "../../assets/Shipping-sector-img/security.jpeg";
 
 const data = [
   {
     title: "Dock & Cargo Workers",
-    image: dock, // keep existing image
+    image: dock,
     icon: <FaIndustry className="text-2xl text-gray-700" />,
     issues: [
       {
         title: "Musculoskeletal Disorders",
         icon: <GiBodyHeight />,
-        description: "Lifting heavy cargo and repetitive movements lead to joint and muscle strain.",
+        description:
+          "Lifting heavy cargo and repetitive movements lead to joint and muscle strain.",
       },
       {
         title: "Heat Stress & Dehydration",
         icon: <GiHeatHaze />,
-        description: "Working outdoors for long hours in hot environments increases dehydration risks.",
+        description:
+          "Working outdoors for long hours in hot environments increases dehydration risks.",
       },
       {
         title: "Injuries & Minor Trauma",
         icon: <GiBandageRoll />,
-        description: "Frequent handling of heavy machinery can lead to physical injuries and trauma.",
+        description:
+          "Frequent handling of heavy machinery can lead to physical injuries and trauma.",
       },
     ],
   },
   {
     title: "Maritime Crew (Ship-based Staff)",
-    image: maritime, // keep existing image
+    image: maritime,
     icon: <FaShip className="text-2xl text-gray-700" />,
     issues: [
       {
         title: "Sleep Disorders & Fatigue",
         icon: <GiNightSleep />,
-        description: "Rotational duties and extended sea travel disturb regular sleep cycles.",
+        description:
+          "Rotational duties and extended sea travel disturb regular sleep cycles.",
       },
       {
         title: "Cardiovascular Risks",
         icon: <GiHeartOrgan />,
-        description: "Limited movement and stress during long voyages elevate heart health risks.",
+        description:
+          "Limited movement and stress during long voyages elevate heart health risks.",
       },
       {
         title: "Mental Health Challenges",
         icon: <GiPsychicWaves />,
-        description: "Isolation and long periods away from family affect emotional well-being.",
+        description:
+          "Isolation and long periods away from family affect emotional well-being.",
       },
     ],
   },
   {
     title: "Port Administration & Logistics Staff",
-    image: admin, // keep existing image
+    image: admin,
     icon: <FaUserTie className="text-2xl text-gray-700" />,
     issues: [
       {
         title: "Eye Strain & Headaches",
         icon: <GiBurningEye />,
-        description: "Prolonged screen time and digital paperwork cause visual fatigue and migraines.",
+        description:
+          "Prolonged screen time and digital paperwork cause visual fatigue and migraines.",
       },
       {
         title: "Hypertension & Metabolic Issues",
         icon: <GiWeightScale />,
-        description: "Sedentary roles with poor diet contribute to lifestyle-related disorders.",
+        description:
+          "Sedentary roles with poor diet contribute to lifestyle-related disorders.",
       },
       {
         title: "Stress & Burnout",
         icon: <GiBrain />,
-        description: "Tight deadlines and compliance pressure lead to chronic stress.",
+        description:
+          "Tight deadlines and compliance pressure lead to chronic stress.",
       },
     ],
   },
   {
     title: "Security & Safety Officers",
-    image: security, // keep existing image
+    image: security,
     icon: <FaShieldAlt className="text-2xl text-gray-700" />,
     issues: [
       {
         title: "Shift-Induced Sleep Disorders",
         icon: <GiNightSleep />,
-        description: "Irregular working hours affect circadian rhythm and sleep quality.",
+        description:
+          "Irregular working hours affect circadian rhythm and sleep quality.",
       },
       {
         title: "Back Pain & Joint Issues",
         icon: <GiSpinalCoil />,
-        description: "Standing and walking for long periods causes musculoskeletal strain.",
+        description:
+          "Standing and walking for long periods causes musculoskeletal strain.",
       },
       {
         title: "Stress & Anxiety",
         icon: <GiBrain />,
-        description: "High-alert duty environments increase risk of mental fatigue and anxiety.",
+        description:
+          "High-alert duty environments increase risk of mental fatigue and anxiety.",
       },
     ],
   },
 ];
-
-const AccordionItem = ({ title, icon, description, index, openIndex, setOpenIndex }) => {
-  const isOpen = openIndex === index;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          <span className='text-2xl text-amber-500'>{icon}</span> {title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-white px-4 py-3 text-gray-700 font-semibold text-sm shadow">
-              {description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
 
 const ShippingHealthChallenges = () => {
   useEffect(() => {
@@ -143,48 +135,75 @@ const ShippingHealthChallenges = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-16 px-6">
       <h2
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-slate-900"
         data-aos="fade-up"
       >
-        From Dock to Deck – <span className='text-teal-600'>Safeguarding Every Role</span>
+        Shipping & Maritime Workforce{" "}
+        <span className="text-teal-600">Health Challenges</span>
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center max-w-4xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Maritime operations expose employees to unique physical and mental
+        health risks — from the docks to deep-sea vessels. Proactive wellness
+        ensures safety, performance, and retention across every role.
+      </p>
 
-      <div className="grid md:grid-cols-4 gap-6 max-w-10xl mx-auto">
-        {data.map((group, groupIdx) => {
-          const [openIndex, setOpenIndex] = useState(null);
-
-          return (
-            <div
-              key={groupIdx}
-              className="bg-white rounded-2xl shadow p-4"
-              data-aos="zoom-in-up"
-              data-aos-delay={groupIdx * 100}
-            >
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {data.map((group, groupIdx) => (
+          <div
+            key={groupIdx}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-teal-400 overflow-hidden group flex flex-col"
+            data-aos="zoom-in-up"
+            data-aos-delay={groupIdx * 100}
+          >
+            {/* Image */}
+            <div className="overflow-hidden">
               <img
                 src={group.image}
                 alt={group.title}
-                className="rounded-lg mb-4 w-full h-92 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                {group.icon} {group.title}
-              </h3>
-
-              {/* {group.issues.map((issue, idx) => (
-                <AccordionItem
-                  key={idx}
-                  title={issue.title}
-                  icon={issue.icon}
-                  description={issue.description}
-                  index={idx}
-                  openIndex={openIndex}
-                  setOpenIndex={setOpenIndex}
-                />
-              ))} */}
             </div>
-          );
-        })}
+
+            {/* Card Content */}
+            <div className="p-6 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  {group.icon}
+                  {group.title}
+                </h3>
+
+                <div className="space-y-4">
+                  {group.issues.map((issue, idx) => (
+                    <div
+                      key={idx}
+                      className="border border-teal-600 transition-all duration-300 rounded-xl p-4 shadow-sm hover:shadow-md"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-teal-600 text-xl mt-1">
+                          {issue.icon}
+                        </span>
+                        <div>
+                          <h4 className="font-semibold text-sm text-teal-600">
+                            {issue.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                            {issue.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -1,8 +1,6 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { BiCollapse, BiExpand } from 'react-icons/bi';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   GiCargoCrate,
   GiMuscleUp,
@@ -20,214 +18,291 @@ import {
   GiHealthNormal,
   GiNightSleep,
   GiLifeSupport,
-} from 'react-icons/gi';
-import { FaPlus } from 'react-icons/fa';
-
+} from "react-icons/gi";
 
 const data = [
   {
-    title: 'Dock & Cargo Workers',
-    icon: <GiCargoCrate className="text-xl text-black" />,
+    title: "Dock & Cargo Workers",
+    icon: <GiCargoCrate className="text-xl" />,
     issues: [
       {
-        title: 'Basic Movement Check',
-        icon: <GiHealthNormal className="text-xl text-amber-400" />,
-        descriptionTittle: 'Daily loaders, helpers',
-        description: 'Core Parameters : X-ray (Spine), BP, BMI, CBC, Vitamin D',
+        title: "Basic Movement Check",
+        descriptionTittle: "X-ray (Spine)",
       },
       {
-        title: 'Strength & Endurance',
-        icon: <GiMuscleUp className="text-xl text-amber-400" />,
-        descriptionTittle: 'Crane operators, physical workers',
-        description: 'Core Parameters : ECG, Creatinine, Electrolytes, Muscle & Joint Assessment',
+        title: "Basic Movement Check",
+        descriptionTittle: "BP, BMI, CBC",
       },
       {
-        title: 'Hydration & Heat Safety',
-        icon: <GiWaterDrop className="text-xl text-amber-400" />,
-        descriptionTittle: 'Outdoor staff under sun exposure',
-        description: 'Core Parameters : Kidney function, Electrolyte Panel, Urine Routine',
+        title: "Basic Movement Check",
+        descriptionTittle: "Vitamin D",
       },
       {
-        title: 'Total Worker Wellness',
-        icon: <GiHealing className="text-xl text-amber-400" />,
-        descriptionTittle: 'Senior dock staff, shift leads',
-        description: 'Core Parameters : Full Body Checkup, Ortho consult, Eye check, Hearing test, Liver Panel',
+        title: "Strength & Endurance",
+        descriptionTittle: "ECG",
+      },
+      {
+        title: "Strength & Endurance",
+        descriptionTittle: "Creatinine",
+      },
+      {
+        title: "Strength & Endurance",
+        descriptionTittle: "Electrolytes",
+      },
+      {
+        title: "Strength & Endurance",
+        descriptionTittle: "Muscle & Joint Assessment",
+      },
+      {
+        title: "Hydration & Heat Safety",
+        descriptionTittle: "Kidney function",
+      },
+      {
+        title: "Hydration & Heat Safety",
+        descriptionTittle: "Electrolyte Panel",
+      },
+      {
+        title: "Hydration & Heat Safety",
+        descriptionTittle: "Urine Routine",
+      },
+      {
+        title: "Total Worker Wellness",
+        descriptionTittle: "Full Body Checkup",
+      },
+      {
+        title: "Total Worker Wellness",
+        descriptionTittle: "Ortho consult",
+      },
+      {
+        title: "Total Worker Wellness",
+        descriptionTittle: "Eye check",
+      },
+      {
+        title: "Total Worker Wellness",
+        descriptionTittle: "Hearing test",
+      },
+      {
+        title: "Total Worker Wellness",
+        descriptionTittle: "Liver Panel",
       },
     ],
   },
   {
-    title: 'Maritime Crew',
-    icon: <GiSteeringWheel className="text-xl text-black" />,
+    title: "Maritime Crew",
+    icon: <GiSteeringWheel className="text-xl" />,
     issues: [
       {
-        title: 'SeaFit Essentials',
-        icon: <GiHealthNormal className="text-xl text-amber-400" />,
-        descriptionTittle: 'Junior crew members',
-        description: 'Core Parameters : ECG, BP, Glucose, Lipid, Sleep Quality Checklist',
+        title: "SeaFit Essentials",
+        descriptionTittle: "ECG, BP",
       },
       {
-        title: 'Cardio & Sleep Panel',
-        icon: <GiHeartBattery className="text-xl text-amber-400" />,
-        descriptionTittle: 'Deck engineers, technical staff',
-        description: 'Core Parameters : 2D Echo, TMT, Sleep Apnea Screening, Vitamin B12',
+        title: "SeaFit Essentials",
+        descriptionTittle: "Glucose",
       },
       {
-        title: 'Long Voyage Survival',
-        icon: <GiAnchor className="text-xl text-amber-400" />,
-        descriptionTittle: 'Crew on longer voyages',
-        description: 'Core Parameters : Liver Function, Renal Function, Stress Marker, Eye Check',
+        title: "SeaFit Essentials",
+        descriptionTittle: "Lipid",
       },
       {
-        title: 'Mental Wellness Pro',
-        icon: <GiBrain className="text-xl text-amber-400" />,
-        descriptionTittle: 'Senior crew and ship managers',
-        description: 'Core Parameters : Psychological Assessment, Stress Test, Hormonal Panel, Nutrition Counseling',
+        title: "SeaFit Essentials",
+        descriptionTittle: "Sleep Quality Checklist",
+      },
+      {
+        title: "Cardio & Sleep Panel",
+        descriptionTittle: "2D Echo, TMT",
+      },
+      {
+        title: "Cardio & Sleep Panel",
+        descriptionTittle: "Sleep Apnea Screening",
+      },
+      {
+        title: "Cardio & Sleep Panel",
+        descriptionTittle: "Vitamin B12",
+      },
+      {
+        title: "Long Voyage Survival",
+        descriptionTittle: "Liver Function",
+      },
+      {
+        title: "Long Voyage Survival",
+        descriptionTittle: "Renal Function",
+      },
+      {
+        title: "Long Voyage Survival",
+        descriptionTittle: "Stress Marker",
+      },
+      {
+        title: "Long Voyage Survival",
+        descriptionTittle: "Eye Check",
+      },
+      {
+        title: "Mental Wellness Pro",
+        descriptionTittle: "Psychological Assessment",
+      },
+      {
+        title: "Mental Wellness Pro",
+        descriptionTittle: "Stress Test",
+      },
+      {
+        title: "Mental Wellness Pro",
+        descriptionTittle: "Hormonal Panel",
+      },
+      {
+        title: "Mental Wellness Pro",
+        descriptionTittle: "Nutrition Counseling",
       },
     ],
   },
   {
-    title: 'Port Administration & Logistics',
-    icon: <GiCargoShip className="text-xl text-black" />,
+    title: "Port Administration & Logistics",
+    icon: <GiCargoShip className="text-xl" />,
     issues: [
       {
-        title: 'Desk Health Basic',
-        icon: <GiHealthNormal className="text-xl text-amber-400" />,
-        descriptionTittle: 'Entry-level office staff',
-        description: 'Core Parameters : BMI, BP, Glucose, Eye Check, CBC',
+        title: "Desk Health Basic",
+        descriptionTittle: "BMI, BP",
       },
       {
-        title: 'Work-Life Balance Plan',
-        icon: <GiTimeTrap className="text-xl text-amber-400" />,
-        descriptionTittle: 'Planners, document controllers',
-        description: 'Core Parameters : Thyroid, Lipid, Liver Function, Stress Index',
+        title: "Desk Health Basic",
+        descriptionTittle: "Glucose",
       },
       {
-        title: 'Metabolic Rescue Pack',
-        icon: <GiHealingShield className="text-xl text-amber-400" />,
-        descriptionTittle: 'Managers, shift supervisors',
-        description: 'Core Parameters : HbA1c, ECG, Vitamin D/B12, Nutrition Consult',
+        title: "Desk Health Basic",
+        descriptionTittle: "Eye Check",
       },
       {
-        title: '360 Admin Care',
-        icon: <GiHealthIncrease className="text-xl text-amber-400" />,
-        descriptionTittle: 'Senior logistics coordinators',
-        description: 'Core Parameters : Full Body Profile, Cardio Panel, Mental Health Screening, Sleep Quality',
+        title: "Desk Health Basic",
+        descriptionTittle: "CBC",
+      },
+      {
+        title: "Work-Life Balance Plan",
+        descriptionTittle: "Thyroid",
+      },
+      {
+        title: "Work-Life Balance Plan",
+        descriptionTittle: "Lipid",
+      },
+      {
+        title: "Work-Life Balance Plan",
+        descriptionTittle: "Liver Function",
+      },
+      {
+        title: "Work-Life Balance Plan",
+        descriptionTittle: "Stress Index",
+      },
+      {
+        title: "Metabolic Rescue Pack",
+        descriptionTittle: "HbA1c, ECG",
+      },
+      {
+        title: "Metabolic Rescue Pack",
+        descriptionTittle: "Vitamin D/B12",
+      },
+      {
+        title: "Metabolic Rescue Pack",
+        descriptionTittle: "Nutrition Consult",
+      },
+      {
+        title: "360 Admin Care",
+        descriptionTittle: "Full Body Profile, Cardio Panel, Mental Health Screening, Sleep Quality",
       },
     ],
   },
   {
-    title: 'Security & Safety Officers',
-    icon: <GiSecurityGate className="text-xl text-black" />,
+    title: "Security & Safety Officers",
+    icon: <GiSecurityGate className="text-xl" />,
     issues: [
       {
-        title: 'Quick Shift Check',
-        icon: <GiHealthNormal className="text-xl text-amber-400" />,
-        descriptionTittle: 'Gate staff, patrol guards',
-        description: 'Core Parameters : BP, ECG, Vision, CBC',
+        title: "Quick Shift Check",
+        descriptionTittle: "BP, ECG",
       },
       {
-        title: 'Fatigue Fighter Panel',
-        icon: <GiNightSleep className="text-xl text-amber-400" />,
-        descriptionTittle: 'Long shift officers',
-        description: 'Core Parameters : Sleep Assessment, Hormonal Profile, Iron Studies',
+        title: "Quick Shift Check",
+        descriptionTittle: "Vision",
       },
       {
-        title: 'Response Ready Health',
-        icon: <GiLifeSupport className="text-xl text-amber-400" />,
-        descriptionTittle: 'Emergency & fire responders',
-        description: 'Core Parameters : Cardiac Screening, Vitamin Panel, Mental Health Assessment',
+        title: "Quick Shift Check",
+        descriptionTittle: "CBC",
       },
       {
-        title: 'Defender Max Package',
-        icon: <GiMuscleUp className="text-xl text-amber-400" />,
-        descriptionTittle: 'Senior safety supervisors',
-        description: 'Core Parameters : Full Body Screening, Physical Fitness Test, Diet Counseling',
+        title: "Fatigue Fighter Panel",
+        descriptionTittle: "Sleep Assessment",
+      },
+      {
+        title: "Fatigue Fighter Panel",
+        descriptionTittle: "Hormonal Profile",
+      },
+      {
+        title: "Fatigue Fighter Panel",
+        descriptionTittle: "Iron Studies",
+      },
+      {
+        title: "Response Ready Health",
+        descriptionTittle: "Cardiac Screening",
+      },
+       {
+        title: "Response Ready Health",
+        descriptionTittle: "Vitamin Panel",
+      },
+       {
+        title: "Response Ready Health",
+        descriptionTittle: "Mental Health Assessment",
+      },
+      {
+        title: "Defender Max Package",
+        descriptionTittle: "Full Body Screening, Physical Fitness Test, Diet Counseling",
       },
     ],
-  }
+  },
 ];
 
-const AccordionItem = ({ item, idx, openIndex, setOpenIndex }) => {
-  const isOpen = idx === openIndex;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : idx)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          {item.icon}
-          {item.title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && item.description && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-teal-50 px-4 mt-4 text-[15px] font-semibold rounded-t-md shadow text-green-800">
-              {item.descriptionTittle}
-            </div>
-            <div className="bg-gray-50 px-4 py-3 font-semibold text-gray-800 text-sm whitespace-pre-line rounded-b-md shadow">
-              {item.description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const HealthPackagesAccordion = () => {
-  const [openIndexes, setOpenIndexes] = useState(data.map(() => 0));
-
+const MaritimeHealthPackages = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
-      <h2
-        className="text-3xl font-bold text-center mb-10"
-        data-aos="fade-up"
-      >
-        Charting Health – Role-Specific Check-ups That Keep Your Crew Sea-Ready
+    <section className="py-10 px-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+        <span className="text-teal-600">Role-Based</span> Maritime Health Packages
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Every role deserves specialized care — from dockyards to decks, we tailor check-ups for maritime health and endurance.
+      </p>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => (
+      <div
+        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        {data.map((group, idx) => (
           <div
-            key={groupIdx}
-            className="bg-white rounded-2xl shadow-lg p-6"
-            data-aos="zoom-in-up"
-            data-aos-delay={groupIdx * 100}
+            key={idx}
+            className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 flex flex-col h-[420px]"
           >
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-teal-600 mb-4 flex items-center gap-2">
               {group.icon}
               {group.title}
             </h3>
 
-            {group.issues.map((issue, idx) => (
-              <AccordionItem
-                key={idx}
-                item={issue}
-                idx={idx}
-                openIndex={openIndexes[groupIdx]}
-                setOpenIndex={(newIndex) => {
-                  const updated = [...openIndexes];
-                  updated[groupIdx] = newIndex;
-                  setOpenIndexes(updated);
-                }}
-              />
-            ))}
+            <div className="overflow-y-auto pr-2 custom-scrollbar">
+              <ul className="space-y-3">
+                {group.issues.map((issue, i) => (
+                  <li
+                    key={i}
+                    className="bg-teal-50 px-4 py-2 rounded-lg text-sm font-medium text-gray-800"
+                  >
+                    {/* <p className="font-semibold text-gray-700">{issue.title}</p> */}
+                    <p className="text-gray-600 text-[13px]">
+                      {issue.descriptionTittle}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
@@ -235,4 +310,26 @@ const HealthPackagesAccordion = () => {
   );
 };
 
-export default HealthPackagesAccordion;
+// Custom scrollbar styling
+const styles = `
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(13, 148, 136, 0.4);
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(13, 148, 136, 0.7);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+`;
+
+export default () => (
+  <>
+    <style>{styles}</style>
+    <MaritimeHealthPackages />
+  </>
+);
