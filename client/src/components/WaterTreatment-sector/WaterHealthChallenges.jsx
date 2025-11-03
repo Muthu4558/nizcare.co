@@ -1,22 +1,37 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { BiCollapse, BiExpand } from 'react-icons/bi';
-import { MdLocalHospital, MdHearing, MdPsychology, MdWaterDrop, MdOutlineMonitorHeart, MdWork, MdVisibility, MdAdminPanelSettings, MdCleaningServices } from "react-icons/md";
-import { FaHandsWash, FaTemperatureHigh, FaEye } from "react-icons/fa";
-import { GiChemicalDrop, GiMuscleUp, GiBackPain, GiGasMask, GiBurningEye, GiFactory, GiGears } from "react-icons/gi";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {
+  MdHearing,
+  MdPsychology,
+  MdWaterDrop,
+  MdOutlineMonitorHeart,
+  MdVisibility,
+  MdAdminPanelSettings,
+  MdCleaningServices,
+} from "react-icons/md";
+import {
+  FaHandsWash,
+  FaTemperatureHigh,
+  FaEye,
+} from "react-icons/fa";
+import {
+  GiChemicalDrop,
+  GiMuscleUp,
+  GiBackPain,
+  GiFactory,
+  GiGears,
+} from "react-icons/gi";
 
-
-import plant from '../../assets/Water-sector-img/plant.jpeg';
-import maintenance from '../../assets/Water-sector-img/maintenance.jpeg';
-import admin from '../../assets/Water-sector-img/admin.jpeg';
-import sanitation from '../../assets/Water-sector-img/sanitation.jpeg';
+import plant from "../../assets/Water-sector-img/plant.jpeg";
+import maintenance from "../../assets/Water-sector-img/maintenance.jpeg";
+import admin from "../../assets/Water-sector-img/admin.jpeg";
+import sanitation from "../../assets/Water-sector-img/sanitation.jpeg";
 
 const data = [
-   {
+  {
     title: "Plant Operators & Field Technicians",
-    image: plant, // replace with actual image asset
+    image: plant,
     icon: <GiFactory className="text-2xl text-gray-700" />,
     issues: [
       {
@@ -38,7 +53,7 @@ const data = [
   },
   {
     title: "Maintenance & Engineering Staff",
-    image: maintenance, // replace with actual image asset
+    image: maintenance,
     icon: <GiGears className="text-2xl text-gray-700" />,
     issues: [
       {
@@ -60,7 +75,7 @@ const data = [
   },
   {
     title: "Administrative & Compliance Staff",
-    image: admin, // replace with actual image asset
+    image: admin,
     icon: <MdAdminPanelSettings className="text-2xl text-gray-700" />,
     issues: [
       {
@@ -82,7 +97,7 @@ const data = [
   },
   {
     title: "Contract Workers & Sanitation Support",
-    image: sanitation, // replace with actual image asset
+    image: sanitation,
     icon: <MdCleaningServices className="text-2xl text-gray-700" />,
     issues: [
       {
@@ -101,97 +116,87 @@ const data = [
         description: "Often overlooked, leading to isolation and low morale.",
       },
     ],
-  }
-
-
+  },
 ];
 
-const AccordionItem = ({ title, icon, description, index, openIndex, setOpenIndex }) => {
-  const isOpen = openIndex === index;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          <span className='text-2xl text-amber-500'>{icon}</span> {title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-white px-4 py-3 text-gray-700 font-semibold text-sm shadow">
-              {description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const TourismHealthChallenges = () => {
+const WaterHealthChallenges = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-16 px-6">
       <h2
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-slate-900"
         data-aos="fade-up"
       >
-        Every Role, Every Route – <span className='text-teal-600'>We've Got Their Wellness Covered</span>
+        Water Treatment Sector{" "}
+        <span className="text-teal-600">Employee Health Challenges</span>
       </h2>
+      <p
+        className="text-lg text-slate-500 mb-10 text-center max-w-3xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Employees across water treatment and sanitation services face unique
+        occupational hazards. Addressing these proactively ensures workforce
+        safety, reduces absenteeism, and boosts overall well-being.
+      </p>
 
-      <div className="grid md:grid-cols-4 gap-6 max-w-10xl mx-auto">
-        {data.map((group, groupIdx) => {
-          const [openIndex, setOpenIndex] = useState(null);
-
-          return (
-            <div
-              key={groupIdx}
-              className="bg-white rounded-2xl shadow p-4"
-              data-aos="zoom-in-up"
-              data-aos-delay={groupIdx * 100}
-            >
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {data.map((group, groupIdx) => (
+          <div
+            key={groupIdx}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-teal-400 overflow-hidden group flex flex-col"
+            data-aos="zoom-in-up"
+            data-aos-delay={groupIdx * 100}
+          >
+            {/* Image */}
+            <div className="overflow-hidden">
               <img
                 src={group.image}
                 alt={group.title}
-                className="rounded-lg mb-4 w-full h-92 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                {group.icon} {group.title}
-              </h3>
-
-              {/* {group.issues.map((issue, idx) => (
-                <AccordionItem
-                  key={idx}
-                  title={issue.title}
-                  icon={issue.icon}
-                  description={issue.description}
-                  index={idx}
-                  openIndex={openIndex}
-                  setOpenIndex={setOpenIndex}
-                />
-              ))} */}
             </div>
-          );
-        })}
+
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  {group.icon}
+                  {group.title}
+                </h3>
+
+                <div className="space-y-4">
+                  {group.issues.map((issue, idx) => (
+                    <div
+                      key={idx}
+                      className="border border-teal-600 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-teal-600 text-xl mt-1">
+                          {issue.icon}
+                        </span>
+                        <div>
+                          <h4 className="font-semibold text-sm text-teal-600">
+                            {issue.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                            {issue.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
-export default TourismHealthChallenges;
+export default WaterHealthChallenges;

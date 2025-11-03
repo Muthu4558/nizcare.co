@@ -1,181 +1,148 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { FaTools } from 'react-icons/fa';
-import {
-  GiFactory,
-  GiHazmatSuit
-} from "react-icons/gi";
-import { MdOutlineSupervisorAccount } from 'react-icons/md';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import CVD from "../../assets/Ncd-Topics/Cardiovascular Diseases4.jpg"
-import Diabetes from "../../assets/Ncd-Topics/Diabetes.jpg"
-import Cancer from "../../assets/Ncd-Topics/Cancer.jpg"
-import Chronic from "../../assets/Ncd-Topics/Chronic.jpg"
-import Obesity from "../../assets/Ncd-Topics/Obesity.jpg"
-import Mental from "../../assets/Ncd-Topics/Mental Health.jpg"
-import ChronicKidney from "../../assets/Ncd-Topics/Chronic Kidney.jpg"
-import Musculoskeletal from "../../assets/Ncd-Topics/Musculoskeletal.jpg"
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { BsCheckCircleFill } from "react-icons/bs";
+import { FaTools } from "react-icons/fa";
+import { GiFactory, GiHazmatSuit } from "react-icons/gi";
+import { MdOutlineSupervisorAccount } from "react-icons/md";
 
+// ✅ Replace these with real Water sector images
+import PlantImg from "../../assets/Water-sector-img/plant.jpeg";
+import MaintenanceImg from "../../assets/Water-sector-img/maintenance.jpeg";
+import AdminImg from "../../assets/Water-sector-img/admin.jpeg";
+import SanitationImg from "../../assets/Water-sector-img/sanitation.jpeg";
 
 const packages = [
   {
-  title: 'Plant Operators & Technicians',
-  icon: <GiFactory className="text-2xl text-orange-400" />,
-  benefits: [
-    'Respiratory Yoga Workshops',
-    'PPE Hygiene Training',
-    'Monthly Water Intake Challenges',
-    'Ergonomic Movement Sessions',
-    'Sleep & Shift Work Management Seminars',
-  ],
-},
-{
-  title: 'Maintenance & Engineers',
-  icon: <FaTools className="text-2xl text-orange-400" />,
-  benefits: [
-    'Noise Protection Awareness',
-    'Ortho & Back Care Camps',
-    'Dehydration Monitoring',
-    'Eye Health Clinics',
-    'Safety Reflex Drills',
-  ],
-},
-{
-  title: 'Admin & Compliance Team',
-  icon: <MdOutlineSupervisorAccount className="text-2xl text-orange-400" />,
-  benefits: [
-    'Chair Yoga & Posture Clinics',
-    'Guided Meditation for Focus',
-    'Screen Time Reduction Challenges',
-    'Mental Wellness Counselling',
-    'Digital Detox Workshops',
-  ],
-},
-{
-  title: 'Contract Workers & Sanitation',
-  icon: <GiHazmatSuit className="text-2xl text-orange-400" />,
-  benefits: [
-    'Basic Health Literacy Sessions',
-    'Cleanliness & Self-care Campaigns',
-    'Mobile Vaccination Drives',
-    'Access to Free Periodic Health Talks',
-    'Nutrition Distribution Programs',
-  ],
-}
-
-];
-
-const ncdTopics = [
-  { title: 'Cardiovascular Diseases (CVDs)', img: CVD },
-  { title: 'Diabetes', img: Diabetes },
-  { title: 'Cancer (Awareness & Screening)', img: Cancer },
-  { title: 'Chronic Respiratory Diseases', img: Chronic },
-  { title: 'Obesity & Metabolic Syndrome', img: Obesity },
-  { title: 'Mental Health Disorders', img: Mental },
-  { title: 'Chronic Kidney Disease', img: ChronicKidney },
-  { title: 'Musculoskeletal Disorders', img: Musculoskeletal },
+    id: "01",
+    title: "Plant Operators & Technicians",
+    icon: <GiFactory className="text-white text-2xl" />,
+    img: PlantImg,
+    benefits: [
+      "Respiratory Yoga Workshops",
+      "PPE Hygiene Training",
+      "Monthly Water Intake Challenges",
+      "Ergonomic Movement Sessions",
+      "Sleep & Shift Work Management Seminars",
+    ],
+  },
+  {
+    id: "02",
+    title: "Maintenance & Engineers",
+    icon: <FaTools className="text-white text-2xl" />,
+    img: MaintenanceImg,
+    benefits: [
+      "Noise Protection Awareness",
+      "Ortho & Back Care Camps",
+      "Dehydration Monitoring",
+      "Eye Health Clinics",
+      "Safety Reflex Drills",
+    ],
+  },
+  {
+    id: "03",
+    title: "Admin & Compliance Team",
+    icon: <MdOutlineSupervisorAccount className="text-white text-2xl" />,
+    img: AdminImg,
+    benefits: [
+      "Chair Yoga & Posture Clinics",
+      "Guided Meditation for Focus",
+      "Screen Time Reduction Challenges",
+      "Mental Wellness Counselling",
+      "Digital Detox Workshops",
+    ],
+  },
+  {
+    id: "04",
+    title: "Contract Workers & Sanitation",
+    icon: <GiHazmatSuit className="text-white text-2xl" />,
+    img: SanitationImg,
+    benefits: [
+      "Basic Health Literacy Sessions",
+      "Cleanliness & Self-care Campaigns",
+      "Mobile Vaccination Drives",
+      "Access to Free Periodic Health Talks",
+      "Nutrition Distribution Programs",
+    ],
+  },
 ];
 
 const WellnessPackages = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: true,
+      offset: 100,
+    });
   }, []);
 
   return (
-    <section className="py-16 bg-white px-4">
+    <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
+        {/* Section Heading */}
         <h2
-          className="text-3xl md:text-4xl font-bold mb-2"
-          data-aos="fade-up"
+          className="text-3xl md:text-4xl font-bold mb-6"
+          data-aos="fade-down"
         >
-          Beyond the Basics: Wellness That Works Where They Work
+          Beyond the Basics: <span className="text-teal-600">Wellness That Works</span> Where They Work
         </h2>
+
+        {/* Subtitle */}
         <p
           className="text-lg text-slate-500 mb-10"
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Tailored wellness support from Nizcare for every role in your team.
+          Tailored wellness support from Nizcare for every role in your team —
+          from plant operators to administrators.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {packages.map((pkg, idx) => (
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {packages.map((pkg, index) => (
             <div
-              key={idx}
-              className="bg-white rounded-2xl shadow-md p-6 border-l-8 border-teal-600 transition-transform duration-300 hover:shadow-xl hover:scale-105"
-              data-aos="zoom-in-up"
-              data-aos-delay={idx * 150}
+              key={index}
+              className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative"
+              data-aos="fade-up"
+              data-aos-delay={200 + index * 150}
             >
-              <h3 className="text-lg font-bold flex items-center gap-2 mb-4 text-slate-900">
-                {pkg.icon}
-                <span className="text-[1.1rem] text-orange-500 font-semibold">
+              {/* Image & Overlay */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={pkg.img}
+                  alt={pkg.title}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Top-left Icon Badge */}
+                <div className="absolute top-4 left-4 bg-teal-600 text-white rounded-xl px-4 py-3 flex flex-col items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <div>{pkg.icon}</div>
+                  <p className="text-sm font-semibold mt-1">{pkg.id}</p>
+                </div>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6 text-left">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4 group-hover:text-teal-600 transition-colors">
                   {pkg.title}
-                </span>
-              </h3>
-              <ul className="space-y-3">
-                {pkg.benefits.map((benefit, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-slate-800 font-medium leading-snug"
-                  >
-                    <BsCheckCircleFill className="text-teal-500 mt-1 shrink-0" />
-                    <span className="text-left">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
+                </h3>
+
+                <ul className="space-y-3">
+                  {pkg.benefits.map((benefit, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-2 text-gray-700"
+                    >
+                      <BsCheckCircleFill className="text-teal-500 mt-1 shrink-0 group-hover:animate-pulse" />
+                      <span className="text-[15px] leading-snug">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
-        </div>
-
-        <h3 className="text-2xl font-bold mb-8 mt-16">NCD"S which Affects your Workforce</h3>
-        <div className="relative">
-          {/* Swiper */}
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            navigation={{
-              nextEl: '.swiper-button-next-custom',
-              prevEl: '.swiper-button-prev-custom',
-            }}
-            autoplay={{ delay: 4500, disableOnInteraction: false }}
-            speed={900}
-            loop={true}
-            spaceBetween={32}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="pb-16"
-          >
-            {ncdTopics.map((topic, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="relative bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-500">
-                  <img src={topic.img} alt={topic.title} className="w-full h-56 object-cover" />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center px-3">
-                    <h4 className="text-lg font-semibold text-white drop-shadow-md">
-                      {topic.title}
-                    </h4>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Custom Navigation Buttons at bottom-right outside */}
-          {/* <div className="absolute -bottom-18 right-0 flex gap-3 z-20">
-                    <button className="swiper-button-prev-custom bg-white shadow-md rounded-full p-3 hover:bg-teal-500 hover:text-white transition">
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button className="swiper-button-next-custom bg-white shadow-md rounded-full p-3 hover:bg-teal-500 hover:text-white transition">
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                  </div> */}
         </div>
       </div>
     </section>
