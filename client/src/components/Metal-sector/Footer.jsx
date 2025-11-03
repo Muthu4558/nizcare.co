@@ -100,7 +100,7 @@ const ContactSection = () => {
 
       {/* Footer */}
       <div className="bg-[#1f2429] mt-20 py-5 text-white text-sm font-medium">
-        Nizcare | Trusted by 100+ Mteal Industries | Health that Serves Hospitality
+        Nizcare | Trusted by 100+ Metal Industries | Health that Serves Hospitality
       </div>
     </section>
   );
