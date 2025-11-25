@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaUserTie, FaUsersCog, FaUserNurse } from 'react-icons/fa';
-import { BiCollapse, BiExpand } from 'react-icons/bi';
-import { MdFlight, MdSupportAgent } from 'react-icons/md';
-import { GiNightSleep, GiBrain, GiBackPain, GiKneeling, GiHearingDisabled, GiHeatHaze, GiOfficeChair, GiEyeball } from 'react-icons/gi';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// AirlineHealthChallenges.jsx
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import FlightCrew from '../../assets/AirlineSector-img/flightCrew.jpeg';
-import GroundStaffs from '../../assets/AirlineSector-img/GroundStaff.jpeg';
-import Corporate from '../../assets/AirlineSector-img/Corporate.jpeg';
+import { MdFlight } from "react-icons/md";
+import { FaUsersCog, FaUserTie } from "react-icons/fa";
 
+import {
+  GiNightSleep,
+  GiBrain,
+  GiBackPain,
+  GiKneeling,
+  GiHearingDisabled,
+  GiHeatHaze,
+  GiOfficeChair,
+  GiEyeball,
+} from "react-icons/gi";
+
+import FlightCrew from "../../assets/AirlineSector-img/flightCrew.jpeg";
+import GroundStaffs from "../../assets/AirlineSector-img/GroundStaff.jpeg";
+import Corporate from "../../assets/AirlineSector-img/Corporate.jpeg";
 
 const data = [
   {
@@ -26,7 +35,8 @@ const data = [
       {
         title: "Stress & Anxiety",
         icon: <GiBrain />,
-        description: "Due to high passenger interaction, safety responsibilities, and tight timelines.",
+        description:
+          "Due to high passenger interaction, safety responsibilities, and tight timelines.",
       },
       {
         title: "Back & Neck Pain",
@@ -65,108 +75,99 @@ const data = [
       {
         title: "Sedentary Lifestyle Issues",
         icon: <GiOfficeChair />,
-        description: "Desk-bound work leading to obesity, diabetes.",
+        description: "Desk-bound work leading to obesity and diabetes.",
       },
       {
         title: "Eye Strain & Headaches",
         icon: <GiEyeball />,
-        description: "Excessive screen time, poor lighting.",
+        description: "Excessive screen time and poor lighting.",
       },
       {
         title: "Mental Burnout",
         icon: <GiBrain />,
-        description: "Constant coordination across teams and shift hours.",
+        description: "Constant coordination across teams and shift variations.",
       },
     ],
   },
 ];
 
-const AccordionItem = ({ title, icon, description, index, openIndex, setOpenIndex }) => {
-  const isOpen = openIndex === index;
-
-  return (
-    <div className="mb-3">
-      <button
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-        className="w-full flex justify-between items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-md text-left font-semibold transition-all"
-      >
-        <span className="flex items-center gap-2">
-          <span className='text-2xl text-amber-500'>{icon}</span> {title}
-        </span>
-        <span>{isOpen ? <BiCollapse /> : <BiExpand />}</span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="bg-white px-4 py-3 text-gray-700 font-semibold text-sm shadow">
-              {description}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const HotelHealthChallenges = () => {
+const AirlineHealthChallenges = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-16 px-6">
       <h2
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-slate-900"
         data-aos="fade-up"
       >
-        From Runway to Ramp: <span className='text-teal-600'>Who Needs Care and Why</span>
+        Airline Employee <span className="text-teal-600">Health Problems</span>
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {data.map((group, groupIdx) => {
-          const [openIndex, setOpenIndex] = useState(null);
+      <p
+        className="text-lg text-slate-500 mb-10 text-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Airline workers face unique occupational risks across flight, ground, and
+        corporate operations — leading to preventable health challenges.
+      </p>
 
-          return (
-            <div
-              key={groupIdx}
-              className="bg-white rounded-2xl shadow p-4"
-              data-aos="zoom-in-up"
-              data-aos-delay={groupIdx * 100}
-            >
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {data.map((group, groupIdx) => (
+          <div
+            key={groupIdx}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-teal-400 overflow-hidden group flex flex-col"
+            data-aos="zoom-in-up"
+            data-aos-delay={groupIdx * 100}
+          >
+            {/* Image */}
+            <div className="overflow-hidden">
               <img
                 src={group.image}
                 alt={group.title}
-                className="rounded-lg mb-4 w-full h-92 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                {group.icon} {group.title}
-              </h3>
-
-              {/* {group.issues.map((issue, idx) => (
-                <AccordionItem
-                  key={idx}
-                  title={issue.title}
-                  icon={issue.icon}
-                  description={issue.description}
-                  index={idx}
-                  openIndex={openIndex}
-                  setOpenIndex={setOpenIndex}
-                />
-              ))} */}
             </div>
-          );
-        })}
+
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  {group.icon}
+                  {group.title}
+                </h3>
+
+                <div className="space-y-4">
+                  {group.issues.map((issue, idx) => (
+                    <div
+                      key={idx}
+                      className="border border-teal-600 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="text-teal-600 text-xl mt-1">
+                          {issue.icon}
+                        </span>
+                        <div>
+                          <h4 className="font-semibold text-sm text-teal-600">
+                            {issue.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                            {issue.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
-export default HotelHealthChallenges;
+export default AirlineHealthChallenges;

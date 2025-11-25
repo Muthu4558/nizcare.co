@@ -1,3 +1,4 @@
+// AirlineHeroSection.jsx
 import { useEffect, useState } from 'react';
 import heroImage from '../../assets/AirlineSector-img/coverimg.jpeg';
 import logo from '../../assets/Hotel-sector-img/logo_white.png';
@@ -26,7 +27,11 @@ const HeroSection = () => {
     });
 
     useEffect(() => {
-        AOS.init({ duration: 1000 });
+        AOS.init({
+            duration: 1200,
+            once: true,
+            easing: 'ease-in-out',
+        });
     }, []);
 
     const handleChange = (field, value) => {
@@ -84,9 +89,14 @@ const HeroSection = () => {
 
     if (isSubmitted) {
         return (
-            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-teal-200 to-green-100 px-6 text-center">
-                <h1 className="text-5xl font-bold mb-4">🎉 Thank you!</h1>
-                <p className="text-lg">We will get in touch with you shortly.</p>
+            <div
+                className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-teal-200 to-green-100 px-6 text-center"
+                data-aos="zoom-in"
+            >
+                <h1 className="text-5xl font-bold mb-4" data-aos="fade-down">🎉 Thank you!</h1>
+                <p className="text-lg" data-aos="fade-up" data-aos-delay="200">
+                    We will get in touch with you shortly.
+                </p>
             </div>
         );
     }
@@ -103,29 +113,50 @@ const HeroSection = () => {
                 src={logo}
                 alt="Logo"
                 className="absolute top-4 right-4 md:left-4 w-32 md:w-40 z-10"
+                data-aos="fade-down"
+                data-aos-delay="200"
             />
 
             <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center mt-5">
-                <div className="text-white space-y-6 px-4">
+                {/* Left Section (Text) */}
+                <div
+                    className="text-white space-y-6 px-4"
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                >
                     <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                         Fit to Fly: Wellness That Keeps Your Crew Airborne
                     </h1>
-                    <p className="text-lg max-w-md">
+                    <p
+                        className="text-lg max-w-md"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                    >
                         Empowering aviation teams through health, safety, and performance-driven wellness.
                     </p>
                 </div>
 
+                {/* Right Section (Form) */}
                 <form
                     onSubmit={handleSubmit}
                     className="bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-lg border border-white/30 space-y-6"
                     data-aos="fade-left"
+                    data-aos-delay="300"
                 >
-                    <h2 className="text-2xl text-white font-bold text-center mb-2">
+                    <h2
+                        className="text-2xl text-white font-bold text-center mb-2"
+                        data-aos="zoom-in"
+                    >
                         Schedule a Demo
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <p className='hidden md:hidden'>Hotel</p>
+                    <div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                    >
+                        <p className='hidden md:hidden'>Airline</p>
+
                         <input
                             type="text"
                             placeholder="Company Name *"
@@ -220,6 +251,8 @@ const HeroSection = () => {
                         type="submit"
                         disabled={loading}
                         className={`w-full py-3 rounded-xl bg-gradient-to-r from-orange-400 to-yellow-400 text-white font-bold shadow-md transition duration-300 hover:scale-105 ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
+                        data-aos="zoom-in-up"
+                        data-aos-delay="500"
                     >
                         {loading ? "Submitting..." : "Submit"}
                     </button>
