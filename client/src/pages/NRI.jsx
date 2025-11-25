@@ -366,7 +366,6 @@ const NRI = () => {
           </div>
         </section>
 
-
         {/* COMMISSION SECTION — PREMIUM CLEAN */}
         <section className="px-6 md:px-20 py-12 sm:py-16 text-center">
           <div className="container mx-auto">
@@ -382,7 +381,6 @@ const NRI = () => {
             </p>
           </div>
         </section>
-
 
         {/* CLEAN FOOTER */}
         <footer className="bg-gray-50 border-t pt-12 pb-8 px-6 md:px-20">
@@ -425,7 +423,7 @@ const NRI = () => {
 
             {/* CONTACT */}
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Contact</h3>
+              <h3 className="text-lg font-semibold text-teal-600 mb-3">Contact</h3>
               <ul className="space-y-3 text-gray-600 text-sm sm:text-base">
                 <li>
                   <span className="font-bold">Phone:</span> +91 98765 43210
@@ -438,7 +436,7 @@ const NRI = () => {
 
             {/* Explore */}
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Explore</h3>
+              <h3 className="text-lg font-semibold text-teal-600 mb-3">Explore</h3>
               <p className="text-gray-600 text-sm sm:text-base">
                 Join the Nizcare Global Partner Network Today.
               </p>
@@ -459,7 +457,7 @@ const NRI = () => {
 
           {/* BOTTOM BAR */}
           <div className="border-t mt-10 pt-6 text-center text-gray-600 text-sm">
-            © 2025 Nizcare. All rights reserved.
+            © 2025 <span className="text-teal-600">Nizcare</span>. All rights reserved.
           </div>
         </footer>
 
