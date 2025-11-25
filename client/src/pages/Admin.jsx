@@ -143,6 +143,13 @@ const Admin = () => {
         </h1>
 
         <div className="flex gap-3 flex-wrap justify-center">
+          <button
+  onClick={() => navigate("/admin/nri")}
+  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full shadow"
+>
+  NRI Forms
+</button>
+
           {/* Sector Filter */}
           <select
             value={sectorFilter}

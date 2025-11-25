@@ -31,7 +31,8 @@ import TelecomSector from './pages/TelecomSector.jsx';
 import CottageSector from './pages/CottageSector.jsx';
 import EduSector from './pages/EduSector.jsx';
 import SportsSector from './pages/SportsSector.jsx';
-
+import NRI from './pages/NRI.jsx';
+import AdminNRI from './pages/AdminNRI.jsx';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/nri" element={<NRI />} />
           <Route path="/hotel" element={<Hotel />} />
           {/* <Route path="/it" element={<ItSector />} /> */}
           <Route path="/food" element={<FoodSector />} />
@@ -78,6 +80,8 @@ const App = () => {
               </PrivateRoute>
             }
           />
+          <Route path="/admin/nri" element={<AdminNRI />} />
+
         </Routes>
       </Router>
     </>
