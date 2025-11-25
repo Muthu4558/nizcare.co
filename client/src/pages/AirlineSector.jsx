@@ -124,7 +124,7 @@ const AirlineSector = () => {
         <WhatWillYouGain />
         <AirlineHealthChallenges />
         <WellnessPackages />
-        <HealthPackagesAccordion />
+        {/* <HealthPackagesAccordion /> */}
         <NCDTopics />
         <InHouseHealthcare />
         <Footer />
