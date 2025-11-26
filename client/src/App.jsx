@@ -45,31 +45,31 @@ const App = () => {
           <Route path="/hotel" element={<Hotel />} />
           {/* <Route path="/it" element={<ItSector />} /> */}
           <Route path="/food" element={<FoodSector />} />
-          <Route path="/airlines" element={<AirlineSector/>} />
-          <Route path="/cement" element={<CementSector/>} />
-          <Route path="/pharma" element={<PharmaSector/>} />
-          <Route path="/mining" element={<MiningSector/>} />
-          <Route path="/fertilizer" element={<FertilizerSector/>} />
-          <Route path="/steel" element={<SteelSector/>} />
-          <Route path="/ites&it" element={<ITESSector/>} />
-          <Route path="/leather-industry" element={<LeatherSector/>} />
-          <Route path="/banks" element={<BankSector/>} />
-          <Route path="/chemical" element={<ChemicalSector/>} />
+          <Route path="/airlines" element={<AirlineSector />} />
+          <Route path="/cement" element={<CementSector />} />
+          <Route path="/pharma" element={<PharmaSector />} />
+          <Route path="/mining" element={<MiningSector />} />
+          <Route path="/fertilizer" element={<FertilizerSector />} />
+          <Route path="/steel" element={<SteelSector />} />
+          <Route path="/ites&it" element={<ITESSector />} />
+          <Route path="/leather-industry" element={<LeatherSector />} />
+          <Route path="/banks" element={<BankSector />} />
+          <Route path="/chemical" element={<ChemicalSector />} />
           <Route path="/textile" element={<TextileSector />} />
-          <Route path="/petroleum" element={<PetroleumSector/>} />
-          <Route path="/heavy-industry" element={<HeavySector/>} />
-          <Route path="/automobile" element={<AutomobileSector/>} />
-          <Route path="/shipping" element={<ShippingSector/>} />
-          <Route path="/metals" element={<MetalSector/>} />
-          <Route path="/tourism" element={<TourismSector/>} />
-          <Route path="/paper" element={<PaperSector/>} />
-          <Route path="/aerospace" element={<AerospaceSector/>} />
-          <Route path="/water-treatment" element={<WaterTreatmentSector/>} />
-          <Route path="/dairy" element={<DairySector/>} />
-          <Route path="/telecom" element={<TelecomSector/>} />
-          <Route path="/cottage" element={<CottageSector/>} />
+          <Route path="/petroleum" element={<PetroleumSector />} />
+          <Route path="/heavy-industry" element={<HeavySector />} />
+          <Route path="/automobile" element={<AutomobileSector />} />
+          <Route path="/shipping" element={<ShippingSector />} />
+          <Route path="/metals" element={<MetalSector />} />
+          <Route path="/tourism" element={<TourismSector />} />
+          <Route path="/paper" element={<PaperSector />} />
+          <Route path="/aerospace" element={<AerospaceSector />} />
+          <Route path="/water-treatment" element={<WaterTreatmentSector />} />
+          <Route path="/dairy" element={<DairySector />} />
+          <Route path="/telecom" element={<TelecomSector />} />
+          <Route path="/cottage" element={<CottageSector />} />
           <Route path="/edu" element={<EduSector />} />
-          <Route path="/sports" element={<SportsSector/>} />
+          <Route path="/sports" element={<SportsSector />} />
           <Route path="/login" element={<Login />} />
 
           <Route
@@ -80,7 +80,12 @@ const App = () => {
               </PrivateRoute>
             }
           />
-          <Route path="/admin/nri" element={<AdminNRI />} />
+          <Route path="/admin/nri" element={
+            <PrivateRoute>
+              <AdminNRI />
+            </PrivateRoute>
+          }
+          />
 
         </Routes>
       </Router>
