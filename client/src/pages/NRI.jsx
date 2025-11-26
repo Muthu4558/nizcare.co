@@ -13,12 +13,15 @@ import {
   FiGift,
   FiHeart,
   FiHome,
+  FiChevronDown
 } from "react-icons/fi";
 import { FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa"
 import Logo from "../assets/logo.png";
 import BackgroundAnimation from "../components/BackgroundAnimation.jsx";
+import Saudi from "../../public/flags/saudi.png"
 
 const NRI = () => {
+  const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -66,6 +69,26 @@ const NRI = () => {
     }
   };
 
+  const countryList = [
+    { name: "Saudi Arabia", src: "/flags/saudi.png" },
+    { name: "UAE", src: "/flags/uae.png" },
+    { name: "Singapore", src: "/flags/singapore.png" },
+    { name: "Sri Lanka", src: "/flags/srilanka.png" },
+    { name: "Malaysia", src: "/flags/malaysia.png" },
+    { name: "USA", src: "/flags/usa.png" },
+    { name: "UK", src: "/flags/uk.png" },
+    { name: "Canada", src: "/flags/canada.png" },
+    { name: "Australia", src: "/flags/australia.png" },
+    { name: "Germany", src: "/flags/germany.png" },
+    { name: "Kuwait", src: "/flags/kuwait.png" },
+    { name: "New Zealand", src: "/flags/new-zealand.png" },
+    { name: "Oman", src: "/flags/oman.png" },
+    { name: "Qatar", src: "/flags/qatar.png" },
+    { name: "South Africa", src: "/flags/south-africa.png" },
+    { name: "Switzerland", src: "/flags/switzerland.png" },
+  ];
+
+
   return (
     <div className="relative">
       {/* Full-page Background Animation */}
@@ -86,24 +109,39 @@ const NRI = () => {
         <section className="flex flex-col-reverse md:flex-row items-start md:items-center container mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10">
 
           {/* LEFT CONTENT */}
-          <div className="w-full md:w-1/2 space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-              Become a <span className="text-teal-600">Nizcare Global Partner</span>
-            </h1>
+          <div className="w-full md:w-1/2">
 
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-              Promote Nizcare to NRIs in your country and earn recurring income every month.
-              <span className="font-semibold"> No investment. Full support.</span>
-            </p>
+            {/* Flags Grid */}
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
 
-            <div className="space-y-4 text-gray-700">
-              <p>
-                For millions of Indians abroad, caring for families in India is difficult.
-                Nizcare solves this through AI-powered preventive care, home support, medicine assistance, and a dedicated wellness manager.
-              </p>
-              <p className="font-semibold">
-                If you have access to NRI communities, you can be the bridge — and earn.
-              </p>
+              {/* Example Flag Item */}
+              {[
+                { src: "/flags/saudi.png", name: "Saudi Arabia" },
+                { src: "/flags/uae.png", name: "UAE" },
+                { src: "/flags/singapore.png", name: "Singapore" },
+                { src: "/flags/srilanka.png", name: "Sri Lanka" },
+                { src: "/flags/malaysia.png", name: "Malaysia" },
+                { src: "/flags/usa.png", name: "USA" },
+                { src: "/flags/uk.png", name: "UK" },
+                { src: "/flags/canada.png", name: "Canada" },
+                { src: "/flags/australia.png", name: "Australia" },
+                { src: "/flags/germany.png", name: "Germany" },
+                { src: "/flags/kuwait.png", name: "Kuwait" },
+                { src: "/flags/new-zealand.png", name: "New Zealand" },
+                { src: "/flags/oman.png", name: "Oman" },
+                { src: "/flags/qatar.png", name: "Qatar" },
+                { src: "/flags/south-africa.png", name: "South Africa" },
+                { src: "/flags/switzerland.png", name: "Switzerland" },
+              ].map((flag, i) => (
+                <div key={i} className="flex flex-col items-center space-y-2">
+                  <img
+                    src={flag.src}
+                    alt={flag.name}
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full shadow"
+                  />
+                  <p className="text-sm text-gray-700 text-center">{flag.name}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -154,16 +192,49 @@ const NRI = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   {/* Current Country */}
                   <div className="relative">
-                    <div className="absolute top-4 left-3 text-gray-400">
-                      <FiGlobe />
-                    </div>
-                    <input
-                      name="currentCountry"
-                      value={form.currentCountry}
-                      onChange={handleChange}
-                      placeholder="Current Country"
-                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
-                    />
+                    {/* Selected Country / Button */}
+                    <button
+                      type="button"
+                      className="w-full pl-3 pr-4 py-3 rounded-xl border bg-white flex items-center justify-between text-sm focus:ring-2 focus:ring-teal-500 outline-none"
+                      onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
+                    >
+                      <div className="flex items-center gap-2">
+                        {form.currentCountry ? (
+                          <img
+                            src={countryList.find(c => c.name === form.currentCountry)?.src}
+                            alt={form.currentCountry}
+                            className="w-6 h-6 rounded-full object-cover"
+                          />
+                        ) : (
+                          <FiGlobe className="text-gray-400" />
+                        )}
+                        <span>{form.currentCountry || "Select Country"}</span>
+                      </div>
+                      <FiChevronDown className="text-gray-500" />
+                    </button>
+
+                    {/* Dropdown List */}
+                    {countryDropdownOpen && (
+                      <div className="absolute z-20 mt-1 w-full bg-white border rounded-xl shadow-lg max-h-64 overflow-y-auto">
+                        {countryList.map((country, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center gap-2 px-4 py-2 hover:bg-teal-50 cursor-pointer"
+                            onClick={() => {
+                              handleChange({ target: { name: "currentCountry", value: country.name } });
+                              setCountryDropdownOpen(false);
+                            }}
+                          >
+                            <img
+                              src={country.src}
+                              alt={country.name}
+                              className="w-6 h-6 rounded-full object-cover"
+                            />
+                            <span>{country.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* WhatsApp Number */}
@@ -249,6 +320,29 @@ const NRI = () => {
               </div>
 
             </form>
+          </div>
+        </section>
+
+        <section className="px-6 md:px-20 py-16 sm:py-20">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+              Become a <span className="text-teal-600">Nizcare Global Partner</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              Promote Nizcare to NRIs in your country and earn recurring income every month.
+              <span className="font-semibold"> No investment. Full support.</span>
+            </p>
+
+            <div className="space-y-4 text-gray-700">
+              <p>
+                For millions of Indians abroad, caring for families in India is difficult.
+                Nizcare solves this through AI-powered preventive care, home support, medicine assistance, and a dedicated wellness manager.
+              </p>
+              <p className="font-semibold">
+                If you have access to NRI communities, you can be the bridge — and earn.
+              </p>
+            </div>
           </div>
         </section>
 
