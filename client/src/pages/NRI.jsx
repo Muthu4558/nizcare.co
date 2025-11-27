@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import toast from "react-hot-toast";
 import {
   FiUser,
@@ -11,17 +11,15 @@ import {
   FiTrendingUp,
   FiTool,
   FiGift,
-  FiHeart,
-  FiHome,
   FiChevronDown
 } from "react-icons/fi";
-import { FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa"
+import { FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa";
 import Logo from "../assets/logo.png";
 import BackgroundAnimation from "../components/BackgroundAnimation.jsx";
-import Saudi from "../../public/flags/saudi.png"
 
 const NRI = () => {
   const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
+
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -33,11 +31,77 @@ const NRI = () => {
     expectedReach: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  // References to focus first invalid input
+  const refs = {
+    fullName: useRef(),
+    email: useRef(),
+    whatsapp: useRef(),
+    currentCountry: useRef(),
+    profession: useRef(),
+    workWithCommunities: useRef(),
+    promoteNizcare: useRef(),
+    expectedReach: useRef(),
+  };
+
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  // ---------------- VALIDATION FUNCTION ---------------- //
+  const validateForm = () => {
+    let newErrors = {};
+
+    if (!form.fullName.trim()) 
+  newErrors.fullName = "Full name is required";
+else if (!/^[A-Za-z\s]+$/.test(form.fullName))
+  newErrors.fullName = "Only alphabets allowed";
+
+    if (!form.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+      newErrors.email = "Enter a valid email";
+
+    if (!form.currentCountry.trim())
+      newErrors.currentCountry = "Country selection is required";
+
+    if (!form.whatsapp.trim())
+      newErrors.whatsapp = "WhatsApp number is required";
+    else if (!/^[0-9]+$/.test(form.whatsapp))
+      newErrors.whatsapp = "Only numbers allowed";
+
+    if (!form.profession.trim())
+      newErrors.profession = "Profession is required";
+
+    if (!form.workWithCommunities.trim())
+      newErrors.workWithCommunities = "Please select an option";
+
+    if (!form.promoteNizcare.trim())
+      newErrors.promoteNizcare = "Please select an option";
+
+    if (!form.expectedReach.trim())
+      newErrors.expectedReach = "Expected reach is required";
+    else if (!/^[0-9]+$/.test(form.expectedReach))
+      newErrors.expectedReach = "Only numbers allowed";
+
+
+    setErrors(newErrors);
+
+    // Focus first invalid field
+    const keys = Object.keys(newErrors);
+    if (keys.length > 0) {
+      const firstErrorKey = keys[0];
+      refs[firstErrorKey]?.current?.focus();
+      return false;
+    }
+
+    return true;
+  };
+
+  // ---------------- FORM SUBMIT ---------------- //
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) return;
 
     try {
       const res = await fetch(
@@ -87,7 +151,6 @@ const NRI = () => {
     { name: "South Africa", src: "/flags/south-africa.png" },
     { name: "Switzerland", src: "/flags/switzerland.png" },
   ];
-
   return (
     <div className="relative">
       {/* Full-page Background Animation */}
@@ -106,16 +169,15 @@ const NRI = () => {
         />
         {/* HERO SECTION */}
         <section
-          className="flex flex-col-reverse md:flex-row items-start md:items-center container mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10"
+          className="flex flex-col-reverse md:flex-row items-start md:items-center mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10"
           style={{
             backgroundImage: "url('/bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "scroll", // or "fixed" if you want a parallax effect
+            backgroundAttachment: "scroll", 
           }}
         >
-
 
           {/* LEFT CONTENT */}
           <div className="w-full md:w-1/2 mt-12">
@@ -166,20 +228,27 @@ const NRI = () => {
 
               <div className="space-y-4 sm:space-y-5">
 
-                {/* NAME + EMAIL ROW */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                {/* NAME + EMAIL */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
                   {/* Full Name */}
                   <div className="relative">
                     <div className="absolute top-4 left-3 text-gray-400">
                       <FiUser />
                     </div>
                     <input
-                      name="fullName"
-                      value={form.fullName}
-                      onChange={handleChange}
-                      placeholder="Full Name"
-                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
-                    />
+  name="fullName"
+  value={form.fullName}
+  onChange={(e) => {
+    const value = e.target.value;
+    if (/^[A-Za-z\s]*$/.test(value)) {
+      handleChange(e);
+    }
+  }}
+  placeholder="Full Name"
+  className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+/>
+
                   </div>
 
                   {/* Email */}
@@ -188,29 +257,39 @@ const NRI = () => {
                       <FiMail />
                     </div>
                     <input
+                      ref={refs.email}
                       name="email"
                       value={form.email}
                       onChange={handleChange}
                       placeholder="Email"
-                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                      className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base 
+                        ${errors.email ? "border-red-500" : ""}`}
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                    )}
                   </div>
+
                 </div>
 
-                {/* COUNTRY + WHATSAPP ROW */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                  {/* Current Country */}
+                {/* COUNTRY + WHATSAPP */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                  {/* Country */}
                   <div className="relative">
-                    {/* Selected Country / Button */}
                     <button
+                      ref={refs.currentCountry}
                       type="button"
-                      className="w-full pl-3 pr-4 py-3 rounded-xl border bg-white flex items-center justify-between text-sm focus:ring-2 focus:ring-teal-500 outline-none"
+                      className={`w-full pl-3 pr-4 py-3 rounded-xl border bg-white flex items-center justify-between text-sm 
+                        ${errors.currentCountry ? "border-red-500" : ""}`}
                       onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
                     >
                       <div className="flex items-center gap-2">
                         {form.currentCountry ? (
                           <img
-                            src={countryList.find(c => c.name === form.currentCountry)?.src}
+                            src={
+                              countryList.find((c) => c.name === form.currentCountry)?.src
+                            }
                             alt={form.currentCountry}
                             className="w-6 h-6 rounded-full object-cover"
                           />
@@ -219,10 +298,10 @@ const NRI = () => {
                         )}
                         <span>{form.currentCountry || "Select Country"}</span>
                       </div>
-                      <FiChevronDown className="text-gray-500" />
+
+                      <FiChevronDown />
                     </button>
 
-                    {/* Dropdown List */}
                     {countryDropdownOpen && (
                       <div className="absolute z-20 mt-1 w-full bg-white border rounded-xl shadow-lg max-h-64 overflow-y-auto">
                         {countryList.map((country, idx) => (
@@ -230,7 +309,12 @@ const NRI = () => {
                             key={idx}
                             className="flex items-center gap-2 px-4 py-2 hover:bg-teal-50 cursor-pointer"
                             onClick={() => {
-                              handleChange({ target: { name: "currentCountry", value: country.name } });
+                              handleChange({
+                                target: {
+                                  name: "currentCountry",
+                                  value: country.name,
+                                },
+                              });
                               setCountryDropdownOpen(false);
                             }}
                           >
@@ -244,60 +328,85 @@ const NRI = () => {
                         ))}
                       </div>
                     )}
+
+                    {errors.currentCountry && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.currentCountry}
+                      </p>
+                    )}
                   </div>
 
-                  {/* WhatsApp Number */}
+                  {/* WhatsApp */}
                   <div className="relative">
                     <div className="absolute top-4 left-3 text-gray-400">
                       <FiPhone />
                     </div>
                     <input
+                      ref={refs.whatsapp}
                       name="whatsapp"
                       value={form.whatsapp}
                       onChange={handleChange}
                       placeholder="WhatsApp Number"
-                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                      className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base 
+                        ${errors.whatsapp ? "border-red-500" : ""}`}
                     />
+                    {errors.whatsapp && (
+                      <p className="text-red-500 text-xs mt-1">{errors.whatsapp}</p>
+                    )}
                   </div>
                 </div>
 
-                {/* PROFESSION */}
+                {/* Profession */}
                 <div className="relative">
                   <div className="absolute top-4 left-3 text-gray-400">
                     <FiBriefcase />
                   </div>
                   <input
+                    ref={refs.profession}
                     name="profession"
                     value={form.profession}
                     onChange={handleChange}
                     placeholder="Profession"
-                    className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                    className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base 
+                      ${errors.profession ? "border-red-500" : ""}`}
                   />
+                  {errors.profession && (
+                    <p className="text-red-500 text-xs mt-1">{errors.profession}</p>
+                  )}
                 </div>
 
-                {/* SELECT – Work With Communities */}
+                {/* Work With Communities */}
                 <div className="relative">
                   <FiUsers className="absolute top-4 left-3 text-gray-400" />
                   <select
+                    ref={refs.workWithCommunities}
                     name="workWithCommunities"
                     value={form.workWithCommunities}
                     onChange={handleChange}
-                    className="w-full pl-10 p-3 rounded-xl border bg-white focus:ring-2 focus:ring-teal-500 text-sm sm:text-base"
+                    className={`w-full pl-10 p-3 rounded-xl border bg-white text-sm sm:text-base 
+                      ${errors.workWithCommunities ? "border-red-500" : ""}`}
                   >
                     <option value="">Do you work with NRI communities?</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                   </select>
+                  {errors.workWithCommunities && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.workWithCommunities}
+                    </p>
+                  )}
                 </div>
 
-                {/* SELECT – Promote Nizcare */}
+                {/* Promote Nizcare */}
                 <div className="relative">
                   <FiStar className="absolute top-4 left-3 text-gray-400" />
                   <select
+                    ref={refs.promoteNizcare}
                     name="promoteNizcare"
                     value={form.promoteNizcare}
                     onChange={handleChange}
-                    className="w-full pl-10 p-3 rounded-xl border bg-white focus:ring-2 focus:ring-teal-500 text-sm sm:text-base"
+                    className={`w-full pl-10 p-3 rounded-xl border bg-white text-sm sm:text-base 
+                      ${errors.promoteNizcare ? "border-red-500" : ""}`}
                   >
                     <option value="">
                       Would you like to promote Nizcare as a Partner/Affiliate?
@@ -305,21 +414,31 @@ const NRI = () => {
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                   </select>
+                  {errors.promoteNizcare && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.promoteNizcare}
+                    </p>
+                  )}
                 </div>
 
-                {/* EXPECTED REACH */}
+                {/* Expected Reach */}
                 <div className="relative">
                   <FiTrendingUp className="absolute top-4 left-3 text-gray-400" />
                   <input
                     name="expectedReach"
                     value={form.expectedReach}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^[0-9]*$/.test(value)) {
+                        handleChange(e);
+                      }
+                    }}
                     placeholder="Expected monthly reach (approx.)"
                     className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
                   />
                 </div>
 
-                {/* SUBMIT BUTTON */}
+                {/* Submit */}
                 <button
                   type="submit"
                   className="mt-2 w-full bg-teal-600 text-white py-3 rounded-xl text-base sm:text-lg font-semibold hover:bg-teal-700 transition-all shadow-lg"
