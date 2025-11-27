@@ -595,30 +595,30 @@ const NRI = () => {
                 {
                   icon: <HeartPulse size={30} />,
                   title: "Parents’ Health Back Home",
-                  desc: "Coordinated medical care for aging parents with real-time updates."
+                  // desc: "Coordinated medical care for aging parents with real-time updates."
                 },
                 {
                   icon: <AlertTriangle size={30} />,
                   title: "Rising Medical Costs",
-                  desc: "Transparent, affordable medical pricing protecting families abroad."
+                  // desc: "Transparent, affordable medical pricing protecting families abroad."
                 },
                 {
                   icon: <Handshake size={30} />,
                   title: "Uncoordinated Care",
-                  desc: "End-to-end support from diagnosis to follow-up."
+                  // desc: "End-to-end support from diagnosis to follow-up."
                 },
                 {
                   icon: <Eye size={30} />,
                   title: "Lack of Transparency",
-                  desc: "Full visibility into reports, tests, consultations & treatments."
+                  // desc: "Full visibility into reports, tests, consultations & treatments."
                 },
                 {
                   icon: <ShieldCheck size={30} />,
                   title: "Assessing Medical Quality",
-                  desc: "Only verified hospitals, accredited doctors & proven protocols."
+                  // desc: "Only verified hospitals, accredited doctors & proven protocols."
                 }
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-5">
+                <div key={i} className="flex items-center gap-5">
 
                   <div className="w-14 h-14 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl shadow-inner">
                     {item.icon}
@@ -626,7 +626,7 @@ const NRI = () => {
 
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
-                    <p className="text-gray-600 leading-relaxed mt-1">{item.desc}</p>
+                    {/* <p className="text-gray-600 leading-relaxed mt-1">{item.desc}</p> */}
                   </div>
 
                 </div>
