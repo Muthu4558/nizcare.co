@@ -14,6 +14,12 @@ import {
   FiChevronDown
 } from "react-icons/fi";
 import { FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa";
+import { ShieldCheck, Globe2, LayoutDashboard, Building } from "lucide-react";
+import { HeartPulse, AlertTriangle, Handshake, Eye } from "lucide-react";
+import { Users, Plane, Stethoscope, Building2 } from "lucide-react";
+import { DollarSign, Globe, UserCheck, Award, BookOpen, Calendar, BarChart2 } from "lucide-react";
+import { Heart, Home, Monitor, Briefcase } from "lucide-react";
+import { BarChart } from "lucide-react";
 import Logo from "../assets/logo.png";
 import BackgroundAnimation from "../components/BackgroundAnimation.jsx";
 
@@ -52,10 +58,10 @@ const NRI = () => {
   const validateForm = () => {
     let newErrors = {};
 
-    if (!form.fullName.trim()) 
-  newErrors.fullName = "Full name is required";
-else if (!/^[A-Za-z\s]+$/.test(form.fullName))
-  newErrors.fullName = "Only alphabets allowed";
+    if (!form.fullName.trim())
+      newErrors.fullName = "Full name is required";
+    else if (!/^[A-Za-z\s]+$/.test(form.fullName))
+      newErrors.fullName = "Only alphabets allowed";
 
     if (!form.email.trim()) newErrors.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
@@ -175,7 +181,7 @@ else if (!/^[A-Za-z\s]+$/.test(form.fullName))
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "scroll", 
+            backgroundAttachment: "scroll",
           }}
         >
 
@@ -237,17 +243,17 @@ else if (!/^[A-Za-z\s]+$/.test(form.fullName))
                       <FiUser />
                     </div>
                     <input
-  name="fullName"
-  value={form.fullName}
-  onChange={(e) => {
-    const value = e.target.value;
-    if (/^[A-Za-z\s]*$/.test(value)) {
-      handleChange(e);
-    }
-  }}
-  placeholder="Full Name"
-  className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
-/>
+                      name="fullName"
+                      value={form.fullName}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        if (/^[A-Za-z\s]*$/.test(value)) {
+                          handleChange(e);
+                        }
+                      }}
+                      placeholder="Full Name"
+                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                    />
 
                   </div>
 
@@ -455,154 +461,474 @@ else if (!/^[A-Za-z\s]+$/.test(form.fullName))
         <section className="px-6 md:px-20 py-16 sm:py-20 md:grid md:grid-cols-2">
           <div className="text-center md:text-start">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-              Become a <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare Global Partner</span>
+              Become a <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare Country Partner</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-              Promote Nizcare to NRIs in your country and earn recurring income every month.
-              <span className="font-semibold"> No investment. Full support.</span>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mt-4">
+              <h2 className="font-semibold text-2xl"> Lead Nizcare’s Global Expansion in</h2>
             </p>
 
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-4 text-gray-700 mt-4">
               <p>
-                For millions of Indians abroad, caring for families in India is difficult.
-                Nizcare solves this through AI-powered preventive care, home support, medicine assistance, and a dedicated wellness manager.
+                NRI Wellness • Medical Tourism • Clinic Pro SaaS • Corporate Healthcare
               </p>
               <p className="font-semibold">
-                If you have access to NRI communities, you can be the bridge — and earn.
+                A Leadership Opportunity for NRI Business Influencers Worldwide
               </p>
             </div>
           </div>
         </section>
 
-        {/* BENEFITS SECTION */}
+        {/* Opportunity SECTION */}
         <section className="px-6 md:px-20 py-16 sm:py-20">
           <div className="container mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-10 sm:mb-14 text-gray-800 tracking-tight">
-              Partner <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Benefits</span>
+
+            {/* Section Heading */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6 sm:mb-8 text-gray-900 tracking-tight">
+              The {" "}
+              <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                Opportunity
+              </span>
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 relative z-10">
+            <p className="text-center text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              4 Fast-Growing Healthcare Verticals. One Global Platform.
+            </p>
+
+            <p className="text-center text-base sm:text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+              As a Country Partner, you represent all four revenue channels of Nizcare in your nation.
+            </p>
+
+            {/* Opportunity Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-12">
+
+              {/* 1: NRI Wellness */}
+              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                  <ShieldCheck size={32} />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  NRI Wellness Subscriptions
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Help NRIs ensure their families in India receive reliable, coordinated medical care.
+                </p>
+              </div>
+
+              {/* 2: Medical Tourism */}
+              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                  <Globe2 size={32} />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Medical Tourism Facilitation
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Support global patients coming to India for surgeries, second opinions, treatments &
+                  wellness programs through Nizcare’s curated medical network.
+                </p>
+              </div>
+
+              {/* 3: Clinic Pro SaaS */}
+              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                  <LayoutDashboard size={32} />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Nizcare Clinic Pro (Doctor SaaS)
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Promote our AI-powered clinic management suite to clinics, doctors & polyclinics.
+                  Earn recurring software licensing revenue.
+                </p>
+              </div>
+
+              {/* 4: Corporate Digital Health */}
+              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                  <Building size={32} />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Corporate Digital Health (B2B)
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Provide corporate wellness solutions—employee healthcare, preventive screenings,
+                  chronic care, and mental health programs.
+                </p>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <p className="text-center text-lg sm:text-xl font-semibold text-gray-800 mt-12 max-w-3xl mx-auto">
+              A complete multi-vertical healthcare model —{" "}
+              <span className="text-teal-600">you will lead Nizcare's growth in your country.</span>
+            </p>
+          </div>
+        </section>
+
+        {/* WHY NIZCARE */}
+        <section className="px-6 md:px-20 py-20">
+          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+            {/* RIGHT SIDE — Hero Content (should come first on mobile) */}
+            <div className="bg-white rounded-3xl shadow-xl p-10 border border-teal-100 order-1 lg:order-2">
+              <h2 className="text-4xl font-extrabold text-gray-800 leading-tight mb-4">
+                Why{" "}
+                <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                  Nizcare?
+                </span>
+              </h2>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Nizcare is a complete global health ecosystem designed for Indians living abroad.
+                We address the biggest challenges faced by international families through a
+                coordinated, transparent and high-quality medical platform trusted worldwide.
+              </p>
+
+              <div className="mt-6 h-1 w-24 bg-gradient-to-r from-teal-400 to-teal-600 rounded-full"></div>
+            </div>
+
+            {/* LEFT SIDE — Timeline with Icons */}
+            <div className="space-y-10 order-2 lg:order-1">
+
               {[
-                { icon: <FiTrendingUp />, title: "Recurring Commissions", desc: "Earn long-term income for every referral." },
-                { icon: <FiTool />, title: "Full Marketing Toolkit", desc: "Get ready-made content, creatives & funnels." },
-                { icon: <FiGift />, title: "Exclusive Rewards", desc: "Unlock bonuses, milestones & performance gifts." },
-                { icon: <FiStar />, title: "Zero Investment", desc: "Join for free — no upfront cost required." },
-                { icon: <FiUsers />, title: "Training & Support", desc: "Personal guidance, strategy sessions & webinars." },
-                { icon: <FiMail />, title: "Monthly Payouts", desc: "Reliable payout cycle straight to your account." },
+                {
+                  icon: <HeartPulse size={30} />,
+                  title: "Parents’ Health Back Home",
+                  desc: "Coordinated medical care for aging parents with real-time updates."
+                },
+                {
+                  icon: <AlertTriangle size={30} />,
+                  title: "Rising Medical Costs",
+                  desc: "Transparent, affordable medical pricing protecting families abroad."
+                },
+                {
+                  icon: <Handshake size={30} />,
+                  title: "Uncoordinated Care",
+                  desc: "End-to-end support from diagnosis to follow-up."
+                },
+                {
+                  icon: <Eye size={30} />,
+                  title: "Lack of Transparency",
+                  desc: "Full visibility into reports, tests, consultations & treatments."
+                },
+                {
+                  icon: <ShieldCheck size={30} />,
+                  title: "Assessing Medical Quality",
+                  desc: "Only verified hospitals, accredited doctors & proven protocols."
+                }
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-5">
+
+                  <div className="w-14 h-14 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl shadow-inner">
+                    {item.icon}
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed mt-1">{item.desc}</p>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* COUNTRY PARTNER */}
+        <section className="px-6 md:px-20 py-20">
+          <div className="container mx-auto">
+
+            {/* Section Title */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+              What You Do as a<span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent"> Country Partner</span>
+            </h2>
+
+            {/* Card Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+              {/* A — NRI Engagement */}
+              <div className="bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-transform transform hover:-translate-y-2 border border-teal-100">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-teal-400 to-teal-600 text-white mb-4 mx-auto">
+                  <Users size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 text-center mb-2">NRI Engagement</h3>
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                  <li>• Promote Nizcare’s family health plans</li>
+                  <li>• Support NRIs needing help for parents in India</li>
+                  <li>• Organise community awareness programs</li>
+                </ul>
+              </div>
+
+              {/* B — Medical Tourism */}
+              <div className="bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-transform transform hover:-translate-y-2 border border-teal-100">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-teal-400 to-teal-600 text-white mb-4 mx-auto">
+                  <Plane size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Medical Tourism</h3>
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                  <li>• Handle first-level enquiries</li>
+                  <li>• Coordinate pre-travel clinical discussions</li>
+                  <li>• Build relationships with local doctors & networks</li>
+                </ul>
+              </div>
+
+              {/* C — Clinic Pro Sales */}
+              <div className="bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-transform transform hover:-translate-y-2 border border-teal-100">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-teal-400 to-teal-600 text-white mb-4 mx-auto">
+                  <Stethoscope size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Clinic Pro Sales (SaaS)</h3>
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                  <li>• Onboard clinics & doctors to Nizcare Clinic Pro</li>
+                  <li>• Promote digital transformation using AI tools</li>
+                </ul>
+              </div>
+
+              {/* D — Corporate Sales */}
+              <div className="bg-white rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-transform transform hover:-translate-y-2 border border-teal-100">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-r from-teal-400 to-teal-600 text-white mb-4 mx-auto">
+                  <Building2 size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Corporate Sales (B2B)</h3>
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                  <li>• Pitch employee wellness solutions to businesses</li>
+                  <li>• Run preventive health campaigns</li>
+                  <li>• Facilitate annual health check partnerships</li>
+                </ul>
+              </div>
+
+            </div>
+
+            {/* Footer Note */}
+            <p className="text-center text-gray-700 text-lg mt-12 leading-relaxed">
+              <span className="font-semibold">You grow Nizcare’s brand.</span><br />
+              <span className="text-teal-700 font-semibold">We handle 100% of healthcare operations.</span>
+            </p>
+
+          </div>
+        </section>
+
+        {/* WHAT YOU GET */}
+        <section className="relative px-6 md:px-20 py-28 overflow-hidden">
+          <div className="container mx-auto relative z-10">
+
+            {/* Section Title */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-20">
+              What You <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Get</span>
+            </h2>
+
+            {/* Flow Grid */}
+            <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+              {[
+                { icon: <DollarSign size={28} />, title: "Revenue Share", desc: "Earn from all 4 verticals with recurring commissions." },
+                { icon: <Globe size={28} />, title: "Exclusive Representation", desc: "Be the official partner for your country/region." },
+                { icon: <UserCheck size={28} />, title: "Partner Success Manager", desc: "Dedicated guidance to help you succeed." },
+                { icon: <Award size={28} />, title: "Global Recognition", desc: "Boost your authority with our trusted brand." },
+                { icon: <BookOpen size={28} />, title: "Marketing & Training", desc: "Access ready-made content, brochures, and workshops." },
+                { icon: <Calendar size={28} />, title: "Co-branded Events", desc: "Participate in webinars, events, and exhibitions." },
+                { icon: <BarChart2 size={28} />, title: "Analytics Dashboard", desc: "Track your leads and performance in real-time." },
+              ].map((benefit, i) => (
+                <div
+                  key={i}
+                  className={`bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-4 hover:shadow-3xl`}
+                  style={{ zIndex: i + 1 }}
+                >
+                  {/* Floating Icon Badge */}
+                  <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-700 text-white rounded-full mb-4 shadow-xl animate-bounce-slow">
+                    {benefit.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base">{benefit.desc}</p>
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* Nizcare Delivers */}
+        <section className="px-6 md:px-20 py-28 relative">
+          <div className="container mx-auto relative z-10">
+
+            {/* Section Title */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-16">
+              What <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare Delivers</span>
+              <br />
+              <span className="text-gray-600 text-xl font-semibold">End-to-end Operations in India</span>
+            </h2>
+
+            {/* Grid for 4 Verticals */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+              {/* NRI Wellness */}
+              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
+                <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
+                  <Heart size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">NRI Wellness</h3>
+                <ul className="text-gray-600 space-y-2 text-sm sm:text-base">
+                  <li>• Elder care assistance</li>
+                  <li>• Teleconsults & home nurse</li>
+                  <li>• Checkups & emergency support</li>
+                  <li>• Care manager & medication management</li>
+                </ul>
+              </div>
+
+              {/* Medical Tourism */}
+              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
+                <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
+                  <Home size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Medical Tourism</h3>
+                <ul className="text-gray-600 space-y-2 text-sm sm:text-base">
+                  <li>• Hospital tie-ups</li>
+                  <li>• Surgeons & specialist network</li>
+                  <li>• End-to-end case coordination</li>
+                </ul>
+              </div>
+
+              {/* Clinic Pro */}
+              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
+                <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
+                  <Monitor size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Clinic Pro</h3>
+                <ul className="text-gray-600 space-y-2 text-sm sm:text-base">
+                  <li>• SaaS product for clinics</li>
+                  <li>• Training & tech support</li>
+                  <li>• Updates & feature rollouts</li>
+                </ul>
+              </div>
+
+              {/* Corporate Health */}
+              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
+                <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
+                  <Briefcase size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Corporate Health</h3>
+                <ul className="text-gray-600 space-y-2 text-sm sm:text-base">
+                  <li>• Checkup management & dashboards</li>
+                  <li>• Digital risk assessments</li>
+                  <li>• Employee wellness content</li>
+                </ul>
+              </div>
+
+            </div>
+
+            {/* CTA */}
+            <div className="mt-16 text-center">
+              <p className="text-gray-700 text-lg sm:text-xl mb-6">
+                <span className="font-semibold text-gray-900">You focus on growth.</span><br />
+                <span className="text-teal-700 font-semibold">We handle 100% of execution in India.</span>
+              </p>
+              <a
+                href="#"
+                className="inline-block bg-gradient-to-r from-teal-500 to-teal-700 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:scale-105 transition-transform duration-300"
+              >
+                Become a Partner
+              </a>
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* SECTION 6 — Who Can Apply? */}
+        <section className="px-6 md:px-20 py-20">
+          <div className="container mx-auto">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-14">
+              Who Can <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Apply?</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: <Users size={24} />, text: "NRI Business Leaders" },
+                { icon: <Briefcase size={24} />, text: "Entrepreneurs / Investors" },
+                { icon: <Users size={24} />, text: "Presidents / Secretaries of Indian Associations" },
+                { icon: <Globe size={24} />, text: "Owners of Small–Mid Businesses Abroad" },
+                { icon: <Heart size={24} />, text: "Healthcare Professionals" },
+                { icon: <Users size={24} />, text: "Community Influencers" },
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="group p-6 md:p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-md hover:shadow-2xl transition-all duration-300 border border-teal-50 hover:-translate-y-1"
+                  className="flex items-center gap-4 p-6 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all border border-gray-100"
                 >
-                  <div className="text-teal-600 text-4xl md:text-5xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 text-center">{item.title}</h3>
-                  <p className="text-gray-600 text-sm md:text-base text-center">{item.desc}</p>
+                  <p className="text-gray-700 font-semibold">{item.text}</p>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* WHO CAN JOIN — MODERN TAG/CHIP UI */}
-        <section className="px-6 md:px-20 py-16 sm:py-20">
-          <div className="container mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10 sm:mb-14">
-              Who Can <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Join?</span>
-            </h2>
-
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto">
-
-              {[
-                "Community Members",
-                "Professional Networks",
-                "Entrepreneurs",
-                "Travel / Insurance / Education Agents",
-                "Wellness Providers",
-                "Small Business Owners",
-              ].map((text, i) => (
-                <span
-                  key={i}
-                  className="
-            px-4 sm:px-6 py-2 sm:py-3 
-            rounded-full 
-            bg-gradient-to-r from-teal-50 to-teal-100 
-            text-teal-700 
-            font-medium 
-            text-sm sm:text-lg
-            shadow-sm
-            hover:shadow-md 
-            hover:from-teal-100 hover:to-teal-200
-            transition-all 
-            cursor-default
-          "
-                >
-                  {text}
-                </span>
-              ))}
-
-            </div>
-          </div>
-        </section>
-
-        {/* HOW IT WORKS — PREMIUM HORIZONTAL STEP FLOW */}
-        <section className="px-6 md:px-20 py-16 sm:py-20">
-          <div className="container mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10 sm:mb-14">
-              How It <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Works</span>
-            </h2>
-
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-6 md:gap-12">
-              {[
-                "Register",
-                "Get Partner Kit",
-                "Promote Nizcare",
-                "Earn Monthly Income",
-              ].map((step, i) => (
-                <div key={i} className="flex items-center w-full md:w-auto">
-                  {/* STEP NUMBER */}
-                  <div className="
-            w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center 
-            rounded-full bg-teal-600 text-white 
-            text-lg sm:text-xl font-bold
-            shadow-lg
-            transform transition-all duration-300
-            hover:scale-105
-          ">
-                    {i + 1}
-                  </div>
-
-                  {/* LABEL */}
-                  <p className="ml-3 text-sm sm:text-base md:text-lg font-semibold text-gray-800">
-                    {step}
-                  </p>
-
-                  {/* CONNECTOR LINE */}
-                  {i !== 3 && (
-                    <div className="hidden md:block w-12 h-1 bg-teal-300 ml-4"></div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* COMMISSION SECTION — PREMIUM CLEAN */}
-        <section className="px-6 md:px-20 py-12 sm:py-16 text-center">
-          <div className="container mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 sm:mb-10">
-              Commission <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Structure</span>
-            </h2>
-
-            <p className="text-base sm:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-              Earn <span className="font-bold text-teal-600">10% commission</span> for every successful NRI subscription.
-              <br />
-              Top performers are elevated to
-              <span className="font-bold text-gray-900"> Country Leads</span> with higher earning potential.
+            <p className="mt-8 text-gray-700 text-center text-sm sm:text-base font-medium">
+              This is an opportunity for <span className="text-teal-700 font-bold">leaders</span>, not affiliates.
             </p>
           </div>
+        </section>
+
+        {/* SECTION 7 — Impact & Market Potential */}
+        <section className="w-full py-20 px-6 md:px-20">
+          <div className="container mx-auto flex flex-col space-y-16">
+
+            {/* Section Title */}
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">
+                Impact & Market<span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent"> Potential</span>
+              </h2>
+            </h2>
+
+            {/* Numbers List Horizontal & Responsive */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full">
+              {[
+                { number: "32M+", label: "Indian Diaspora", icon: <Globe size={32} /> },
+                { number: "$9B", label: "Medical Tourism Industry", icon: <Briefcase size={32} /> },
+                { number: "High", label: "Emotional & Financial Stake in Parents’ Wellbeing", icon: <Heart size={32} /> },
+                { number: "Rapid", label: "Digital Health Adoption", icon: <Globe size={32} /> },
+                { number: "Growing", label: "Corporate Wellness Interest Abroad", icon: <Users size={32} /> },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center justify-start rounded-3xl p-6 transition-all">
+                  <div className="w-24 h-24 flex items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-teal-600 text-white text-3xl shadow-2xl transform transition-all hover:scale-110">
+                    {item.icon}
+                  </div>
+                  <p className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 text-center">{item.number}</p>
+                  <p className="text-gray-700 font-medium text-center mt-2">{item.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer Text */}
+            <p className="text-center text-xl md:text-2xl font-semibold text-gray-800">
+              Your participation accelerates <span className="text-teal-700">Nizcare’s global footprint</span>.
+            </p>
+
+          </div>
+        </section>
+
+        {/* INCOME — PREMIUM CLEAN */}
+        <section className="px-6 md:px-20 py-12 flex flex-col items-center text-center">
+          {/* Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Lead <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare</span> in Your Country
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-lg sm:text-xl text-gray-700 mb-6 max-w-xl">
+            Build Impact & Income. <br />
+            Change the way <span className="font-semibold text-teal-600">Indians</span> abroad care for their families.
+          </p>
+
+          {/* CTA Button */}
+          <a
+            href="#"
+            className="inline-block bg-gradient-to-r from-teal-500 to-teal-700 text-white font-bold text-lg sm:text-xl px-8 py-3 rounded-full shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+          >
+            Apply to Become a Country Partner
+          </a>
         </section>
 
         {/* CLEAN FOOTER */}
