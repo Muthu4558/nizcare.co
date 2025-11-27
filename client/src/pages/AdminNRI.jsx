@@ -35,7 +35,7 @@ const AdminNRI = () => {
       
       <div className="bg-white shadow-xl rounded-3xl p-8">
         <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center">
-          NRI Form Submissions
+          NRI Form <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Submissions</span>
         </h1>
 
         <div className="overflow-x-auto">

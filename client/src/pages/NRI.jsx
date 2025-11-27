@@ -88,7 +88,6 @@ const NRI = () => {
     { name: "Switzerland", src: "/flags/switzerland.png" },
   ];
 
-
   return (
     <div className="relative">
       {/* Full-page Background Animation */}
@@ -106,13 +105,23 @@ const NRI = () => {
           data-aos-delay="200"
         />
         {/* HERO SECTION */}
-        <section className="flex flex-col-reverse md:flex-row items-start md:items-center container mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10">
+        <section
+          className="flex flex-col-reverse md:flex-row items-start md:items-center container mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10"
+          style={{
+            backgroundImage: "url('/bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundAttachment: "scroll", // or "fixed" if you want a parallax effect
+          }}
+        >
+
 
           {/* LEFT CONTENT */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 mt-12">
 
             {/* Flags Grid */}
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-6 opacity-0">
 
               {/* Example Flag Item */}
               {[
@@ -130,8 +139,8 @@ const NRI = () => {
                 { src: "/flags/new-zealand.png", name: "New Zealand" },
                 { src: "/flags/oman.png", name: "Oman" },
                 { src: "/flags/qatar.png", name: "Qatar" },
-                { src: "/flags/south-africa.png", name: "South Africa" },
-                { src: "/flags/switzerland.png", name: "Switzerland" },
+                // { src: "/flags/south-africa.png", name: "South Africa" },
+                // { src: "/flags/switzerland.png", name: "Switzerland" },
               ].map((flag, i) => (
                 <div key={i} className="flex flex-col items-center space-y-2">
                   <img
@@ -146,10 +155,10 @@ const NRI = () => {
           </div>
 
           {/* RIGHT — FORM */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-4">
+          <div className="relative w-full md:w-1/2 flex justify-center md:justify-end mt-80 md:mt-4">
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-xl sm:max-w-md md:max-w-lg bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 border border-white/30"
+              className="absolute w-full max-w-xl sm:max-w-md md:max-w-lg bg-white backdrop-blur-xl shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 border border-white/30"
             >
               <h2 className="text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
                 Partner <span className="text-teal-600">Registration</span>
@@ -323,10 +332,11 @@ const NRI = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-20 py-16 sm:py-20">
-          <div className="text-center">
+        {/* second page */}
+        <section className="px-6 md:px-20 py-16 sm:py-20 md:grid md:grid-cols-2">
+          <div className="text-center md:text-start">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-              Become a <span className="text-teal-600">Nizcare Global Partner</span>
+              Become a <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare Global Partner</span>
             </h1>
 
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
@@ -350,7 +360,7 @@ const NRI = () => {
         <section className="px-6 md:px-20 py-16 sm:py-20">
           <div className="container mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-10 sm:mb-14 text-gray-800 tracking-tight">
-              Partner <span className="text-teal-600">Benefits</span>
+              Partner <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Benefits</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 relative z-10">
@@ -381,7 +391,7 @@ const NRI = () => {
         <section className="px-6 md:px-20 py-16 sm:py-20">
           <div className="container mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10 sm:mb-14">
-              Who Can <span className="text-teal-600">Join?</span>
+              Who Can <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Join?</span>
             </h2>
 
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto">
@@ -422,7 +432,7 @@ const NRI = () => {
         <section className="px-6 md:px-20 py-16 sm:py-20">
           <div className="container mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10 sm:mb-14">
-              How It <span className="text-teal-600">Works</span>
+              How It <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Works</span>
             </h2>
 
             <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-6 md:gap-12">
@@ -539,7 +549,7 @@ const NRI = () => {
               </p>
               <a
                 href="#"
-                className="inline-block bg-teal-600 text-white p-2 rounded-2xl px-6
+                className="inline-block bg-gradient-to-r from-teal-500 to-teal-700 text-white p-2 rounded-2xl px-6
              transition-all duration-300 
              hover:bg-teal-700 hover:shadow-lg hover:scale-[1.03]"
               >

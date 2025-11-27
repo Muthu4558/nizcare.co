@@ -1,0 +1,248 @@
+<img
+          src={Logo}
+          alt="Logo"
+          className="absolute top-4 right-4 md:right-auto md:left-4 w-24 sm:w-28 md:w-40 z-10"
+          data-aos="fade-down"
+          data-aos-delay="200"
+        />
+        {/* HERO SECTION */}
+        <section className="flex flex-col-reverse md:flex-row items-start md:items-center container mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10">
+
+          {/* LEFT CONTENT */}
+          <div className="w-full md:w-1/2">
+
+            {/* Flags Grid */}
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
+
+              {/* Example Flag Item */}
+              {[
+                { src: "/flags/saudi.png", name: "Saudi Arabia" },
+                { src: "/flags/uae.png", name: "UAE" },
+                { src: "/flags/singapore.png", name: "Singapore" },
+                { src: "/flags/srilanka.png", name: "Sri Lanka" },
+                { src: "/flags/malaysia.png", name: "Malaysia" },
+                { src: "/flags/usa.png", name: "USA" },
+                { src: "/flags/uk.png", name: "UK" },
+                { src: "/flags/canada.png", name: "Canada" },
+                { src: "/flags/australia.png", name: "Australia" },
+                { src: "/flags/germany.png", name: "Germany" },
+                { src: "/flags/kuwait.png", name: "Kuwait" },
+                { src: "/flags/new-zealand.png", name: "New Zealand" },
+                { src: "/flags/oman.png", name: "Oman" },
+                { src: "/flags/qatar.png", name: "Qatar" },
+                { src: "/flags/south-africa.png", name: "South Africa" },
+                { src: "/flags/switzerland.png", name: "Switzerland" },
+              ].map((flag, i) => (
+                <div key={i} className="flex flex-col items-center space-y-2">
+                  <img
+                    src={flag.src}
+                    alt={flag.name}
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full shadow"
+                  />
+                  <p className="text-sm text-gray-700 text-center">{flag.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT — FORM */}
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-4">
+            <form
+              onSubmit={handleSubmit}
+              className="w-full max-w-xl sm:max-w-md md:max-w-lg bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 border border-white/30"
+            >
+              <h2 className="text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
+                Partner <span className="text-teal-600">Registration</span>
+              </h2>
+
+              <div className="space-y-4 sm:space-y-5">
+
+                {/* NAME + EMAIL ROW */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                  {/* Full Name */}
+                  <div className="relative">
+                    <div className="absolute top-4 left-3 text-gray-400">
+                      <FiUser />
+                    </div>
+                    <input
+                      name="fullName"
+                      value={form.fullName}
+                      onChange={handleChange}
+                      placeholder="Full Name"
+                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="relative">
+                    <div className="absolute top-4 left-3 text-gray-400">
+                      <FiMail />
+                    </div>
+                    <input
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="Email"
+                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                    />
+                  </div>
+                </div>
+
+                {/* COUNTRY + WHATSAPP ROW */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                  {/* Current Country */}
+                  <div className="relative">
+                    {/* Selected Country / Button */}
+                    <button
+                      type="button"
+                      className="w-full pl-3 pr-4 py-3 rounded-xl border bg-white flex items-center justify-between text-sm focus:ring-2 focus:ring-teal-500 outline-none"
+                      onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
+                    >
+                      <div className="flex items-center gap-2">
+                        {form.currentCountry ? (
+                          <img
+                            src={countryList.find(c => c.name === form.currentCountry)?.src}
+                            alt={form.currentCountry}
+                            className="w-6 h-6 rounded-full object-cover"
+                          />
+                        ) : (
+                          <FiGlobe className="text-gray-400" />
+                        )}
+                        <span>{form.currentCountry || "Select Country"}</span>
+                      </div>
+                      <FiChevronDown className="text-gray-500" />
+                    </button>
+
+                    {/* Dropdown List */}
+                    {countryDropdownOpen && (
+                      <div className="absolute z-20 mt-1 w-full bg-white border rounded-xl shadow-lg max-h-64 overflow-y-auto">
+                        {countryList.map((country, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center gap-2 px-4 py-2 hover:bg-teal-50 cursor-pointer"
+                            onClick={() => {
+                              handleChange({ target: { name: "currentCountry", value: country.name } });
+                              setCountryDropdownOpen(false);
+                            }}
+                          >
+                            <img
+                              src={country.src}
+                              alt={country.name}
+                              className="w-6 h-6 rounded-full object-cover"
+                            />
+                            <span>{country.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* WhatsApp Number */}
+                  <div className="relative">
+                    <div className="absolute top-4 left-3 text-gray-400">
+                      <FiPhone />
+                    </div>
+                    <input
+                      name="whatsapp"
+                      value={form.whatsapp}
+                      onChange={handleChange}
+                      placeholder="WhatsApp Number"
+                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                    />
+                  </div>
+                </div>
+
+                {/* PROFESSION */}
+                <div className="relative">
+                  <div className="absolute top-4 left-3 text-gray-400">
+                    <FiBriefcase />
+                  </div>
+                  <input
+                    name="profession"
+                    value={form.profession}
+                    onChange={handleChange}
+                    placeholder="Profession"
+                    className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                  />
+                </div>
+
+                {/* SELECT – Work With Communities */}
+                <div className="relative">
+                  <FiUsers className="absolute top-4 left-3 text-gray-400" />
+                  <select
+                    name="workWithCommunities"
+                    value={form.workWithCommunities}
+                    onChange={handleChange}
+                    className="w-full pl-10 p-3 rounded-xl border bg-white focus:ring-2 focus:ring-teal-500 text-sm sm:text-base"
+                  >
+                    <option value="">Do you work with NRI communities?</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+
+                {/* SELECT – Promote Nizcare */}
+                <div className="relative">
+                  <FiStar className="absolute top-4 left-3 text-gray-400" />
+                  <select
+                    name="promoteNizcare"
+                    value={form.promoteNizcare}
+                    onChange={handleChange}
+                    className="w-full pl-10 p-3 rounded-xl border bg-white focus:ring-2 focus:ring-teal-500 text-sm sm:text-base"
+                  >
+                    <option value="">
+                      Would you like to promote Nizcare as a Partner/Affiliate?
+                    </option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+
+                {/* EXPECTED REACH */}
+                <div className="relative">
+                  <FiTrendingUp className="absolute top-4 left-3 text-gray-400" />
+                  <input
+                    name="expectedReach"
+                    value={form.expectedReach}
+                    onChange={handleChange}
+                    placeholder="Expected monthly reach (approx.)"
+                    className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                  />
+                </div>
+
+                {/* SUBMIT BUTTON */}
+                <button
+                  type="submit"
+                  className="mt-2 w-full bg-teal-600 text-white py-3 rounded-xl text-base sm:text-lg font-semibold hover:bg-teal-700 transition-all shadow-lg"
+                >
+                  Submit
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </section>
+
+        {/* second page */}
+        <section className="px-6 md:px-20 py-16 sm:py-20">
+          <div className="text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+              Become a <span className="text-teal-600">Nizcare Global Partner</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              Promote Nizcare to NRIs in your country and earn recurring income every month.
+              <span className="font-semibold"> No investment. Full support.</span>
+            </p>
+
+            <div className="space-y-4 text-gray-700">
+              <p>
+                For millions of Indians abroad, caring for families in India is difficult.
+                Nizcare solves this through AI-powered preventive care, home support, medicine assistance, and a dedicated wellness manager.
+              </p>
+              <p className="font-semibold">
+                If you have access to NRI communities, you can be the bridge — and earn.
+              </p>
+            </div>
+          </div>
+        </section>
