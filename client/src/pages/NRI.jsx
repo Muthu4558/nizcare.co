@@ -715,37 +715,58 @@ const NRI = () => {
           <div className="container mx-auto relative z-10">
 
             {/* Section Title */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-14">
               What You <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Get</span>
             </h2>
 
             {/* Flow Grid */}
-            <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
 
-              {[
-                { icon: <DollarSign size={28} />, title: "Revenue Share", desc: "Earn from all 4 verticals with recurring commissions." },
-                { icon: <Globe size={28} />, title: "Exclusive Representation", desc: "Be the official partner for your country/region." },
-                { icon: <UserCheck size={28} />, title: "Partner Success Manager", desc: "Dedicated guidance to help you succeed." },
-                { icon: <Award size={28} />, title: "Global Recognition", desc: "Boost your authority with our trusted brand." },
-                { icon: <BookOpen size={28} />, title: "Marketing & Training", desc: "Access ready-made content, brochures, and workshops." },
-                { icon: <Calendar size={28} />, title: "Co-branded Events", desc: "Participate in webinars, events, and exhibitions." },
-                { icon: <BarChart2 size={28} />, title: "Analytics Dashboard", desc: "Track your leads and performance in real-time." },
-              ].map((benefit, i) => (
-                <div
-                  key={i}
-                  className={`bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-4 hover:shadow-3xl`}
-                  style={{ zIndex: i + 1 }}
-                >
-                  {/* Floating Icon Badge */}
-                  <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-700 text-white rounded-full mb-4 shadow-xl animate-bounce-slow">
-                    {benefit.icon}
+              {/* First Section */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                  { icon: <DollarSign size={28} />, title: "Revenue Share", desc: "Earn from all 4 verticals with recurring commissions." },
+                  { icon: <Globe size={28} />, title: "Exclusive Representation", desc: "Be the official partner for your country/region." },
+                  { icon: <UserCheck size={28} />, title: "Partner Success Manager", desc: "Dedicated guidance to help you succeed." },
+                  { icon: <Award size={28} />, title: "Global Recognition", desc: "Boost your authority with our trusted brand." },
+                ].map((benefit, i) => (
+                  <div
+                    key={i}
+                    className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-4 hover:shadow-3xl"
+                  >
+                    {/* Floating Icon Badge */}
+                    <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-700 text-white rounded-full mb-4 shadow-xl animate-bounce-slow">
+                      {benefit.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                    <p className="text-gray-600 text-sm sm:text-base">{benefit.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm sm:text-base">{benefit.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              {/* Second Section */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  { icon: <BookOpen size={28} />, title: "Marketing & Training", desc: "Access ready-made content, brochures, and workshops." },
+                  { icon: <Calendar size={28} />, title: "Co-branded Events", desc: "Participate in webinars, events, and exhibitions." },
+                  { icon: <BarChart2 size={28} />, title: "Analytics Dashboard", desc: "Track your leads and performance in real-time." },
+                ].map((benefit, i) => (
+                  <div
+                    key={i}
+                    className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-4 hover:shadow-3xl"
+                  >
+                    {/* Floating Icon Badge */}
+                    <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-700 text-white rounded-full mb-4 shadow-xl animate-bounce-slow">
+                      {benefit.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                    <p className="text-gray-600 text-sm sm:text-base">{benefit.desc}</p>
+                  </div>
+                ))}
+              </div>
 
             </div>
+
 
           </div>
         </section>
