@@ -14,7 +14,7 @@ import {
   FiChevronDown
 } from "react-icons/fi";
 import { FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa";
-import { ShieldCheck, Globe2, LayoutDashboard, Building } from "lucide-react";
+import { ShieldCheck, Globe2, LayoutDashboard, Building, ArrowRightCircle, ArrowLeftCircle } from "lucide-react";
 import { HeartPulse, AlertTriangle, Handshake, Eye } from "lucide-react";
 import { Users, Plane, Stethoscope, Building2 } from "lucide-react";
 import { DollarSign, Globe, UserCheck, Award, BookOpen, Calendar, BarChart2 } from "lucide-react";
@@ -22,6 +22,11 @@ import { Heart, Home, Monitor, Briefcase } from "lucide-react";
 import { BarChart } from "lucide-react";
 import Logo from "../assets/logo.png";
 import BackgroundAnimation from "../components/BackgroundAnimation.jsx";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination"
 
 const NRI = () => {
   const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
@@ -226,7 +231,7 @@ const NRI = () => {
           <div className="relative w-full md:w-1/2 flex justify-center md:justify-end mt-80 md:mt-4">
             <form
               onSubmit={handleSubmit}
-              className="absolute w-full max-w-xl sm:max-w-md md:max-w-lg bg-white backdrop-blur-xl shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 border border-white/30"
+              className="absolute md:top-24 w-full max-w-xl sm:max-w-md md:max-w-lg bg-white backdrop-blur-xl shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 border border-white/30"
             >
               <h2 className="text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
                 Partner <span className="text-teal-600">Registration</span>
@@ -461,108 +466,170 @@ const NRI = () => {
         <section className="px-6 md:px-20 py-16 sm:py-20 md:grid md:grid-cols-2">
           <div className="text-center md:text-start">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-              Become a <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare Country Partner</span>
+              Nizcare: <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Revolutionizing Healthcare Globally</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mt-4">
-              <h2 className="font-semibold text-2xl"> Lead Nizcare’s Global Expansion in</h2>
+            <p className="text-base sm:text-lg leading-relaxed mt-4">
+              <h2 className="font-semibold text-2xl">Become a Nizcare Country Partner</h2>
             </p>
 
-            <div className="space-y-4 text-gray-700 mt-4">
+            <div className="space-y-4 text-gray-700 mt-4 text-justify">
               <p>
                 NRI Wellness • Medical Tourism • Clinic Pro SaaS • Corporate Healthcare
               </p>
-              <p className="font-semibold">
-                A Leadership Opportunity for NRI Business Influencers Worldwide
+              <p className="font-semibold text-justify">
+                Nizcare is a pioneering healthcare platform bridging the gap between India and the world. We're launching a comprehensive suite of health & wellness services tailored to the unique needs of NRIs, international patients, and corporate clients.
               </p>
             </div>
           </div>
         </section>
 
         {/* Opportunity SECTION */}
-        <section className="px-6 md:px-20 py-16 sm:py-20">
+        <section className="px-6 md:px-20 py-16 sm:py-20 relative">
           <div className="container mx-auto">
 
             {/* Section Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6 sm:mb-8 text-gray-900 tracking-tight">
-              The {" "}
+              The{" "}
               <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
                 Opportunity
               </span>
             </h2>
 
             <p className="text-center text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              4 Fast-Growing Healthcare Verticals. One Global Platform.
+              5 Fast-Growing Healthcare Verticals. One Global Platform.
             </p>
 
-            <p className="text-center text-base sm:text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
-              As a Country Partner, you represent all four revenue channels of Nizcare in your nation.
+            <p className="md:text-center text-base sm:text-lg text-gray-600 mt-2 max-w-2xl mx-auto text-justify">
+              As a Country Partner, you represent all five revenue channels of Nizcare in your nation.
             </p>
 
-            {/* Opportunity Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-12">
+            {/* Swiper Wrapper */}
+            <div className="relative mt-12">
 
-              {/* 1: NRI Wellness */}
-              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
-                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
-                  <ShieldCheck size={32} />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  NRI Wellness Subscriptions
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Help NRIs ensure their families in India receive reliable, coordinated medical care.
-                </p>
+              {/* Custom Navigation Buttons */}
+              <div className="absolute bottom-[-3rem] right-0 flex gap-3 z-20">
+                <button className="swiper-prev px-4 py-2 bg-teal-600 text-white rounded-lg shadow hover:bg-teal-700">
+                  <ArrowLeftCircle />
+                </button>
+                <button className="swiper-next px-4 py-2 bg-teal-600 text-white rounded-lg shadow hover:bg-teal-700">
+                  <ArrowRightCircle />
+                </button>
               </div>
 
-              {/* 2: Medical Tourism */}
-              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
-                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
-                  <Globe2 size={32} />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Medical Tourism Facilitation
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Support global patients coming to India for surgeries, second opinions, treatments &
-                  wellness programs through Nizcare’s curated medical network.
-                </p>
-              </div>
+              <Swiper
+                modules={[Navigation, Autoplay]}
+                spaceBetween={20}
+                slidesPerView={1}
+                navigation={{
+                  nextEl: ".swiper-next",
+                  prevEl: ".swiper-prev",
+                }}
+                autoplay={{
+                  delay: 2500,   // time between slides (2.5s)
+                  disableOnInteraction: false,
+                }}
+                breakpoints={{
+                  640: { slidesPerView: 1 },
+                  768: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                  1280: { slidesPerView: 4 },
+                }}
+                className="p-10 h-[450px]"
+              >
 
-              {/* 3: Clinic Pro SaaS */}
-              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
-                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
-                  <LayoutDashboard size={32} />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Nizcare Clinic Pro (Doctor SaaS)
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Promote our AI-powered clinic management suite to clinics, doctors & polyclinics.
-                  Earn recurring software licensing revenue.
-                </p>
-              </div>
+                {/* Slide 1 */}
+                <SwiperSlide className="h-full">
+                  <div className="group p-7 rounded-2xl bg-white border border-teal-100 bg-gradient-to-br from-white to-teal-50/20 h-full flex flex-col hover:border-teal-600 transition-all">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                      <ShieldCheck size={32} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      For NRIs & Their Families in India
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-justify">
+                      <span className="font-bold">Seamless Medical Care:</span> Access top-quality healthcare in India with personalized support and concierge services. <br />
+                      <span className="font-bold">Family Health Management:</span> Comprehensive health solutions for your loved ones back home.
+                    </p>
+                  </div>
+                </SwiperSlide>
 
-              {/* 4: Corporate Digital Health */}
-              <div className="group p-7 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-teal-100 bg-gradient-to-br from-white to-teal-50/20">
-                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
-                  <Building size={32} />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Corporate Digital Health (B2B)
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Provide corporate wellness solutions—employee healthcare, preventive screenings,
-                  chronic care, and mental health programs.
-                </p>
-              </div>
+                {/* Slide 2 */}
+                <SwiperSlide className="h-full">
+                  <div className="group p-7 rounded-2xl bg-white border border-teal-100 bg-gradient-to-br from-white to-teal-50/20 h-full flex flex-col hover:border-teal-600 transition-all">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                      <Globe2 size={32} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      Medical Tourism for International Patients
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-justify">
+                      <span className="font-bold">India's Best Healthcare:</span> Support global patients coming to India for surgeries, second opinions, treatments &
+                      wellness programs through Nizcare’s curated medical network.
+                    </p>
+                  </div>
+                </SwiperSlide>
+
+                {/* Slide 3 */}
+                <SwiperSlide className="h-full">
+                  <div className="group p-7 rounded-2xl bg-white border border-teal-100 bg-gradient-to-br from-white to-teal-50/20 h-full flex flex-col hover:border-teal-600 transition-all">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                      <LayoutDashboard size={32} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      Clinic Pro: Transforming Healthcare Delivery
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-justify">
+                      <span className="font-bold">Digital Clinic Management:</span> Promote our AI-powered clinic management suite to clinics, doctors & polyclinics.
+                      Earn recurring software licensing revenue. <br />
+                      <span className="font-bold">Partner with Nizcare:</span> Digitize healthcare practice and elevate patient care with our expertise.
+                    </p>
+                  </div>
+                </SwiperSlide>
+
+                {/* Slide 4 */}
+                <SwiperSlide className="h-full">
+                  <div className="group p-7 rounded-2xl bg-white border border-teal-100 bg-gradient-to-br from-white to-teal-50/20 h-full flex flex-col hover:border-teal-600 transition-all">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                      <Building size={32} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      B2B Corporate Wellness Solutions
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-justify">
+                      <span className="font-bold">Provide corporate wellness:</span> solutions—employee healthcare, preventive screenings,
+                      chronic care, and mental health programs. <br />
+                      <span className="font-bold">Boost Productivity & Satisfaction:</span> Enhance employee well-being and performance with Nizcare's tailored corporate solutions.
+                    </p>
+                  </div>
+                </SwiperSlide>
+
+                {/* Slide 5 */}
+                <SwiperSlide className="h-full">
+                  <div className="group p-7 rounded-2xl bg-white border border-teal-100 bg-gradient-to-br from-white to-teal-50/20 h-full flex flex-col hover:border-teal-600 transition-all">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-100 text-teal-700 mb-5 shadow-inner">
+                      <Building size={32} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      B2C: Nizcare for the Common Public
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-justify">
+                      <span className="font-bold">Accessible Healthcare:</span> Soon launching affordable, high-quality health services directly to individuals. <br />
+                      <span className="font-bold">Your Health, Our Priority:</span> Experience personalized health management and wellness support.
+                    </p>
+                  </div>
+                </SwiperSlide>
+
+              </Swiper>
+
             </div>
 
             {/* Footer */}
-            <p className="text-center text-lg sm:text-xl font-semibold text-gray-800 mt-12 max-w-3xl mx-auto">
+            <p className="text-center text-lg sm:text-xl font-semibold text-gray-800 mt-16 max-w-3xl mx-auto">
               A complete multi-vertical healthcare model —{" "}
               <span className="text-teal-600">you will lead Nizcare's growth in your country.</span>
             </p>
+
           </div>
         </section>
 
@@ -572,14 +639,14 @@ const NRI = () => {
 
             {/* RIGHT SIDE — Hero Content (should come first on mobile) */}
             <div className="bg-white rounded-3xl shadow-xl p-10 border border-teal-100 order-1 lg:order-2">
-              <h2 className="text-4xl font-extrabold text-gray-800 leading-tight mb-4">
+              <h2 className="text-4xl font-extrabold text-gray-800 leading-tight mb-4 text-center">
                 Why{" "}
                 <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
                   Nizcare?
                 </span>
               </h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
                 Nizcare is a complete global health ecosystem designed for Indians living abroad.
                 We address the biggest challenges faced by international families through a
                 coordinated, transparent and high-quality medical platform trusted worldwide.
@@ -654,7 +721,7 @@ const NRI = () => {
                   <Users size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 text-center mb-2">NRI Engagement</h3>
-                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed md:text-center text-justify">
                   <li>• Promote Nizcare’s family health plans</li>
                   <li>• Support NRIs needing help for parents in India</li>
                   <li>• Organise community awareness programs</li>
@@ -667,7 +734,7 @@ const NRI = () => {
                   <Plane size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Medical Tourism</h3>
-                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed md:text-center text-justify">
                   <li>• Handle first-level enquiries</li>
                   <li>• Coordinate pre-travel clinical discussions</li>
                   <li>• Build relationships with local doctors & networks</li>
@@ -680,7 +747,7 @@ const NRI = () => {
                   <Stethoscope size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Clinic Pro Sales (SaaS)</h3>
-                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed md:text-center text-justify">
                   <li>• Onboard clinics & doctors to Nizcare Clinic Pro</li>
                   <li>• Promote digital transformation using AI tools</li>
                 </ul>
@@ -692,7 +759,7 @@ const NRI = () => {
                   <Building2 size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Corporate Sales (B2B)</h3>
-                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed text-center">
+                <ul className="text-gray-700 text-sm space-y-1 leading-relaxed md:text-center text-justify">
                   <li>• Pitch employee wellness solutions to businesses</li>
                   <li>• Run preventive health campaigns</li>
                   <li>• Facilitate annual health check partnerships</li>
@@ -710,13 +777,13 @@ const NRI = () => {
           </div>
         </section>
 
-        {/* WHAT YOU GET */}
+        {/* Partner Benefits */}
         <section className="relative px-6 md:px-20 py-28 overflow-hidden">
           <div className="container mx-auto relative z-10">
 
             {/* Section Title */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-14">
-              What You <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Get</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-4">
+              Partner <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Benefits</span>
             </h2>
 
             {/* Flow Grid */}
@@ -725,8 +792,8 @@ const NRI = () => {
               {/* First Section */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
-                  { icon: <DollarSign size={28} />, title: "Revenue Share", desc: "Earn from all 4 verticals with recurring commissions." },
-                  { icon: <Globe size={28} />, title: "Exclusive Representation", desc: "Be the official partner for your country/region." },
+                  { icon: <Globe size={28} />, title: " Exclusive Territory Rights", desc: "Be the official partner for your country/region." },
+                  { icon: <DollarSign size={28} />, title: "Revenue Share", desc: "Earn from all 5 verticals with recurring commissions." },
                   { icon: <UserCheck size={28} />, title: "Partner Success Manager", desc: "Dedicated guidance to help you succeed." },
                   { icon: <Award size={28} />, title: "Global Recognition", desc: "Boost your authority with our trusted brand." },
                 ].map((benefit, i) => (
@@ -747,8 +814,8 @@ const NRI = () => {
               {/* Second Section */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
-                  { icon: <BookOpen size={28} />, title: "Marketing & Training", desc: "Access ready-made content, brochures, and workshops." },
-                  { icon: <Calendar size={28} />, title: "Co-branded Events", desc: "Participate in webinars, events, and exhibitions." },
+                  { icon: <BookOpen size={28} />, title: "Comprehensive Training & Support", desc: "Access our expertise in healthcare management, marketing, and operations." },
+                  { icon: <Calendar size={28} />, title: "Brand Building Opportunities", desc: "Collaborate on marketing initiatives and promote Nizcare's global brand." },
                   { icon: <BarChart2 size={28} />, title: "Analytics Dashboard", desc: "Track your leads and performance in real-time." },
                 ].map((benefit, i) => (
                   <div
@@ -772,20 +839,17 @@ const NRI = () => {
         </section>
 
         {/* Nizcare Delivers */}
-        <section className="px-6 md:px-20 py-28 relative">
+        {/* <section className="px-6 md:px-20 py-28 relative">
           <div className="container mx-auto relative z-10">
 
-            {/* Section Title */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-16">
               What <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare Delivers</span>
               <br />
               <span className="text-gray-600 text-xl font-semibold">End-to-end Operations in India</span>
             </h2>
 
-            {/* Grid for 4 Verticals */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-              {/* NRI Wellness */}
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
                 <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
                   <Heart size={28} />
@@ -799,7 +863,6 @@ const NRI = () => {
                 </ul>
               </div>
 
-              {/* Medical Tourism */}
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
                 <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
                   <Home size={28} />
@@ -812,7 +875,6 @@ const NRI = () => {
                 </ul>
               </div>
 
-              {/* Clinic Pro */}
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
                 <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
                   <Monitor size={28} />
@@ -825,7 +887,6 @@ const NRI = () => {
                 </ul>
               </div>
 
-              {/* Corporate Health */}
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 hover:shadow-3xl transition-all transform hover:-translate-y-2">
                 <div className="w-16 h-16 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl mb-4">
                   <Briefcase size={28} />
@@ -840,7 +901,6 @@ const NRI = () => {
 
             </div>
 
-            {/* CTA */}
             <div className="mt-16 text-center">
               <p className="text-gray-700 text-lg sm:text-xl mb-6">
                 <span className="font-semibold text-gray-900">You focus on growth.</span><br />
@@ -856,55 +916,96 @@ const NRI = () => {
 
           </div>
 
-        </section>
+        </section> */}
 
-        {/* SECTION 6 — Who Can Apply? */}
-        <section className="px-6 md:px-20 py-20">
+        {/* Eligibility Criteria */}
+        <section className="relative px-4 sm:px-8 md:px-20 py-16 sm:py-20 md:py-24">
           <div className="container mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-14">
-              Who Can <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Apply?</span>
+
+            {/* Title */}
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-10 sm:mb-14 md:mb-16 leading-tight">
+              Eligibility{" "}
+              <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                Criteria
+              </span>
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* List Wrapper */}
+            <div className="max-w-3xl mx-auto space-y-8 sm:space-y-10">
+
               {[
-                { icon: <Users size={24} />, text: "NRI Business Leaders" },
-                { icon: <Briefcase size={24} />, text: "Entrepreneurs / Investors" },
-                { icon: <Users size={24} />, text: "Presidents / Secretaries of Indian Associations" },
-                { icon: <Globe size={24} />, text: "Owners of Small–Mid Businesses Abroad" },
-                { icon: <Heart size={24} />, text: "Healthcare Professionals" },
-                { icon: <Users size={24} />, text: "Community Influencers" },
+                {
+                  icon: <Users size={24} />,
+                  text: "Strong network and connections with healthcare providers, clinics, and hospitals."
+                },
+                {
+                  icon: <Briefcase size={24} />,
+                  text: "Proven track record of success in business or entrepreneurship."
+                },
+                {
+                  icon: <Users size={24} />,
+                  text: "Expertise in regulatory compliance, legal, and local operations."
+                },
+                {
+                  icon: <Globe size={24} />,
+                  text: "Passion for transforming healthcare delivery and improving patient outcomes."
+                }
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-4 p-6 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all border border-gray-100"
+                  className="flex items-start gap-4 sm:gap-6 group"
                 >
-                  <div className="w-12 h-12 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl">
+                  {/* Icon Circle */}
+                  <div
+                    className="min-w-[48px] min-h-[48px] sm:w-14 sm:h-14 flex items-center justify-center 
+                     bg-gradient-to-br from-teal-500 to-teal-700 text-white 
+                     rounded-2xl shadow-lg group-hover:scale-110 
+                     transition-transform duration-300"
+                  >
                     {item.icon}
                   </div>
-                  <p className="text-gray-700 font-semibold">{item.text}</p>
+
+                  {/* Text */}
+                  <p className="text-gray-800 text-base sm:text-lg font-medium leading-relaxed">
+                    {item.text}
+                  </p>
                 </div>
               ))}
+
             </div>
 
-            <p className="mt-8 text-gray-700 text-center text-sm sm:text-base font-medium">
-              This is an opportunity for <span className="text-teal-700 font-bold">leaders</span>, not affiliates.
-            </p>
+            {/* CTA */}
+            <div className="text-center mt-14 sm:mt-16 md:mt-20 px-2">
+              <p className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                Join Our Global{" "}
+                <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent font-extrabold">
+                  Partnership
+                </span>{" "}
+                Program.
+              </p>
+
+              <p className="mt-3 sm:mt-4 text-gray-700 text-base sm:text-lg leading-relaxed md:text-center text-justify">
+                Nizcare invites you to be part of a revolutionary healthcare movement. <br className="hidden sm:block" />
+                Together, let's redefine healthcare delivery and wellness support worldwide.
+              </p>
+            </div>
+
           </div>
         </section>
 
-        {/* SECTION 7 — Impact & Market Potential */}
+        {/* Impact & Market Potential */}
         <section className="w-full py-20 px-6 md:px-20">
-          <div className="container mx-auto flex flex-col space-y-16">
+          <div className="container mx-auto flex flex-col">
 
             {/* Section Title */}
             <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-10">
                 Impact & Market<span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent"> Potential</span>
               </h2>
             </h2>
 
             {/* Numbers List Horizontal & Responsive */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full mb-10">
               {[
                 { number: "32M+", label: "Indian Diaspora", icon: <Globe size={32} /> },
                 { number: "$9B", label: "Medical Tourism Industry", icon: <Briefcase size={32} /> },
@@ -922,9 +1023,11 @@ const NRI = () => {
               ))}
             </div>
 
-            {/* Footer Text */}
-            <p className="text-center text-xl md:text-2xl font-semibold text-gray-800">
-              Your participation accelerates <span className="text-teal-700">Nizcare’s global footprint</span>.
+            <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">
+              Launch <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent font-bold">Updates & Opportunities</span>
+            </p>
+            <p className="text-gray-700 md:text-center text-justify">
+              Stay tuned for our upcoming launch and be among the first to experience Nizcare's transformative services. <br /> Partner with us and shape the future of global healthcare.
             </p>
 
           </div>
@@ -959,7 +1062,7 @@ const NRI = () => {
             {/* LOGO + TEXT */}
             <div className="text-center md:text-left">
               <img src={Logo} width={140} alt="logo" className="mx-auto md:mx-0" />
-              <p className="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base">
+              <p className="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base text-justify">
                 Connecting NRIs with reliable healthcare and support services in India.
                 Join our partner network and make an impact globally.
               </p>
@@ -1007,10 +1110,10 @@ const NRI = () => {
             {/* Explore */}
             <div className="text-center md:text-left">
               <h3 className="text-lg font-semibold text-teal-600 mb-3">Explore</h3>
-              <p className="text-gray-600 text-sm sm:text-base">
+              <p className="text-gray-600 text-sm sm:text-base text-justify">
                 Join the Nizcare Global Partner Network Today.
               </p>
-              <p className="text-gray-600 mb-4 text-sm sm:text-base">
+              <p className="text-gray-600 mb-4 text-sm sm:text-base text-justify">
                 Expand healthcare access. Earn recurring income. Make a difference.
               </p>
               <a
