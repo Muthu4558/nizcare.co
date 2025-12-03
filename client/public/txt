@@ -246,3 +246,232 @@
             </div>
           </div>
         </section>
+
+
+
+
+
+
+
+        <section className="px-6 sm:px-12 md:px-20 py-20" data-aos="fade-up">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6 sm:mb-8 text-gray-900 tracking-tight" data-aos="zoom-in">
+                The{" "}
+                <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                  Opportunity
+                </span>
+              </h2>
+
+              <p className="text-center text-lg sm:text-4xl text-gray-700 mx-auto leading-relaxed mb-4" data-aos="fade-up">
+                4 Fast-Growing Healthcare Verticals. One Global Platform.
+              </p>
+
+              <div className="relative">
+                {/* Navigation buttons (kept same positions) */}
+                <div className="absolute -bottom-12 right-0 flex gap-3 z-20">
+                  <button className="swiper-prev px-4 py-2 bg-teal-600 text-white rounded-lg shadow hover:bg-teal-700">
+                    <ArrowLeftCircle />
+                  </button>
+                  <button className="swiper-next px-4 py-2 bg-teal-600 text-white rounded-lg shadow hover:bg-teal-700">
+                    <ArrowRightCircle />
+                  </button>
+                </div>
+
+                <Swiper
+                  modules={[Navigation, Autoplay]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  navigation={{ nextEl: ".swiper-next", prevEl: ".swiper-prev" }}
+                  autoplay={{ delay: 9000, disableOnInteraction: false }}
+                  breakpoints={{
+                    640: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 },
+                  }}
+                  className="p-6 pb-16"
+                >
+                  {/* Slide 1 */}
+                  <SwiperSlide>
+                    <div
+                      className="relative group bg-white rounded-3xl border border-teal-200 p-8 flex flex-col transition-all duration-300 overflow-hidden h-[470px]"
+                      data-aos="fade-up"
+                      data-aos-delay={0}
+                    >
+                      <div className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0" aria-hidden="true" />
+
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="flex items-center gap-4">
+                          <div
+                            className="
+                w-16 h-16 flex items-center justify-center rounded-full
+                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
+                transition-all duration-500 ease-in-out
+                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
+                group-hover:from-transparent group-hover:to-transparent
+              "
+                          >
+                            <Users size={28} />
+                          </div>
+
+                          <h3 className="text-3xl font-bold text-gray-900 group-hover:text-white transition-all duration-300">
+                            NRI Family Wellness
+                          </h3>
+                        </div>
+
+                        <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-colors duration-300" />
+
+                        <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-colors duration-300">
+                          <li>• Promote Nizcare’s family health plans</li>
+                          <li>• Support NRIs needing help for parents in India</li>
+                          <li>• Organise community awareness programs</li>
+                        </ul>
+
+                        <img
+                          src="/service/NRI Engagement.png"
+                          alt="NRI Engagement"
+                          className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-6 group-hover:border-white/40 transition-all duration-500"
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+
+                  {/* Slide 2 */}
+                  <SwiperSlide>
+                    <div
+                      className="relative group bg-white rounded-3xl border border-teal-200 p-8 flex flex-col transition-all duration-300 overflow-hidden h-[470px]"
+                      data-aos="fade-up"
+                      data-aos-delay={80}
+                    >
+                      <div className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0" aria-hidden="true" />
+
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="flex items-center gap-4">
+                          <div
+                            className="
+                w-16 h-16 flex items-center justify-center rounded-full
+                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
+                transition-all duration-500 ease-in-out
+                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
+                group-hover:from-transparent group-hover:to-transparent
+              ">
+                            <Plane size={28} />
+                          </div>
+
+                          <h3 className="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
+                            Medical Tourism
+                          </h3>
+                        </div>
+
+                        <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-colors duration-300" />
+
+                        <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-colors duration-300">
+                          <li>• Handle first-level enquiries</li>
+                          <li>• Coordinate pre-travel clinical discussions</li>
+                          <li>• Build relationships with local doctors & networks</li>
+                        </ul>
+
+                        <img
+                          src="/service/Medical Tourism.png"
+                          alt="Medical Tourism"
+                          className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-6 group-hover:border-white/40 transition-all duration-500"
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+
+                  {/* Slide 3 */}
+                  <SwiperSlide>
+                    <div
+                      className="relative group bg-white rounded-3xl border border-teal-200 p-8 flex flex-col transition-all duration-300 overflow-hidden h-[470px]"
+                      data-aos="fade-up"
+                      data-aos-delay={160}
+                    >
+                      <div className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0" aria-hidden="true" />
+
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="flex items-center gap-4">
+                          <div className="
+                w-16 h-16 flex items-center justify-center rounded-full
+                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
+                transition-all duration-500 ease-in-out
+                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
+                group-hover:from-transparent group-hover:to-transparent
+              ">
+                            <Stethoscope size={28} />
+                          </div>
+
+                          <h3 className="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
+                            Clinic Pro
+                          </h3>
+                        </div>
+
+                        <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-colors duration-300" />
+
+                        <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-colors duration-300">
+                          <li>• Onboard clinics & doctors to Nizcare Clinic Pro</li>
+                          <li>• Promote digital transformation using AI tools</li>
+                        </ul>
+
+                        <img
+                          src="/service/Clinic Pro Sales (saas)-1.png"
+                          alt="Clinic Pro Sales"
+                          className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-14 group-hover:border-white/40 transition-all duration-500"
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+
+                  {/* Slide 4 */}
+                  <SwiperSlide>
+                    <div
+                      className="relative group bg-white rounded-3xl border border-teal-200 p-8 flex flex-col transition-all duration-300 overflow-hidden h-[470px]"
+                      data-aos="fade-up"
+                      data-aos-delay={240}
+                    >
+                      <div className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0" aria-hidden="true" />
+
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="flex items-center gap-4">
+                          <div className="
+                w-16 h-16 flex items-center justify-center rounded-full
+                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
+                transition-all duration-500 ease-in-out
+                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
+                group-hover:from-transparent group-hover:to-transparent
+              ">
+                            <Building2 size={28} />
+                          </div>
+
+                          <h3 className="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
+                            Corporate Wellness
+                          </h3>
+                        </div>
+
+                        <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-colors duration-300" />
+
+                        <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-colors duration-300">
+                          <li>• Pitch employee wellness solutions to businesses</li>
+                          <li>• Run preventive health campaigns</li>
+                          <li>• Facilitate annual health check partnerships</li>
+                        </ul>
+
+                        <img
+                          src="/service/Clinic Pro Sales (saas).png"
+                          alt="Corporate Sales"
+                          className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-8 group-hover:border-white/40 transition-all duration-500"
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+
+                {/* pagination container (bullets styled via renderBullet) */}
+                <div className="custom-pagination mt-6 flex justify-center gap-3"></div>
+              </div>
+
+              <p className="text-center text-gray-700 text-lg mt-16 md:mt-8 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                <span className="font-semibold">You grow Nizcare’s brand.</span><br />
+                <span className="text-teal-700 font-semibold">We handle 100% of healthcare operations.</span>
+              </p>
+            </div>
+          </section>

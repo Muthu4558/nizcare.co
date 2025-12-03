@@ -218,6 +218,7 @@ const NRI = () => {
             data-aos="fade-down"
             data-aos-delay="200"
           />
+
           {/* HERO SECTION */}
           <section
             className="flex flex-col-reverse md:flex-row items-start md:items-center mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10"
@@ -527,27 +528,181 @@ const NRI = () => {
             </div>
           </section>
 
-          {/* Opportunity SECTION */}
-          <section className="px-6 md:px-20 py-16 sm:py-20 relative" data-aos="fade-up">
-            <div className="container mx-auto">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6 sm:mb-8 text-gray-900 tracking-tight" data-aos="zoom-in">
+          {/* Opportunity SECTION  */}
+          <section className="px-6 sm:px-12 md:px-20 py-20" data-aos="fade-up">
+            <div className="max-w-7xl mx-auto">
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6 text-gray-900 tracking-tight" data-aos="zoom-in">
                 The{" "}
                 <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
                   Opportunity
                 </span>
               </h2>
 
-              <p className="text-center text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up">
-                5 Fast-Growing Healthcare Verticals. One Global Platform.
+              <p className="text-center text-lg sm:text-3xl text-gray-700 mb-6" data-aos="fade-up">
+                4 Fast-Growing Healthcare Verticals. One Global Platform.
               </p>
 
+              <div className="relative">
+                <div className="absolute -bottom-12 right-0 flex gap-3 z-20">
+                  <button className="swiper-prev px-4 py-2 bg-teal-600 text-white rounded-lg shadow hover:bg-teal-700">
+                    <ArrowLeftCircle />
+                  </button>
+                  <button className="swiper-next px-4 py-2 bg-teal-600 text-white rounded-lg shadow hover:bg-teal-700">
+                    <ArrowRightCircle />
+                  </button>
+                </div>
+
+                <Swiper
+                  modules={[Navigation, Autoplay]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  navigation={{ nextEl: ".swiper-next", prevEl: ".swiper-prev" }}
+                  autoplay={{ delay: 3000, disableOnInteraction: false }}
+                  breakpoints={{
+                    640: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 },
+                  }}
+                  className="p-6 pb-16"
+                >
+                  {[
+                    {
+                      title: "NRI Family Wellness",
+                      icon: <Users size={32} />,
+                      img: "/service/1.png",
+                    },
+                    {
+                      title: "Medical Tourism",
+                      icon: <Plane size={32} />,
+                      img: "/service/2.png",
+                    },
+                    {
+                      title: "Clinic Pro",
+                      icon: <Stethoscope size={32} />,
+                      img: "/service/3.png",
+                    },
+                    {
+                      title: "Corporate Wellness",
+                      icon: <Building2 size={32} />,
+                      img: "/service/4.png",
+                    },
+                  ].map((card, i) => (
+                    <SwiperSlide key={i}>
+                      <div
+                        className="
+                relative group h-[380px] rounded-3xl overflow-hidden 
+                border border-teal-200 transition-all duration-500
+                hover:border-teal-700
+              "
+                        data-aos="fade-up"
+                        data-aos-delay={i * 80}
+                      >
+
+                        {/* FULL BACKGROUND IMAGE */}
+                        <div
+                          className="
+    absolute inset-0 bg-cover bg-center 
+    transition-transform duration-700 group-hover:scale-110
+    before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:via-white/70 before:to-transparent
+    before:opacity-0 group-hover:before:opacity-100 before:transition-all before:duration-700
+    before:translate-x-[-100%] group-hover:before:translate-x-[100%]
+  "
+                          style={{ backgroundImage: `url(${card.img})` }}
+                        />
+
+                        {/* Dark overlay on hover */}
+                        <div
+                          className="
+                  absolute inset-0 
+                  bg-gradient-to-b from-black/10 via-black/30 to-black/60
+                  opacity-60 group-hover:opacity-90 transition-opacity duration-500
+                "
+                        />
+
+                        {/* Content Over Image */}
+                        <div className="relative z-20 flex flex-col h-full justify-between p-6">
+
+                          {/* Icon + Title */}
+                          <div className="flex items-center gap-4">
+                            <div
+                              className="
+                      w-16 h-16 flex items-center justify-center rounded-full
+                      bg-white/20 backdrop-blur-md text-white 
+                      border border-white/30 shadow-md 
+                      transition-all duration-500 
+                      group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
+                    "
+                            >
+                              {card.icon}
+                            </div>
+                            <h3
+                              className="
+    text-3xl font-bold text-white 
+    drop-shadow-lg transition-all duration-500
+
+    /* On hover: show teal gradient text */
+    group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:to-teal-700 
+    group-hover:text-transparent group-hover:bg-clip-text
+  "
+                            >
+                              {card.title}
+                            </h3>
+                          </div>
+
+                          {/* Bottom Fade Effect */}
+                          <div
+                            className="
+                    absolute inset-x-0 bottom-0 h-24 
+                    bg-gradient-to-t from-black/60 to-transparent
+                  "
+                          />
+                        </div>
+
+                        {/* Border glow on hover */}
+                        <div
+                          className="
+                  absolute inset-0 rounded-3xl pointer-events-none 
+                  ring-0 group-hover:ring-4 ring-teal-400/40 
+                  transition-all duration-500
+                "
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
               <p
-                className="md:text-center text-base sm:text-lg text-gray-600 mt-2 max-w-2xl mx-auto text-justify"
+                className="text-center text-gray-700 text-lg mt-16 leading-relaxed"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <span className="font-semibold">You grow Nizcare’s brand.</span><br />
+                <span className="text-teal-700 font-semibold">We handle 100% of healthcare operations.</span>
+              </p>
+
+            </div>
+          </section>
+
+          {/*COUNTRY PARTNER*/}
+          <section className="px-6 md:px-20 py-16 sm:py-20 relative" data-aos="fade-up">
+            <div className="container mx-auto">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8">
+                What You Do as a
+                <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                  {" "}Country Partner
+                </span>
+              </h2>
+
+              <p
+                className="md:text-center text-base sm:text-4xl text-gray-600 mt-2 mx-auto text-justify mb-4"
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                As a Country Partner, you represent all five revenue channels of Nizcare in your nation.
+                As a Country Partner, you represent all four revenue channels of Nizcare in your nation.
               </p>
+
 
               <div className="relative mt-12" data-aos="fade-up">
                 <div className="absolute bottom-[-3rem] right-0 flex gap-3 z-20">
@@ -564,7 +719,7 @@ const NRI = () => {
                   spaceBetween={20}
                   slidesPerView={1}
                   navigation={{ nextEl: ".swiper-next", prevEl: ".swiper-prev" }}
-                  autoplay={{ delay: 2500, disableOnInteraction: false }}
+                  autoplay={{ delay: 3000, disableOnInteraction: false }}
                   breakpoints={{
                     640: { slidesPerView: 1 },
                     768: { slidesPerView: 2 },
@@ -601,7 +756,7 @@ const NRI = () => {
                       ),
                     },
                     {
-                      title: "B2B Corporate Wellness Solutions",
+                      title: "Corporate Wellness Solutions",
                       desc: (
                         <>
                           <span className="font-bold">Provide corporate wellness:</span> solutions—employee healthcare, preventive screenings, chronic care, and mental health programs. <br />
@@ -610,7 +765,7 @@ const NRI = () => {
                       ),
                     },
                     {
-                      title: "B2C: Nizcare for the Common Public",
+                      title: "Nizcare for Common Users",
                       desc: (
                         <>
                           <span className="font-bold">Accessible Healthcare:</span> Soon launching affordable, high-quality health services directly to individuals. <br />
@@ -621,7 +776,7 @@ const NRI = () => {
                   ].map((slide, i) => (
                     <SwiperSlide key={i} className="h-full">
                       <div
-                        className="group relative overflow-hidden p-7 rounded-2xl border border-teal-100 h-full flex flex-col transition-all duration-500 ease-in-out"
+                        className="group relative overflow-hidden p-7 rounded-2xl border border-teal-200 h-full flex flex-col transition-all duration-500 ease-in-out"
                         data-aos="fade-up"
                         data-aos-delay={120 + i * 80}
                       >
@@ -659,322 +814,252 @@ const NRI = () => {
           </section>
 
           {/* WHY NIZCARE */}
-          <section className="px-6 md:px-20 py-20" data-aos="fade-up">
-            <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-              {/* RIGHT SIDE — Hero Content (should come first on mobile) */}
-              <div className="bg-white rounded-3xl shadow-xl p-10 border border-teal-100 order-1 lg:order-2" data-aos="fade-left">
-                <h2 className="text-4xl font-extrabold text-gray-800 leading-tight mb-4 text-center">
-                  Why{" "}
-                  <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
-                    Nizcare?
-                  </span>
-                </h2>
+          <section className="relative px-6 md:px-20 py-20" data-aos="fade-up">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-25 items-start">
+              {/* LEFT TIMELINE / ITEMS (desktop) */}
+              <div className="hidden lg:block lg:col-span-5 relative">
+                {/* vertical line */}
+                <div className="absolute left-[240px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-teal-300 to-teal-200 rounded" />
 
-                <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                  Nizcare is a complete global health ecosystem designed for Indians living abroad.
-                  We address the biggest challenges faced by international families through a
-                  coordinated, transparent and high-quality medical platform trusted worldwide.
-                </p>
+                <div className="space-y-8">
+                  {[
+                    { icon: <HeartPulse size={20} />, title: "Parents’ Health Back Home" },
+                    { icon: <AlertTriangle size={20} />, title: "Rising Medical Costs" },
+                    { icon: <Handshake size={20} />, title: "Uncoordinated Care" },
+                    { icon: <Eye size={20} />, title: "Lack of Transparency" },
+                    { icon: <ShieldCheck size={20} />, title: "Assessing Medical Quality" },
+                  ].map((item, i) => (
+                    <div key={i} className="relative flex items-center">
+                      {/* card */}
+                      <div
+                        className="bg-white rounded-2xl shadow-sm border border-teal-200 p-6 w-full max-w-[520px]"
+                        data-aos="fade-up"
+                        data-aos-delay={i * 80}
+                      >
+                        <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                      </div>
 
-                <div className="mt-6 h-1 w-24 bg-gradient-to-r from-teal-400 to-teal-600 rounded-full" />
+                      {/* circular icon badge to the right of card, overlapping the vertical line */}
+                      <div
+                        className="absolute right-[-64px] -translate-x-1/2 flex items-center justify-center"
+                        style={{ transformOrigin: "center" }}
+                      >
+                        <div className="relative">
+                          <div className="w-14 h-14 rounded-full bg-white border border-teal-100 shadow-md flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center">
+                              {item.icon}
+                            </div>
+                          </div>
+                          {/* small connector dot on the right of vertical line */}
+                          <span className="absolute -left-[36px] top-1/2 -translate-y-1/2 w-3 h-3 bg-teal-600 rounded-full shadow-sm" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* LEFT SIDE — Timeline with Icons */}
-              <div className="space-y-10 order-2 lg:order-1" data-aos="fade-right">
+              {/* RIGHT FEATURE CARD */}
+              <div className="lg:col-span-7 col-span-1 flex items-center md:mt-20">
+                <div className="w-full">
+                  <div
+                    className="bg-white rounded-3xl border border-teal-200 shadow-[0_30px_60px_rgba(6,78,59,0.06)] p-10 lg:p-14 max-w-3xl ml-auto"
+                    data-aos="fade-left"
+                  >
+                    <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
+                      Why{" "}
+                      <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                        Nizcare?
+                      </span>
+                    </h2>
+
+                    <p className="text-gray-700 text-lg leading-relaxed text-justify">
+                      Nizcare is a complete global health ecosystem designed for Indians living abroad.
+                      We address the biggest challenges faced by international families through a
+                      coordinated, transparent and high-quality medical platform trusted worldwide.
+                    </p>
+
+                    <div className="mt-8 flex items-center gap-4">
+                      <div className="h-1 w-28 bg-gradient-to-r from-teal-400 to-teal-600 rounded-full" />
+                      {/* small floating dot under underline */}
+                      <div className="w-3 h-3 rounded-full bg-teal-600 shadow-md" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* MOBILE / TABLET: stacked fallback (card then list) */}
+              <div className="lg:hidden col-span-1 mt-6 space-y-6">
+
+                {/* stacked items */}
                 {[
-                  {
-                    icon: <HeartPulse size={30} />,
-                    title: "Parents’ Health Back Home",
-                  },
-                  {
-                    icon: <AlertTriangle size={30} />,
-                    title: "Rising Medical Costs",
-                  },
-                  {
-                    icon: <Handshake size={30} />,
-                    title: "Uncoordinated Care",
-                  },
-                  {
-                    icon: <Eye size={30} />,
-                    title: "Lack of Transparency",
-                  },
-                  {
-                    icon: <ShieldCheck size={30} />,
-                    title: "Assessing Medical Quality",
-                  }
+                  { icon: <HeartPulse size={20} />, title: "Parents’ Health Back Home" },
+                  { icon: <AlertTriangle size={20} />, title: "Rising Medical Costs" },
+                  { icon: <Handshake size={20} />, title: "Uncoordinated Care" },
+                  { icon: <Eye size={20} />, title: "Lack of Transparency" },
+                  { icon: <ShieldCheck size={20} />, title: "Assessing Medical Quality" },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-5" data-aos="fade-up" data-aos-delay={i * 80}>
-                    <div className="w-14 h-14 flex items-center justify-center bg-teal-100 text-teal-700 rounded-xl shadow-inner">
+                  <div
+                    key={`m-${i}`}
+                    className="flex items-center gap-4 bg-white rounded-lg border border-gray-100 p-4 shadow-sm"
+                    data-aos="fade-up"
+                    data-aos-delay={i * 60}
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center">
                       {item.icon}
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
-                    </div>
+                    <h3 className="text-base font-medium text-gray-900">{item.title}</h3>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* COUNTRY PARTNER */}
-          <section className="px-6 sm:px-12 md:px-20 py-20" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto">
-    
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
-      What You Do as a
-      <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
-        {" "}Country Partner
-      </span>
-    </h2>
-
-    {/* Card Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-
-      {/* CARD 1 — NRI Engagement */}
-      <div
-        className="relative group bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col hover:shadow-2xl transition-all duration-300 transform overflow-hidden"
-        data-aos="fade-up"
-        data-aos-delay="0"
-      >
-        {/* Animated background fill */}
-        <div
-          className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0"
-        />
-
-        <div className="relative z-10 flex flex-col h-full">
-
-          {/* Icon + Title */}
-          <div className="flex items-center gap-4">
-            <div
-              className="
-                w-16 h-16 flex items-center justify-center rounded-full
-                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
-                transition-all duration-500 ease-in-out
-                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
-                group-hover:from-transparent group-hover:to-transparent
-              "
-            >
-              <Users size={28} />
-            </div>
-
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-white transition-all duration-300">
-              NRI Engagement
-            </h3>
-          </div>
-
-          {/* Divider */}
-          <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-all duration-300" />
-
-          {/* Bullets */}
-          <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-all duration-300">
-            <li>• Promote Nizcare’s family health plans</li>
-            <li>• Support NRIs needing help for parents in India</li>
-            <li>• Organise community awareness programs</li>
-          </ul>
-
-          {/* Image */}
-          <img
-            src="/bg.png"
-            alt="NRI Engagement"
-            className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-6 group-hover:border-white/40 transition-all duration-500"
-          />
-        </div>
-      </div>
-
-      {/* CARD 2 — Medical Tourism */}
-      <div
-        className="relative group bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col hover:shadow-2xl transition-all duration-300 transform overflow-hidden"
-        data-aos="fade-up"
-        data-aos-delay="80"
-      >
-        <div className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0" />
-
-        <div className="relative z-10 flex flex-col h-full">
-          <div className="flex items-center gap-4">
-            <div
-              className="
-                w-16 h-16 flex items-center justify-center rounded-full
-                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
-                transition-all duration-500 ease-in-out
-                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
-                group-hover:from-transparent group-hover:to-transparent
-              "
-            >
-              <Plane size={28} />
-            </div>
-
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-white transition-all duration-300">
-              Medical Tourism
-            </h3>
-          </div>
-
-          <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-all duration-300" />
-
-          <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-all duration-300">
-            <li>• Handle first-level enquiries</li>
-            <li>• Coordinate pre-travel clinical discussions</li>
-            <li>• Build relationships with local doctors & networks</li>
-          </ul>
-
-          <img
-            src="/bg.png"
-            alt="Medical Tourism"
-            className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-12 group-hover:border-white/40 transition-all duration-500"
-          />
-        </div>
-      </div>
-
-      {/* CARD 3 — Clinic Pro Sales */}
-      <div
-        className="relative group bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col hover:shadow-2xl transition-all duration-300 transform overflow-hidden"
-        data-aos="fade-up"
-        data-aos-delay="160"
-      >
-        <div className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0" />
-
-        <div className="relative z-10 flex flex-col h-full">
-          <div className="flex items-center gap-4">
-            <div
-              className="
-                w-16 h-16 flex items-center justify-center rounded-full
-                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
-                transition-all duration-500 ease-in-out
-                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
-                group-hover:from-transparent group-hover:to-transparent
-              "
-            >
-              <Stethoscope size={28} />
-            </div>
-
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-white transition-all duration-300">
-              Clinic Pro Sales (SaaS)
-            </h3>
-          </div>
-
-          <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-all duration-300" />
-
-          <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-all duration-300">
-            <li>• Onboard clinics & doctors to Nizcare Clinic Pro</li>
-            <li>• Promote digital transformation using AI tools</li>
-          </ul>
-
-          <img
-            src="/bg.png"
-            alt="Clinic Pro"
-            className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-20 group-hover:border-white/40 transition-all duration-500"
-          />
-        </div>
-      </div>
-
-      {/* CARD 4 — Corporate Sales */}
-      <div
-        className="relative group bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col hover:shadow-2xl transition-all duration-300 transform overflow-hidden"
-        data-aos="fade-up"
-        data-aos-delay="240"
-      >
-        <div className="absolute left-0 right-0 bottom-0 h-0 group-hover:h-full transition-[height] duration-700 ease-in-out bg-gradient-to-t from-teal-700 to-teal-500 z-0" />
-
-        <div className="relative z-10 flex flex-col h-full">
-          <div className="flex items-center gap-4">
-            <div
-              className="
-                w-16 h-16 flex items-center justify-center rounded-full
-                bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
-                transition-all duration-500 ease-in-out
-                group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-xl
-                group-hover:from-transparent group-hover:to-transparent
-              "
-            >
-              <Building2 size={28} />
-            </div>
-
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-white transition-all duration-300">
-              Corporate Sales (B2B)
-            </h3>
-          </div>
-
-          <div className="w-full h-px bg-gray-200 my-6 group-hover:bg-white/40 transition-all duration-300" />
-
-          <ul className="text-gray-700 text-sm space-y-2 leading-relaxed group-hover:text-white transition-all duration-300">
-            <li>• Pitch employee wellness solutions to businesses</li>
-            <li>• Run preventive health campaigns</li>
-            <li>• Facilitate annual health check partnerships</li>
-          </ul>
-
-          <img
-            src="/bg.png"
-            alt="Corporate Sales"
-            className="w-full h-40 object-cover rounded-2xl shadow-sm border border-gray-100 mt-6 group-hover:border-white/40 transition-all duration-500"
-          />
-        </div>
-      </div>
-
-    </div>
-
-    {/* Footer Note */}
-    <p className="text-center text-gray-700 text-lg mt-16 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-      <span className="font-semibold">You grow Nizcare’s brand.</span><br />
-      <span className="text-teal-700 font-semibold">We handle 100% of healthcare operations.</span>
-    </p>
-
-  </div>
-</section>
-
-
           {/* Partner Benefits */}
           <section className="relative px-6 md:px-20 py-28 overflow-hidden" data-aos="fade-up">
             <div className="container mx-auto relative z-10">
+
               {/* Section Title */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-4" data-aos="zoom-in">
-                Partner <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Benefits</span>
+              <h2
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-4"
+                data-aos="zoom-in"
+              >
+                Partner{" "}
+                <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                  Benefits
+                </span>
               </h2>
 
-              {/* Flow Grid */}
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-                {/* First Section */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Wrapper */}
+              <div className="max-w-7xl mx-auto py-12 space-y-16">
+
+                {/* ===== FIRST ROW (4 Cards) ===== */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                   {[
-                    { icon: <LucideGlobe size={28} />, title: " Exclusive Territory Rights", desc: "Be the official partner for your country/region." },
-                    { icon: <DollarSign size={28} />, title: "Revenue Share", desc: "Earn from all 5 verticals with recurring commissions." },
-                    { icon: <UserCheck size={28} />, title: "Partner Success Manager", desc: "Dedicated guidance to help you succeed." },
-                    { icon: <Award size={28} />, title: "Global Recognition", desc: "Boost your authority with our trusted brand." },
+                    {
+                      icon: <LucideGlobe size={28} />,
+                      title: "Exclusive Territory Rights",
+                      desc: "Be the official partner for your country/region.",
+                    },
+                    {
+                      icon: <DollarSign size={28} />,
+                      title: "Revenue Share",
+                      desc: "Earn from all 5 verticals with recurring commissions.",
+                    },
+                    {
+                      icon: <UserCheck size={28} />,
+                      title: "Partner Success Manager",
+                      desc: "Dedicated guidance to help you succeed.",
+                    },
+                    {
+                      icon: <Award size={28} />,
+                      title: "Global Recognition",
+                      desc: "Boost your authority with our trusted brand.",
+                    },
                   ].map((benefit, i) => (
                     <div
                       key={i}
-                      className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-4 hover:shadow-3xl"
                       data-aos="fade-up"
                       data-aos-delay={i * 80}
+                      className="
+              group bg-white p-8 rounded-3xl border border-teal-200 shadow-xl
+              flex flex-col text-left 
+              transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl
+            "
                     >
-                      <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-700 text-white rounded-full mb-4 shadow-xl animate-bounce-slow">
-                        {benefit.icon}
+                      {/* Header Row: Icon Left & Title Right */}
+                      <div className="flex items-center gap-4 mb-4">
+                        <div
+                          className="
+                  w-16 h-16 p-4 flex items-center justify-center rounded-full
+                  bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
+                  transition-all duration-500 ease-in-out
+                  group-hover:shadow-xl
+                "
+                        >
+                          {benefit.icon}
+                        </div>
+
+                        <h3
+                          className="
+                  text-lg font-bold text-gray-900 
+                  transition-colors duration-300
+                "
+                        >
+                          {benefit.title}
+                        </h3>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                      <p className="text-gray-600 text-sm sm:text-base">{benefit.desc}</p>
+                      <hr className="mb-4 text-gray-200" />
+
+                      {/* Description */}
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        {benefit.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
 
-                {/* Second Section */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* ===== SECOND ROW (3 Cards) ===== */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                   {[
-                    { icon: <BookOpen size={28} />, title: "Comprehensive Training & Support", desc: "Access our expertise in healthcare management, marketing, and operations." },
-                    { icon: <Calendar size={28} />, title: "Brand Building Opportunities", desc: "Collaborate on marketing initiatives and promote Nizcare's global brand." },
-                    { icon: <BarChart2 size={28} />, title: "Analytics Dashboard", desc: "Track your leads and performance in real-time." },
+                    {
+                      icon: <BookOpen size={28} />,
+                      title: "Comprehensive Training & Support",
+                      desc: "Access our expertise in healthcare management, marketing, and operations.",
+                    },
+                    {
+                      icon: <Calendar size={28} />,
+                      title: "Brand Building Opportunities",
+                      desc: "Collaborate on marketing initiatives and promote Nizcare's global brand.",
+                    },
+                    {
+                      icon: <BarChart2 size={28} />,
+                      title: "Analytics Dashboard",
+                      desc: "Track your leads and performance in real-time.",
+                    },
                   ].map((benefit, i) => (
                     <div
                       key={i}
-                      className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center text-center transform transition-transform duration-300 hover:-translate-y-4 hover:shadow-3xl"
                       data-aos="fade-up"
-                      data-aos-delay={i * 80 + 120}
+                      data-aos-delay={120 + i * 80}
+                      className="
+              group bg-white p-8 rounded-3xl border border-teal-200 shadow-xl
+              flex flex-col text-left 
+              transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl
+            "
                     >
-                      <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-700 text-white rounded-full mb-4 shadow-xl animate-bounce-slow">
-                        {benefit.icon}
+                      {/* Header Row: Icon Left & Title Right */}
+                      <div className="flex items-center gap-4 mb-4">
+                        <div
+                          className="
+                  w-16 h-16 p-4 flex items-center justify-center rounded-full
+                  bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md
+                  transition-all duration-500 ease-in-out
+                  group-hover:shadow-xl
+                "
+                        >
+                          {benefit.icon}
+                        </div>
+
+                        <h3
+                          className="
+                  text-lg font-bold text-gray-900 
+                  transition-colors duration-300
+                "
+                        >
+                          {benefit.title}
+                        </h3>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                      <p className="text-gray-600 text-sm sm:text-base">{benefit.desc}</p>
+                      <hr className="mb-4 text-gray-200" />
+
+                      {/* Description */}
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        {benefit.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
+
               </div>
             </div>
           </section>
