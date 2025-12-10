@@ -235,7 +235,7 @@ const NRI = () => {
             }}
             data-aos="fade-up"
           >
-            <div className="w-full max-w-7xl mx-auto px-">
+            <div className="w-full max-w-7xl mx-auto px-4 py-4">
               <div className="w-full flex">
                 {/* Spacer to keep form on right on large screens */}
                 <div className="hidden md:block md:flex-1" />
@@ -1075,7 +1075,7 @@ const NRI = () => {
           </section>
 
           {/* Eligibility Criteria */}
-          <section className="relative px-4 sm:px-8 md:px-20 py-16 sm:py-20 md:py-24" data-aos="fade-up">
+          <section className="relative px-4 sm:px-8 md:px-20 py-16" data-aos="fade-up">
             <div className="container mx-auto">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-10 sm:mb-14 md:mb-16 leading-tight" data-aos="zoom-in">
                 Eligibility{" "}
@@ -1126,15 +1126,15 @@ const NRI = () => {
               </div>
 
               <div className="text-center mt-16 md:mt-20 px-2" data-aos="fade-up" data-aos-delay="150">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                Join Our Global <span className="text-teal-600">Partnership</span> Program.
-              </h2>
+                <h2 className="text-md sm:text-md md:text-2xl font-extrabold text-gray-900 leading-tight">
+                  Join Our Global <span className="text-teal-600">Partnership</span> Program.
+                </h2>
 
-              <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-                Nizcare invites you to be part of a next-generation healthcare movement.
-                Together, we can enhance wellness and medical support for Indians worldwide.
-              </p>
-            </div>
+                <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                  Nizcare invites you to be part of a next-generation healthcare movement.
+                  Together, we can enhance wellness and medical support for Indians worldwide.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -1176,48 +1176,70 @@ const NRI = () => {
                 ))}
               </div>
 
-              {/* Launch Updates */}
-              <h3
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-3"
-                data-aos="fade-up"
-              >
-                Launch <span className="text-teal-600">Updates</span> & Opportunities
-              </h3>
-
-              <p
-                className="text-gray-600 max-w-2xl mx-auto text-center text-base sm:text-lg leading-relaxed"
-                data-aos="fade-up"
-                data-aos-delay="120"
-              >
-                Stay updated on our global rollout and become one of the first to explore
-                Nizcare’s upcoming healthcare services. Partner with us and help shape the
-                future of global wellness.
-              </p>
             </div>
           </section>
 
           {/* COUNTRY PARTNER CTA */}
           <section
-            className="px-6 md:px-20 py-16 flex flex-col items-center text-center"
+            className="px-6 md:px-20 py-6"
             data-aos="fade-up"
           >
+            {/* Two Cards Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-              Lead <span className="text-teal-600">Nizcare</span> in Your Country
-            </h2>
+              {/* Left Card */}
+              <div
+                className="border border-teal-200 rounded-2xl p-8 bg-white shadow-sm hover:shadow-md transition-all"
+                data-aos="fade-up"
+              >
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                  Launch <span className="text-teal-600">Updates</span> & Opportunities
+                </h3>
 
-            <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-xl leading-relaxed">
-              Build meaningful impact. Grow your income. Support millions of Indians abroad
-              in caring for their families.
-            </p>
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                  Stay updated on our global rollout and become one of the first to explore
+                  Nizcare’s upcoming healthcare services. Partner with us and help shape the
+                  future of global wellness.
+                </p>
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="h-1 w-28 bg-gradient-to-r from-teal-400 to-teal-600 rounded-full" />
+                  {/* small floating dot under underline */}
+                  <div className="w-3 h-3 rounded-full bg-teal-600 shadow-md" />
+                </div>
+              </div>
 
-            <a
-              href="#"
-              className="inline-block bg-teal-600 text-white font-semibold text-lg sm:text-xl px-8 py-3 rounded-full hover:bg-teal-700 transition-all"
-              data-aos="zoom-in"
-            >
-              Apply to Become a Country Partner
-            </a>
+              {/* Right Card */}
+              <div
+                className="border border-teal-200 rounded-2xl p-8 bg-white shadow-sm hover:shadow-md transition-all"
+                data-aos="fade-up"
+                data-aos-delay="150"
+              >
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                  Lead <span className="text-teal-600">Nizcare</span> in Your Country
+                </h2>
+
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                  Build meaningful impact. Grow your income. Support millions of Indians abroad
+                  in caring for their families through better healthcare access.
+                </p>
+                <div className="mt-16 flex items-center gap-4">
+                  <div className="h-1 w-28 bg-gradient-to-r from-teal-400 to-teal-600 rounded-full" />
+                  {/* small floating dot under underline */}
+                  <div className="w-3 h-3 rounded-full bg-teal-600 shadow-md" />
+                </div>
+              </div>
+
+            </div>
+
+            {/* Centered Button */}
+            <div className="flex justify-center mt-10" data-aos="zoom-in">
+              <a
+                href="#"
+                className="bg-teal-600 text-white font-semibold text-lg sm:text-xl px-10 py-3 rounded-full hover:bg-teal-700 transition-all"
+              >
+                Apply to Become a Country Partner
+              </a>
+            </div>
           </section>
 
           {/* CLEAN FOOTER */}
