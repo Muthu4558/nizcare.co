@@ -40,7 +40,11 @@ import {
   Home,
   Monitor,
   Briefcase,
-  BarChart
+  BarChart,
+  Hospital,
+  Globe,
+  HeartHandshake,
+  Cpu
 } from "lucide-react";
 
 import AOS from "aos";
@@ -219,311 +223,317 @@ const NRI = () => {
             data-aos-delay="200"
           />
 
-          {/* HERO SECTION */}
+          {/* HERO SECTION — full-screen background, form anchored to right */}
           <section
-            className="flex flex-col-reverse md:flex-row items-start md:items-center mx-auto px-6 md:px-20 py-10 gap-8 md:gap-10"
+            className="min-h-screen w-full flex items-center"
             style={{
               backgroundImage: "url('/bg.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              backgroundAttachment: "scroll",
+              backgroundAttachment: "fixed",
             }}
             data-aos="fade-up"
           >
+            <div className="w-full max-w-7xl mx-auto px-">
+              <div className="w-full flex">
+                {/* Spacer to keep form on right on large screens */}
+                <div className="hidden md:block md:flex-1" />
 
-            {/* LEFT CONTENT */}
-            <div className="w-full md:w-1/2 mt-12">
-
-              {/* Flags Grid */}
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-6 opacity-0">
-
-                {/* Example Flag Item */}
-                {[
-                  { src: "/flags/saudi.png", name: "Saudi Arabia" },
-                  { src: "/flags/uae.png", name: "UAE" },
-                  { src: "/flags/singapore.png", name: "Singapore" },
-                  { src: "/flags/srilanka.png", name: "Sri Lanka" },
-                  { src: "/flags/malaysia.png", name: "Malaysia" },
-                  { src: "/flags/usa.png", name: "USA" },
-                  { src: "/flags/uk.png", name: "UK" },
-                  { src: "/flags/canada.png", name: "Canada" },
-                  { src: "/flags/australia.png", name: "Australia" },
-                  { src: "/flags/germany.png", name: "Germany" },
-                  { src: "/flags/kuwait.png", name: "Kuwait" },
-                  { src: "/flags/new-zealand.png", name: "New Zealand" },
-                  { src: "/flags/oman.png", name: "Oman" },
-                  { src: "/flags/qatar.png", name: "Qatar" },
-                  // { src: "/flags/south-africa.png", name: "South Africa" },
-                  // { src: "/flags/switzerland.png", name: "Switzerland" },
-                ].map((flag, i) => (
-                  <div key={i} className="flex flex-col items-center space-y-2">
-                    <img
-                      src={flag.src}
-                      alt={flag.name}
-                      className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full shadow"
-                    />
-                    <p className="text-sm text-gray-700 text-center">{flag.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT — FORM */}
-            <div className="relative w-full md:w-1/2 flex justify-center md:justify-end mt-80 md:mt-4">
-              <form
-                onSubmit={handleSubmit}
-                className="absolute md:top-24 w-full max-w-xl sm:max-w-md md:max-w-lg bg-white backdrop-blur-xl shadow-2xl rounded-3xl p-6 sm:p-8 md:p-10 border border-white/30"
-                data-aos="fade-left"
-                data-aos-delay="160"
-              >
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
-                  Partner <span className="text-teal-600">Registration</span>
-                </h2>
-
-                <div className="space-y-4 sm:space-y-5">
-
-                  {/* NAME + EMAIL */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    {/* Full Name */}
-                    <div className="relative">
-                      <div className="absolute top-4 left-3 text-gray-400">
-                        <FiUser />
-                      </div>
-                      <input
-                        name="fullName"
-                        value={form.fullName}
-                        onChange={(e) => {
-                          const value = e.target.value;
-                          if (/^[A-Za-z\s]*$/.test(value)) {
-                            handleChange(e);
-                          }
-                        }}
-                        placeholder="Full Name"
-                        className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
-                      />
-
-                    </div>
-
-                    {/* Email */}
-                    <div className="relative">
-                      <div className="absolute top-4 left-3 text-gray-400">
-                        <FiMail />
-                      </div>
-                      <input
-                        ref={refs.email}
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder="Email"
-                        className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base 
-                        ${errors.email ? "border-red-500" : ""}`}
-                      />
-                      {errors.email && (
-                        <p className="text-red-500 text-xs mt-1">{errors.email}</p>
-                      )}
-                    </div>
-
-                  </div>
-
-                  {/* COUNTRY + WHATSAPP */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    {/* Country */}
-                    <div className="relative">
-                      <button
-                        ref={refs.currentCountry}
-                        type="button"
-                        className={`w-full pl-3 pr-4 py-3 rounded-xl border bg-white flex items-center justify-between text-sm 
-                        ${errors.currentCountry ? "border-red-500" : ""}`}
-                        onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
-                      >
-                        <div className="flex items-center gap-2">
-                          {form.currentCountry ? (
-                            <img
-                              src={
-                                countryList.find((c) => c.name === form.currentCountry)?.src
-                              }
-                              alt={form.currentCountry}
-                              className="w-6 h-6 rounded-full object-cover"
-                            />
-                          ) : (
-                            <FiGlobe className="text-gray-400" />
-                          )}
-                          <span>{form.currentCountry || "Select Country"}</span>
-                        </div>
-
-                        <FiChevronDown />
-                      </button>
-
-                      {countryDropdownOpen && (
-                        <div className="absolute z-20 mt-1 w-full bg-white border rounded-xl shadow-lg max-h-64 overflow-y-auto">
-                          {countryList.map((country, idx) => (
-                            <div
-                              key={idx}
-                              className="flex items-center gap-2 px-4 py-2 hover:bg-teal-50 cursor-pointer"
-                              onClick={() => {
-                                handleChange({
-                                  target: {
-                                    name: "currentCountry",
-                                    value: country.name,
-                                  },
-                                });
-                                setCountryDropdownOpen(false);
-                              }}
-                            >
-                              <img
-                                src={country.src}
-                                alt={country.name}
-                                className="w-6 h-6 rounded-full object-cover"
-                              />
-                              <span>{country.name}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {errors.currentCountry && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.currentCountry}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* WhatsApp */}
-                    <div className="relative">
-                      <div className="absolute top-4 left-3 text-gray-400">
-                        <FiPhone />
-                      </div>
-                      <input
-                        ref={refs.whatsapp}
-                        name="whatsapp"
-                        value={form.whatsapp}
-                        onChange={handleChange}
-                        placeholder="WhatsApp Number"
-                        className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base 
-                        ${errors.whatsapp ? "border-red-500" : ""}`}
-                      />
-                      {errors.whatsapp && (
-                        <p className="text-red-500 text-xs mt-1">{errors.whatsapp}</p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Profession */}
-                  <div className="relative">
-                    <div className="absolute top-4 left-3 text-gray-400">
-                      <FiBriefcase />
-                    </div>
-                    <input
-                      ref={refs.profession}
-                      name="profession"
-                      value={form.profession}
-                      onChange={handleChange}
-                      placeholder="Profession"
-                      className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base 
-                      ${errors.profession ? "border-red-500" : ""}`}
-                    />
-                    {errors.profession && (
-                      <p className="text-red-500 text-xs mt-1">{errors.profession}</p>
-                    )}
-                  </div>
-
-                  {/* Work With Communities */}
-                  <div className="relative">
-                    <FiUsers className="absolute top-4 left-3 text-gray-400" />
-                    <select
-                      ref={refs.workWithCommunities}
-                      name="workWithCommunities"
-                      value={form.workWithCommunities}
-                      onChange={handleChange}
-                      className={`w-full pl-10 p-3 rounded-xl border bg-white text-sm sm:text-base 
-                      ${errors.workWithCommunities ? "border-red-500" : ""}`}
-                    >
-                      <option value="">Do you work with NRI communities?</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </select>
-                    {errors.workWithCommunities && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors.workWithCommunities}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Promote Nizcare */}
-                  <div className="relative">
-                    <FiStar className="absolute top-4 left-3 text-gray-400" />
-                    <select
-                      ref={refs.promoteNizcare}
-                      name="promoteNizcare"
-                      value={form.promoteNizcare}
-                      onChange={handleChange}
-                      className={`w-full pl-10 p-3 rounded-xl border bg-white text-sm sm:text-base 
-                      ${errors.promoteNizcare ? "border-red-500" : ""}`}
-                    >
-                      <option value="">
-                        Would you like to promote Nizcare as a Partner/Affiliate?
-                      </option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </select>
-                    {errors.promoteNizcare && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors.promoteNizcare}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Expected Reach */}
-                  <div className="relative">
-                    <FiTrendingUp className="absolute top-4 left-3 text-gray-400" />
-                    <input
-                      name="expectedReach"
-                      value={form.expectedReach}
-                      onChange={(e) => {
-                        const value = e.target.value;
-                        if (/^[0-9]*$/.test(value)) {
-                          handleChange(e);
-                        }
-                      }}
-                      placeholder="Expected monthly reach (approx.)"
-                      className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
-                    />
-                  </div>
-
-                  {/* Submit */}
-                  <button
-                    type="submit"
-                    className="mt-2 w-full bg-teal-600 text-white py-3 rounded-xl text-base sm:text-lg font-semibold hover:bg-teal-700 transition-all shadow-lg"
+                {/* FORM CONTAINER */}
+                <div className="w-full md:w-[480px] lg:w-[540px] flex justify-center md:justify-end mt-72 md:mt-0">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="w-[480px] bg-white/95 backdrop-blur-sm shadow-2xl rounded-3xl p-6 sm:p-8 md:p-8 border border-white/30"
+                    data-aos="fade-left"
+                    data-aos-delay="160"
                   >
-                    Submit
-                  </button>
-                </div>
+                    <h2 className="text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
+                      Partner <span className="text-teal-600">Registration</span>
+                    </h2>
 
-              </form>
+                    <div className="space-y-4 sm:space-y-5">
+                      {/* NAME + EMAIL */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Full Name */}
+                        <div className="relative">
+                          <div className="absolute top-4 left-3 text-gray-400">
+                            <FiUser />
+                          </div>
+                          <input
+                            name="fullName"
+                            value={form.fullName}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              if (/^[A-Za-z\s]*$/.test(value) || value === "") {
+                                handleChange(e);
+                              }
+                            }}
+                            placeholder="Full Name"
+                            className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                          />
+                        </div>
+
+                        {/* Email */}
+                        <div className="relative">
+                          <div className="absolute top-4 left-3 text-gray-400">
+                            <FiMail />
+                          </div>
+                          <input
+                            ref={refs.email}
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            placeholder="Email"
+                            className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base ${errors.email ? "border-red-500" : ""}`}
+                          />
+                          {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                        </div>
+                      </div>
+
+                      {/* COUNTRY + WHATSAPP */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Country */}
+                        <div className="relative">
+                          <button
+                            ref={refs.currentCountry}
+                            type="button"
+                            className={`w-full pl-3 pr-4 py-3 rounded-xl border bg-white flex items-center justify-between text-sm ${errors.currentCountry ? "border-red-500" : ""}`}
+                            onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
+                            aria-expanded={countryDropdownOpen}
+                          >
+                            <div className="flex items-center gap-2">
+                              {form.currentCountry ? (
+                                <img
+                                  src={countryList.find((c) => c.name === form.currentCountry)?.src}
+                                  alt={form.currentCountry}
+                                  className="w-6 h-6 rounded-full object-cover"
+                                />
+                              ) : (
+                                <FiGlobe className="text-gray-400" />
+                              )}
+                              <span className="truncate">{form.currentCountry || "Select Country"}</span>
+                            </div>
+
+                            <FiChevronDown />
+                          </button>
+
+                          {countryDropdownOpen && (
+                            <div className="absolute right-0 z-30 mt-2 w-full bg-white border rounded-xl shadow-lg max-h-64 overflow-y-auto">
+                              {countryList.map((country, idx) => (
+                                <button
+                                  key={idx}
+                                  type="button"
+                                  className="w-full text-left flex items-center gap-2 px-4 py-2 hover:bg-teal-50 cursor-pointer"
+                                  onClick={() => {
+                                    handleChange({ target: { name: "currentCountry", value: country.name } });
+                                    setCountryDropdownOpen(false);
+                                  }}
+                                >
+                                  <img src={country.src} alt={country.name} className="w-6 h-6 rounded-full object-cover" />
+                                  <span className="truncate">{country.name}</span>
+                                </button>
+                              ))}
+                            </div>
+                          )}
+
+                          {errors.currentCountry && <p className="text-red-500 text-xs mt-1">{errors.currentCountry}</p>}
+                        </div>
+
+                        {/* WhatsApp */}
+                        <div className="relative">
+                          <div className="absolute top-4 left-3 text-gray-400">
+                            <FiPhone />
+                          </div>
+                          <input
+                            ref={refs.whatsapp}
+                            name="whatsapp"
+                            value={form.whatsapp}
+                            onChange={handleChange}
+                            placeholder="WhatsApp Number"
+                            className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base ${errors.whatsapp ? "border-red-500" : ""}`}
+                          />
+                          {errors.whatsapp && <p className="text-red-500 text-xs mt-1">{errors.whatsapp}</p>}
+                        </div>
+                      </div>
+
+                      {/* Profession */}
+                      <div className="relative">
+                        <div className="absolute top-4 left-3 text-gray-400">
+                          <FiBriefcase />
+                        </div>
+                        <input
+                          ref={refs.profession}
+                          name="profession"
+                          value={form.profession}
+                          onChange={handleChange}
+                          placeholder="Profession"
+                          className={`w-full pl-10 p-3 rounded-xl border text-sm sm:text-base ${errors.profession ? "border-red-500" : ""}`}
+                        />
+                        {errors.profession && <p className="text-red-500 text-xs mt-1">{errors.profession}</p>}
+                      </div>
+
+                      {/* Work With Communities */}
+                      <div className="relative">
+                        <FiUsers className="absolute top-4 left-3 text-gray-400" />
+                        <select
+                          ref={refs.workWithCommunities}
+                          name="workWithCommunities"
+                          value={form.workWithCommunities}
+                          onChange={handleChange}
+                          className={`w-full pl-10 p-3 rounded-xl border bg-white text-sm sm:text-base ${errors.workWithCommunities ? "border-red-500" : ""}`}
+                        >
+                          <option value="">Do you work with NRI communities?</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                        {errors.workWithCommunities && <p className="text-red-500 text-xs mt-1">{errors.workWithCommunities}</p>}
+                      </div>
+
+                      {/* Promote Nizcare */}
+                      <div className="relative">
+                        <FiStar className="absolute top-4 left-3 text-gray-400" />
+                        <select
+                          ref={refs.promoteNizcare}
+                          name="promoteNizcare"
+                          value={form.promoteNizcare}
+                          onChange={handleChange}
+                          className={`w-full pl-10 p-3 rounded-xl border bg-white text-sm sm:text-base ${errors.promoteNizcare ? "border-red-500" : ""}`}
+                        >
+                          <option value="">Would you like to promote Nizcare as a Partner/Affiliate?</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                        {errors.promoteNizcare && <p className="text-red-500 text-xs mt-1">{errors.promoteNizcare}</p>}
+                      </div>
+
+                      {/* Expected Reach */}
+                      <div className="relative">
+                        <FiTrendingUp className="absolute top-4 left-3 text-gray-400" />
+                        <input
+                          name="expectedReach"
+                          value={form.expectedReach}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (/^[0-9]*$/.test(value) || value === "") handleChange(e);
+                          }}
+                          placeholder="Expected monthly reach (approx.)"
+                          className="w-full pl-10 p-3 rounded-xl border focus:ring-2 focus:ring-teal-500 outline-none text-sm sm:text-base"
+                        />
+                      </div>
+
+                      {/* Submit */}
+                      <button
+                        type="submit"
+                        className="mt-2 w-full bg-teal-600 text-white py-3 rounded-xl text-base sm:text-lg font-semibold hover:bg-teal-700 transition-all shadow-lg"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* second page */}
-          <section className="px-6 md:px-20 py-16 sm:py-20 md:grid md:grid-cols-2" data-aos="fade-up">
-            <div className="text-center md:text-start" data-aos="fade-right">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-                Nizcare: <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Revolutionizing Healthcare Globally</span>
-              </h1>
+          {/* second page*/}
+          <section className="relative px-6 md:px-20 py-20" data-aos="fade-up">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-10 leading-tight">
+              Why partner with{" "}
+              <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                Nizcare
+              </span>
+            </h3>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-25 items-start">
+              {/* LEFT FEATURE CARD */}
+              <div className="lg:col-span-7 col-span-1 flex items-center md:mt-20">
+                <div className="w-full">
+                  <div
+                    className="bg-white rounded-3xl border border-teal-200 shadow-[0_30px_60px_rgba(6,78,59,0.06)] p-10 lg:p-14 max-w-3xl ml-auto"
+                    data-aos="fade-left"
+                  >
 
-              <p className="text-base sm:text-lg leading-relaxed mt-4">
-                <h2 className="font-semibold text-2xl">Become a Nizcare Country Partner</h2>
-              </p>
+                    <p className="text-gray-700 text-lg leading-relaxed text-justify">
+                      Join us to deliver high-quality healthcare services tailored for NRIs,
+                      international patients, and corporate clients. Nizcare empowers you with
+                      NRI Wellness, Medical Tourism, ClinicPro SaaS, and Corporate Healthcare
+                      solutions — all designed to scale and adapt to local requirements across
+                      countries.
+                    </p>
 
-              <div className="space-y-4 text-gray-700 mt-4 text-justify">
-                <p>
-                  NRI Wellness • Medical Tourism • Clinic Pro SaaS • Corporate Healthcare
-                </p>
-                <p className="font-semibold text-justify">
-                  Nizcare is a pioneering healthcare platform bridging the gap between India and the world. We're launching a comprehensive suite of health & wellness services tailored to the unique needs of NRIs, international patients, and corporate clients.
-                </p>
+                    <div className="mt-8 flex items-center gap-4">
+                      <div className="h-1 w-28 bg-gradient-to-r from-teal-400 to-teal-600 rounded-full" />
+                      {/* small floating dot under underline */}
+                      <div className="w-3 h-3 rounded-full bg-teal-600 shadow-md" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* RIGHT TIMELINE / ITEMS (desktop) */}
+              <div className="hidden lg:block lg:col-span-5 relative mt-0 md:mt-10">
+                {/* vertical line */}
+                <div className="absolute left-[240px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-teal-300 to-teal-200 rounded" />
+
+                <div className="space-y-8">
+                  {[
+                    { icon: <Hospital size={20} />, title: "Access to proven clinical partners and powerful SaaS tools for clinics." },
+                    { icon: <Globe size={20} />, title: "Structured support for NRI outreach and medical tourism referrals." },
+                    { icon: <Building2 size={20} />, title: "Opportunities to scale corporate healthcare offerings in your country." }
+
+                  ].map((item, i) => (
+                    <div key={i} className="relative flex items-center">
+                      {/* card */}
+                      <div
+                        className="bg-white rounded-2xl shadow-sm border border-teal-200 p-6 w-full max-w-[520px]"
+                        data-aos="fade-up"
+                        data-aos-delay={i * 80}
+                      >
+                        <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                      </div>
+
+                      {/* circular icon badge to the right of card, overlapping the vertical line */}
+                      <div
+                        className="absolute right-[-64px] -translate-x-1/2 flex items-center justify-center"
+                        style={{ transformOrigin: "center" }}
+                      >
+                        <div className="relative">
+                          <div className="w-14 h-14 rounded-full bg-white border border-teal-100 shadow-md flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center">
+                              {item.icon}
+                            </div>
+                          </div>
+                          {/* small connector dot on the right of vertical line */}
+                          <span className="absolute -left-[36px] top-1/2 -translate-y-1/2 w-3 h-3 bg-teal-600 rounded-full shadow-sm" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* MOBILE / TABLET: stacked fallback (card then list) */}
+              <div className="lg:hidden col-span-1 mt-6 space-y-6">
+
+                {/* stacked items */}
+                {[
+                  { icon: <Hospital size={20} />, title: "Access to proven clinical partners and powerful SaaS tools for clinics." },
+                  { icon: <Globe size={20} />, title: "Structured support for NRI outreach and medical tourism referrals." },
+                  { icon: <Building2 size={20} />, title: "Opportunities to scale corporate healthcare offerings in your country." }
+
+                ].map((item, i) => (
+                  <div
+                    key={`m-${i}`}
+                    className="flex items-center gap-4 bg-white rounded-lg border border-gray-100 p-4 shadow-sm"
+                    data-aos="fade-up"
+                    data-aos-delay={i * 60}
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-base font-medium text-gray-900">{item.title}</h3>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -1115,72 +1125,95 @@ const NRI = () => {
                 ))}
               </div>
 
-              {/* CTA */}
-              <div className="text-center mt-14 sm:mt-16 md:mt-20 px-2" data-aos="fade-up" data-aos-delay="200">
-                <p className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                  Join Our Global{" "}
-                  <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent font-extrabold">
-                    Partnership
-                  </span>{" "}
-                  Program.
-                </p>
+              <div className="text-center mt-16 md:mt-20 px-2" data-aos="fade-up" data-aos-delay="150">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                Join Our Global <span className="text-teal-600">Partnership</span> Program.
+              </h2>
 
-                <p className="mt-3 sm:mt-4 text-gray-700 text-base sm:text-lg leading-relaxed md:text-center text-justify">
-                  Nizcare invites you to be part of a revolutionary healthcare movement. <br className="hidden sm:block" />
-                  Together, let's redefine healthcare delivery and wellness support worldwide.
-                </p>
-              </div>
+              <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                Nizcare invites you to be part of a next-generation healthcare movement.
+                Together, we can enhance wellness and medical support for Indians worldwide.
+              </p>
+            </div>
             </div>
           </section>
 
           {/* Impact & Market Potential */}
-          <section className="w-full py-20 px-6 md:px-20" data-aos="fade-up">
-            <div className="container mx-auto flex flex-col">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-10" data-aos="zoom-in">
-                Impact & Market <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Potential</span>
-              </h2>
+          <section className="w-full py-10 px-6 md:px-20" data-aos="fade-up">
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full mb-10">
+            {/* Impact Grid */}
+            <div className="container mx-auto flex flex-col mt-16">
+
+              <h3
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-10"
+                data-aos="zoom-in"
+              >
+                Impact & Market <span className="text-teal-600">Potential</span>
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full mb-20">
+
                 {[
-                  { number: "32M+", label: "Indian Diaspora", icon: <LucideGlobe size={32} /> },
-                  { number: "$9B", label: "Medical Tourism Industry", icon: <Briefcase size={32} /> },
-                  { number: "High", label: "Emotional & Financial Stake in Parents’ Wellbeing", icon: <Heart size={32} /> },
-                  { number: "Rapid", label: "Digital Health Adoption", icon: <LucideGlobe size={32} /> },
-                  { number: "Growing", label: "Corporate Wellness Interest Abroad", icon: <Users size={32} /> },
+                  { number: "32M+", label: "Indian Diaspora", icon: <LucideGlobe size={28} /> },
+                  { number: "$9B", label: "Medical Tourism Market", icon: <Briefcase size={28} /> },
+                  { number: "High", label: "Responsibility Toward Parents", icon: <HeartHandshake size={28} /> },
+                  { number: "Rapid", label: "Digital Health Adoption", icon: <Cpu size={28} /> },
+                  { number: "Growing", label: "Corporate Wellness Demand", icon: <Users size={28} /> },
                 ].map((item, i) => (
-                  <div key={i} className="flex flex-col items-center justify-start rounded-3xl p-6 transition-all" data-aos="zoom-in" data-aos-delay={i * 80}>
-                    <div className="w-24 h-24 flex items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-teal-600 text-white text-3xl shadow-2xl transform transition-all hover:scale-110">
+                  <div
+                    key={i}
+                    className="flex flex-col items-center rounded-xl p-6 border border-gray-200 bg-white hover:border-teal-600 transition-all"
+                    data-aos="zoom-in"
+                    data-aos-delay={i * 70}
+                  >
+                    <div className="w-16 h-16 flex items-center justify-center rounded-full bg-teal-100 text-gray-700">
                       {item.icon}
                     </div>
-                    <p className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 text-center">{item.number}</p>
-                    <p className="text-gray-700 font-medium text-center mt-2">{item.label}</p>
+
+                    <p className="text-3xl font-extrabold text-gray-900 mt-4">{item.number}</p>
+                    <p className="text-gray-600 text-center text-sm sm:text-base mt-2">{item.label}</p>
                   </div>
                 ))}
               </div>
 
-              <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-4" data-aos="fade-up">
-                Launch <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent font-bold">Updates & Opportunities</span>
-              </p>
-              <p className="text-gray-700 md:text-center text-justify" data-aos="fade-up" data-aos-delay="120">
-                Stay tuned for our upcoming launch and be among the first to experience Nizcare's transformative services. <br /> Partner with us and shape the future of global healthcare.
+              {/* Launch Updates */}
+              <h3
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-3"
+                data-aos="fade-up"
+              >
+                Launch <span className="text-teal-600">Updates</span> & Opportunities
+              </h3>
+
+              <p
+                className="text-gray-600 max-w-2xl mx-auto text-center text-base sm:text-lg leading-relaxed"
+                data-aos="fade-up"
+                data-aos-delay="120"
+              >
+                Stay updated on our global rollout and become one of the first to explore
+                Nizcare’s upcoming healthcare services. Partner with us and help shape the
+                future of global wellness.
               </p>
             </div>
           </section>
 
-          {/* INCOME — PREMIUM CLEAN */}
-          <section className="px-6 md:px-20 py-12 flex flex-col items-center text-center" data-aos="fade-up">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Lead <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Nizcare</span> in Your Country
+          {/* COUNTRY PARTNER CTA */}
+          <section
+            className="px-6 md:px-20 py-16 flex flex-col items-center text-center"
+            data-aos="fade-up"
+          >
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+              Lead <span className="text-teal-600">Nizcare</span> in Your Country
             </h2>
 
-            <p className="text-lg sm:text-xl text-gray-700 mb-6 max-w-xl">
-              Build Impact & Income. <br />
-              Change the way <span className="font-semibold text-teal-600">Indians</span> abroad care for their families.
+            <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-xl leading-relaxed">
+              Build meaningful impact. Grow your income. Support millions of Indians abroad
+              in caring for their families.
             </p>
 
             <a
               href="#"
-              className="inline-block bg-gradient-to-r from-teal-500 to-teal-700 text-white font-bold text-lg sm:text-xl px-8 py-3 rounded-full shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+              className="inline-block bg-teal-600 text-white font-semibold text-lg sm:text-xl px-8 py-3 rounded-full hover:bg-teal-700 transition-all"
               data-aos="zoom-in"
             >
               Apply to Become a Country Partner

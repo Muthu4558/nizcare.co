@@ -87,3 +87,8 @@ body {
 .animate-float-slow { animation: float-slow 12s infinite ease-in-out; }
 .animate-float-slower { animation: float-slower 18s infinite ease-in-out; }
 
+
+
+.nri-overlay-form {
+  z-index: 999 !important;
+}
